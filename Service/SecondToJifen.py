@@ -49,5 +49,6 @@ class SecondToJifen():
     pass
 pass
 if __name__ == '__main__':
+    #测试
     test = SecondToJifen()
     test.getJifen(0)
