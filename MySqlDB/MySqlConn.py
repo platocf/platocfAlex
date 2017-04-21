@@ -36,7 +36,7 @@ class Mysql(object):
         @return MySQLdb.connection 
         """
         if Mysql.__pool is None:
-            __pool = PooledDB(creator=MySQLdb, mincached=8, maxcached=20,
+            __pool = PooledDB(creator=MySQLdb, mincached=8, maxcached=200,
                               host=Config.DBHOST, port=Config.DBPORT, user=Config.DBUSER, passwd=Config.DBPWD,
                               db=Config.DBNAME, use_unicode=False, charset=Config.DBCHAR, cursorclass=DictCursor)
         return __pool.connection()

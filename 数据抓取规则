@@ -240,7 +240,14 @@ league联赛表结构:
 赛事id   赛事名称      赛事种类    所属国家    体育类别  国家与种类当为国际赛事和杯赛时相同  对应联赛的url
 p_id	  p_name	    p_type    p_country   p_sport_type                                   p_main_url
 matchType赛事种类表结构
-种类id	种类名称name
+种类id	种类名称name(外键对应league的id)        联赛的url          联赛的赛季               联赛赛季名称      联赛积分对应页面
+
+p_id     p_leagueid         p_league_url        p_league_year           p_name          p_jifen_url
+
+联赛对战对应url
+
+
+p_id        p_leagueyearinfoid      p_url       p_property
 
 
 抓取分为：所需抓取的url管理器  根据url抓取内容规则	数据文件生成
@@ -258,5 +265,9 @@ leagueyear       matchtime    hometeam     homescore     visitingteam   visiting
 参数 a 为获取比赛
 参数sid 为当前轮的id且是对应页面
 参数 round 为表示第几轮
+
+matchinfo
+索引id   联赛id    数据id   客队半场得分  客队主面    客队名称     客队得分   客队起始线     客队名称缩写    水线      主队半场得分   主队主页 主队名称   主队得分      主队起始线       主队名称   第几场  状态        比赛时间
+p_id    p_leagueid     fid     ghalfscore      gid          gname       gscore      gstanding       gsxname     handline    hhalfscore      hid     hname       hscore      hstanding       hsxname     round   status      stime
 
 
