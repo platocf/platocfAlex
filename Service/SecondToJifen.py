@@ -19,6 +19,8 @@ class SecondToJifen():
         resultSelect=mysql.getAll(sqlAll,limit)
         l = []
         i = 0
+        if resultSelect==False:
+            return
         sqlInsert="INSERT INTO leagueyearinfo(p_id,p_jifen_url) VALUES "
         for resultChild in  resultSelect:
             webfile=urllib.urlopen(resultChild['p_league_url'])
@@ -27,7 +29,6 @@ class SecondToJifen():
             webContent = unicode(webcontext, 'gbk')
             soup = BeautifulSoup(webContent, ConfigStart.PARSEMETHOD)
             jifenUrl =soup.find_all(href=re.compile("jifen-"))
-
             for getJifen in jifenUrl:
                 if(getJifen.string == "赛程积分榜"):
                     print getJifen['href']
@@ -51,4 +52,5 @@ pass
 if __name__ == '__main__':
     #测试
     test = SecondToJifen()
-    test.getJifen(0)
+    for i in range(40):
+        test.getJifen(32000+i*10)
