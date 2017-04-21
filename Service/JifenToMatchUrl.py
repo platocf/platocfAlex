@@ -88,8 +88,8 @@ class JifenToMatchUrl():
             if (listInfo.__len__() > 0):
                 for listChild in listInfo[0].children:
                     if (type(listChild) == bs4.element.Tag):
-                        if (listChild['data-group'] != 'all'):
-                            rounds.append(listChild['data-group'])
+                        if (listChild.a['data-group'] != 'all'):
+                            rounds.append(listChild.a['data-group'])
                             pass
                     pass
                 pass
@@ -142,6 +142,8 @@ class JifenToMatchUrl():
                     insertContext.append(jsonDataChild['status'])
                     insertContext.append(jsonDataChild['stime'])
                     pass
+                if index==0:
+                    continue
                 resInfo=mysql.update(sqlInsert,insertContext)
                 print resInfo
             else:
@@ -185,13 +187,16 @@ class JifenToMatchUrl():
                         insertContext.append(jsonDataChild['status'])
                         insertContext.append(jsonDataChild['stime'])
                         pass
+                    if index == 0:
+                        continue
                     resInfo = mysql.update(sqlInsert, insertContext)
                     print resInfo
-
-
+                    pass
+                pass
                 #INSERT INTO `matchinfo` (`p_leagueid`, `fid`, `ghalfscore`, `gid`, `gname`, `gscore`, `gstanding`, `gsxname`, `handline`, `hhalfscore`, `hid`, `hname`, `hscore`, `hstanding`, `hsxname`, `round`, `status`, `stime`) VALUES ('1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '2017-04-21 17:24:58')
 
         pass
+        mysql.dispose()
     pass
 pass
 if __name__ == '__main__':
