@@ -1,0 +1,1105 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="gb2312">
+<title>【伯恩茅斯(AFC Bournemouth)】阵容|近期战绩|联赛排名|未来赛事|赛程|球员名单|转会_伯恩茅斯足球俱乐部-500彩票网  </title>
+<meta name="Keywords" content="伯恩茅,伯恩茅阵容,伯恩茅转会,伯恩茅球队资料,伯恩茅球员名单" />
+<meta name="Description" content="500彩票网为您提供伯恩茅足球俱乐部阵容、近期战绩、联赛排名、未来赛事、赛程、球员名单相关数据，包含赛事、比赛时间、比分、赛果、盘路、大小、分析等近10场战绩数据，以及伯恩茅队守门员、后卫、中场、前锋的球员名单。" />
+<link href="http://www.500cache.com/public/css/global.css?v=20141127" type="text/css" rel="stylesheet">
+<link href="http://www.500cache.com/liansai/css/liansai.css?v=20141127" type="text/css" rel="stylesheet">
+<base href ="http://liansai.500.com/" />
+</head>
+<body>
+<script type="text/javascript" src="http://www.500cache.com/static/info/seo/liansai.500.com/mobile-redirection.js"></script>
+<script type="text/javascript">
+var pagestarttime=+new Date();
+var _configs = _configs || {};
+_configs.public_js = "http://www.500cache.com/public/js";
+_configs.base_cache = _configs.public_js.replace(/\/public\/js/, "");
+</script>
+<link href="http://www.500cache.com/public/css/top_v2.css?v=20151210" rel="stylesheet" type="text/css" />	
+<div id="top_nav" class="topbar">
+	<div class="div_m">
+		<ul class="person_part">
+			<li class="tips_li first phone_li">
+				<a href="http://www.500.com/wap/" target="_blank" title="500彩票网手机购彩平台" class="tips_hd hometc" aria-haspopup="true" onclick="stat4home('20130514','top_sj')"  rel="nofollow"><span class="topbar_icon icon_phone"></span>手机版<s class="arrow"></s></a>
+				<div class="tips_bd">
+					<div class="phone_tips_right">
+						<p class="p_tit">扫描二维码下载</p>
+						<p class="p_explain">使用手机二维码软件扫描下方二维码即可下载。</p>
+						<p class="tc"><span class="topbar_icon icon_code"></span></p>
+					</div>
+				</div>
+			</li>
+		</ul>
+		<ul class="person_part" id="lbefore">
+			<li class="login_li"><a href="http://passport.500.com/user/login/" onclick="stat4home('08071001','top_dl')" id="loginbtn_new" class="topbar_login" rel="nofollow">请登录</a><s class="vertical_line"></s></li>
+			<li><a href="http://passport.500.com/user/" onclick="stat4home('08071002','top_zc')" id="rigist_top" target="_blank" class="topbar_reg" rel="nofollow">免费注册</a><s class="vertical_line"></s></li>
+		</ul>
+		<ul class="person_part" id="lafter" style="display:none;">
+			<li>欢迎您</li>
+			<li class="tips_li account_li" id="account_li_tag">
+				<span class="tips_hd" id="loginname_content"><a target="_blank" id="loginnamelink" aria-haspopup="true" onclick="stat4home('20130516','top_yhm')"></a></span>
+				<div class="tips_bd">
+					<ul>
+						<li>余额：<span class="money" id="yemoney"></span></li>
+						<li class="hb"><a href="javascript:;" class="hide_balance">隐藏</a>红包：<span class="money" id="hbmoney"></span></li>
+						<li class="lineh_30">我的成长&nbsp;<a href="http://vip.500.com" target="_blank" class="vipdengji_con" id="vip_grade" title="前往会员中心" rel="nofollow"><span style="" class="vipdengji_v"></span><span class="vipdengji_text"></span></a></li>
+                        <li class="lineh_30">我的安全&nbsp;<a href="http://trade.500.com/useraccount/default.php?url=http://passport.500.com/useraccount/user/safe.php" title="前往安全首页" target="_blank" class="vipdengji_con" id="safe_odds" rel="nofollow"><span class="vipdengji_v"></span><span class="vipdengji_text"></span></a></li>
+					</ul>
+					<a href="javascript:;" class="show_balance">显示余额</a>
+					<div class="my_account"><a href="javascript:;" class="btn_blue_l btn_blue_l_h18 login_out" onclick="stat4home('20130521','top_tc')" rel="nofollow">退出</a><a target="_blank" id="loginuserurl" rel="nofollow" onclick="stat4home('20130520','top_wdzh')">个人中心&gt;&gt;</a></div>
+				</div>
+			</li>
+			<li>
+			     <a target="_blank" href="http://trade.500.com/useraccount/default.php?tp=addmoney" onclick="stat4home('08071008','top_cz')" class="btn_recharge btn_orange btn_orange_h24" rel="nofollow">充值</a>
+			     <a id="chongzhisong_tips" style="position:absolute;display:none;top:0px;*top:-2px; right:-7px;height:18px;" target="_blank" onclick="javascript:void(0)"><img width="16" height="18" alt="充值送" src="http://www.500cache.com/public/images/song.gif" style="vertical-align:top" /></a>
+		    </li>
+			<li class="tips_li order_li" id="my_order">
+				<a target="_blank" href="" class="tips_hd" aria-haspopup="true" rel="nofollow" onclick="stat4home('20130522','top_wdfa')" id="myproject">我的方案<span class="icon_num"></span><s class="arrow"></s></a>
+				<div class="tips_bd order_inner"></div>
+			</li>
+            <li class="tips_li info_li" id="topmsg" style="display:none;">
+                <a href="http://trade.500.com/pages/trade/?strurl=http://passport.500.com/pages/useraccount/usermsg/index.php" target="_blank" rel="nofollow" class="tips_hd" onclick="stat4home('20130523','top_zlx')">消息<span class="icon_num" data-key="all"></span><s class="arrow"></s></a>
+                <div class="tips_bd">
+                    <ul>
+                        <li><a href="http://trade.500.com/useraccount/default.php?url=http://passport.500.com/useraccount/usermsg/index.php?type=1" target="_blank" rel="nofollow">提醒<span data-key="warning"></span></a></li>
+                        <li><a href="http://trade.500.com/useraccount/default.php?url=http://passport.500.com/useraccount/usermsg/index.php?type=2" target="_blank" rel="nofollow">活动优惠<span data-key="huodong"></span></a></li>
+                        <li><a href="http://trade.500.com/useraccount/default.php?url=http://passport.500.com/useraccount/usermsg/index.php?type=3" target="_blank" rel="nofollow">系统通知<span data-key="system"></span></a></li>
+                    </ul>
+                    <a href="javascript:;" class="info_know" id="msg_btn_i_know"  rel="nofollow">我知道了</a>
+                </div>
+            </li>
+		</ul>
+		<ul class="site_link">
+			<li><a href="http://www.500.com/" target="_blank" onclick="stat4home('20130524','top_sy')"  title="500彩票网首页" id="hometc">首页</a><s class="vertical_line"></s></li>
+			<li class="tips_li site_li">
+				<s class="vertical_line"></s>
+				<a href="http://trade.500.com/" target="_blank" class="tips_hd tradetc" aria-haspopup="true" title="彩票购买大厅" onclick="stat4home('20130525','top_gmcp')">购买彩票<s class="arrow"></s></a>
+				<div class="tips_bd">
+					<ul class="lottery_box"> 
+      					<li class="first">
+                        	<a class="lottery_tit jz" href="http://trade.500.com/jczq/" target="_blank" title="竞彩足球">
+                            <span class="jz"></span>
+                            <h3>竞足</h3>
+                            </a>
+                            <p class="sub_lottery sub_lottery_1row">
+								<a href="http://trade.500.com/jczq/dgtz.php" target="_blank" style="font-weight:bold; color:#E60010; margin-right:24px;" title="竞彩足球单关投注">单关投注</a>
+								<a href="http://trade.500.com/jczq/dgp.php" target="_blank" title="竞彩足球一场制胜">一场制胜</a>
+								<a href="http://trade.500.com/jczq/2c1.php" target="_blank"  title="竞彩足球混投2选1"><span class="eng">2</span>选<span class="eng">1</span></a>
+                                <a href="http://trade.500.com/jczq/" target="_blank" title="竞彩足球胜平负/让球">胜平负/让球</a>
+                                <a href="http://trade.500.com/jczq/index.php?playid=312" target="_blank" title="竞彩足球混合过关">混合过关</a>
+                                <a href="http://trade.500.com/jczq/index.php?playid=271" target="_blank" style="margin-right:0px;"  title="竞彩足球比分">比分</a>
+                                <a href="http://trade.500.com/jczq/index.php?playid=270" target="_blank" title="竞彩足球总进球数">进球数</a>
+                                <a href="http://trade.500.com/jczq/index.php?playid=272" target="_blank"  title="竞彩足球半全场">半全场</a>                                
+                                <a target="_blank" href="http://trade.500.com/huodong/worldcup.php"  title="热门竞猜">热门竞猜</a>
+                            </p>
+						</li>
+                        <li data-type="jjtb" data-lot="jclq" data-left="35" data-top="-7">
+                        <a class="lottery_tit" href="http://trade.500.com/jclq/" target="_blank" title="竞彩篮球">
+                            <span class="jl"></span>
+                            <h3>竞篮</h3>
+                        </a>
+                        <p class="sub_lottery">
+                            <a target="_blank" href="http://trade.500.com/jclq/index.php?playid=275&g=1" style="font-weight:bold; color:#E60010;" title="单关固赔、单场固定奖玩法投注">单关投注</a>
+                            <a href="http://trade.500.com/jclq/index.php?playid=275" target="_blank" title="竞彩篮球让分胜负">让分胜负</a>
+                            <a href="http://trade.500.com/jclq/" target="_blank" title="竞彩篮球让分胜负">胜负</a>    
+                            <a href="http://trade.500.com/jclq/index.php?playid=276" target="_blank" title="竞彩篮球胜分差">胜分差</a>
+                            <a href="http://trade.500.com/jclq/index.php?playid=277" target="_blank" title="竞彩篮球大小分">大小分</a>
+                            <a href="http://trade.500.com/jclq/index.php?playid=313" target="_blank"  title="竞彩篮球混合过关">混合过关</a>
+                        </p>                        
+                    	</li>
+						<li>
+                        <a class="lottery_tit" href="http://trade.500.com/bjdc/" target="_blank" title="足彩北京单场">
+                            <span class="dc"></span>
+                            <h3>单场</h3>
+                        </a>
+                        <p class="sub_lottery">
+                            <a href="http://trade.500.com/bjdc/" target="_blank"  title="足彩胜平负">胜平负</a>
+                            <a href="http://trade.500.com/bjdc/project_fq_bf.php" target="_blank"  style="margin-right:0px;" title="足球单场比分">比分</a>
+                            <a href="http://trade.500.com/bjdc/project_fq_bq.php" target="_blank" title="足球单场半全场，竞猜足球比赛半场结果和最终的全场结果">半全场</a>
+                            <a href="http://trade.500.com/bjdc/project_fq_jq.php" target="_blank" title="足球单场总进球">总进球数</a>
+                            <a href="http://trade.500.com/bjdc/project_fq_ds.php"  style="margin: 0px;" target="_blank" title="足球单场上下单双，大小球，进球数奇偶">上下单双</a>
+                            <a target="_blank" href="http://trade.500.com/bjdcsf/" style="margin: 0px;" title="单场胜负过关新玩法">胜负过关</a> 
+                        </p>                        
+                   		</li>
+						<li>
+                        <a class="lottery_tit" href="http://trade.500.com/dlt/" target="_blank"  title="体彩大乐透">
+                            <span class="szc"></span>
+                            <h3>体彩</h3>
+                        </a>
+                        <p class="sub_lottery">
+                            <a href="http://trade.500.com/dlt/" target="_blank"  title="体彩大乐透">大乐透</a>
+                            <a href="http://trade.500.com/qxc/" target="_blank"  title="七星彩">七星彩</a>
+                            <a href="http://trade.500.com/pls/" target="_blank" title="体彩排列三">排列三</a>
+                            <a href="http://trade.500.com/plw/" target="_blank" title="体彩排列五">排列五</a>
+                        </p>                        
+                    	</li>
+                        <li>
+                        <a class="lottery_tit" href="http://trade.500.com/sfc/" target="_blank" title="足彩胜负">
+                            <span class="zc"></span>
+                            <h3>足彩</h3>
+                        </a>
+                        <p class="sub_lottery">
+                            <a href="http://trade.500.com/sfc/" target="_blank" title="足彩胜负">足彩胜负</a>
+                            <a href="http://trade.500.com/rcjc/" target="_blank" title="足彩任选9场">任选<span class="eng">9场</span></a>
+                            <a href="http://trade.500.com/jq4/" target="_blank" title="足彩4场进球"><span class="eng">4</span>场进球</a>
+                            <a href="http://trade.500.com/zc6/" target="_blank"  title="足彩6场半全场"><span class="eng">6</span>场半全场</a>
+                        </p>                        
+                    	</li>
+                        <li data-type="jjtb" data-lot="dlc" data-left="83" data-top="-5">                       
+                        <a class="lottery_tit" href="http://jk.trade.500.com/dlc/" target="_blank" title="高频彩票11选5">
+                            <span class="sysw"></span>
+                            <h3>高频</h3>
+                        </a>
+                        <p class="sub_lottery sub_lottery_1row">
+                            <a href="http://jk.trade.500.com/dlc/" target="_blank" title="快开型体育彩票十一选五"><span class="eng">11</span>选<span class="eng">5</span></a>
+                            <a href="http://jk.trade.500.com/xysc/" target="_blank" title="湖南幸运赛车">幸运赛车</a>                            
+                        </p>                        
+                    	</li>
+					</ul>
+				</div>
+			</li>
+			<li><a href="http://vip.500.com/" target="_blank" onclick="stat4home('40010011','top_vipcztx')" title="VIP会员成长中心"  rel="nofollow">会员</a><s class="vertical_line"></s></li>
+			<li><a href="http://zx.500.com/" target="_blank" onclick="stat4home('20130526','top_zx')"  title="彩票资讯">资讯</a><s class="vertical_line"></s></li>
+			<li><a href="http://bbs.500.com/" target="_blank" onclick="stat4home('20130527','top_lt')" title="彩民论坛">论坛</a><s class="vertical_line"></s></li>
+			<li><a href="http://help.500.com/" target="_blank" onclick="stat4home('20130528','top_bz')"  rel="nofollow" title="购彩帮助" id="helptc">帮助</a><s class="vertical_line"></s></li>
+			<li class="tips_li site_li site_li2">
+				<s class="vertical_line"></s>
+				<a href="http://www.500.com/about/sitemap.shtml" class="tips_hd" target="_blank" aria-haspopup="true" onclick="stat4home('20130529','top_wzdh')">网站导航<s class="arrow"></s></a>
+				<div class="tips_bd">
+					<ul>
+						<li class="first">
+							<h3>
+								<a href="http://trade.500.com/" class="tradetc" target="_blank" title="500彩票网购彩大厅">购买彩票</a>
+								<a href="http://zx.500.com/" target="_blank" title="彩票资讯">彩票资讯</a>
+								<a href="http://www.500.com/wap/" target="_blank"  rel="nofollow" title="500彩票网手机购彩平台">手机购彩</a>
+								<a href="http://game.500.com/" target="_blank" class="last eng"  rel="nofollow" title="游戏大厅">游戏大厅</a>
+							</h3>
+						</li>
+						<li>
+							<p>彩票工具</p>
+							<a target="_blank" href="http://www.500.com/wap/index.php"  rel="nofollow" title="手机购彩客户端下载">手机客户端</a>
+							<a target="_blank" href="http://trade.500.com/useraccount/default.php?url=http://space.500.com/pages/userbasket/" rel="nofollow">号码篮</a>
+							<a target="_blank" href="http://zx.500.com/calculator/dlt.php?type=jjjs" title="大乐透中奖计算">中奖计算器</a>
+							<a target="_blank" href="http://zx.500.com/calculator/" title="胜负彩复式计算器">复式计算器</a>
+							<a target="_blank" href="http://zx.500.com/zc/jjjs.php" title="足彩奖金计算器">奖金预算器</a>
+							<a target="_blank" href="http://soft.500.com/" title="彩票软件下载">彩票软件</a>
+						</li>
+						<li>
+							<a class="blue" target="_blank" href="http://www.500.com/tag/"  rel="nofollow" >热门标签</a>
+							<a class="blue" target="_blank" href="http://www.500.com/about/sitemap.shtml">更多内容</a>&gt;&gt;
+						</li>
+					</ul>
+				</div>
+			</li>
+			<li class="favorites">
+				<div class="bdshare_t get-codes-bdshare" id="bdshare" onclick="stat4home('20130530','top_fx')"><a href="javascript:;" class="bds_more"  rel="nofollow">分享</a></div>
+			</li>
+		</ul>
+	</div>
+</div>	
+<script type="text/javascript" src="http://www.500cache.com/public/js/public/core_jq.js"></script>
+<script type="text/javascript" src="http://www.500cache.com/public/js/public/top_v2.js?v=1200333"></script>
+	
+
+<!--登录弹出层-->
+<div class="new_tips_box" id="loginform" style="display:none;">
+    <div class="tips_title">
+        <h2 class="tips_title_text">用户登录</h2>
+        <a href="javascript:void(0)" class="tips_close" id="flclose">关闭</a>
+    </div>
+    <div class="tips_content">
+        <form class="tips_form" method="post" action="https://passport.500.com/login/login.php" target="loginIframe" id="toploginform">
+            <div class="dl_tips" id="loginerrdiv" style="display:none;"><b class="dl_err"></b><span id="loginerrmsg"></span></div>
+            <table cellspacing="0" cellpadding="0" border="0" width="100%" id="loginformtable">
+                <tr>
+                    <td width="58">用户名：</td>
+                    <td width="205"><input type="text" class="tips_txt" id="lu" name="u" placeholder="用户名/手机号码" /></td>
+                    <td><a href="http://passport.500.com/user/" rel="nofollow" target="_blank" tabindex="-1" onClick="stat4home('08071101','dlc_mfzc')" class="font_size12 gray">免费注册</a></td>
+                </tr>
+                <tr>
+                    <td>密&nbsp;&nbsp;码：</td>
+                    <td><input class="tips_txt" type="password" id="lp" name="p"/></td>
+                    <td><a class="font_size12 gray" href="http://passport.500.com/user/getpwd.php" rel="nofollow" target="_blank" tabindex="-1">忘记密码</a></td>
+                </tr>
+                <tr>
+                    <td>验证码：</td>
+                    <td colspan="2"><input class="tips_yzm" type="text" id="yzmtext" name="c" style="ime-mode:disabled;" /><span class="tips_yzm_notice" id="yzm_tips"><span></span></span><img alt="验证码" id="yzmimg" height="25px" class="yzm_img" /><a href="javascript:void(0)" id="login_yzm_refresh" class="font_size12 yzm_btn">换一张</a></td>
+                </tr>
+                <tr>
+                    <td>
+                    	<input name="r" type="hidden" value="1" />
+	                    <input type="hidden" name="t" value="4" />
+	                    <input name="pwdlevel" id="pwdlevel" type="hidden" value="" />
+	                    <input name="rw" type="hidden" value="/public/login.php?callback=parent.loginafter" />
+                    </td>
+                    <td colspan="2"><a class="btn_orange" href="javascript:void(0)" id="floginbtn">登录</a> &nbsp; <a class="font_size12 gray" href="http://help.500.com/h_wzhaq/20130403_327335.shtml" style="color:gray;position:absolute;display:inline-block;line-height:30px;" target="_blank">如何开启手机号登录？</a></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+	
+	<iframe src="" name="loginIframe" id="loginIframe" style="display:none;"></iframe>
+</div>
+
+<link href="http://www.500cache.com/public/css/dxt/global_dxt.css?v=20151210" rel="stylesheet">
+<div id="header" class="header header2">
+    <div class="header-in">
+        <div class="header-l">
+            <h1 class="header-logo">
+            	<a href="http://www.500.com" target="_blank">500彩票</a>
+            </h1>
+        </div>
+        <div class="header-r">
+            <div class="header-tel">
+                <p class="header-tel-500">500彩票网客服热线：4000-500-500</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="nav" class="nav"> 
+	<div class="nav-in nav-in2">
+    <ul class="nav-list">
+        <li class="nav-home"><a href="http://www.500.com" target="_blank">首页</a></li>
+        <li><a href="http://trade.500.com/" target="_blank" class="nav-lott-tit">购彩大厅</a></li>
+        <li><a href="http://kaijiang.500.com/" target="_blank">全国开奖</a></li>
+        <li><a href="http://datachart.500.com/" target="_blank">数据图表</a></li>
+        <li class="jNavDrop">
+            <a href="http://live.500.com" target="_blank">足球比分<span class="nav-ico-drop2"></span></a>
+            <div class="nav-list-drop jNavDropBD">
+                <a href="http://live.500.com/lq.php" target="_blank">篮球比分</a>
+                <a href="http://live.500.com/tennis/" target="_blank">网球比分</a>
+            </div>
+        </li>
+        <li class="jNavDrop">
+            <a href="http://odds.500.com" target="_blank">指数中心<span class="nav-ico-drop2"></span></a>
+            <div class="nav-list-drop jNavDropBD">
+                <a href="http://liansai.500.com/" target="_blank">足球联赛</a>
+                <a href="http://liansai.500.com/lq/" target="_blank">篮球联赛</a>
+            </div>
+        </li>
+        <li><a href="http://zx.500.com" target="_blank">彩票资讯</a></li>
+    	<li><a href="http://help.500.com/" target="_blank">帮助中心</a></li>
+		<li class="itm-sj"><a href="http://m.500.com" target="_blank">手机购彩</a></li>
+        <li class="itm-dlt"><a href="http://trade.500.com/dlt/" target="_blank">超级大乐透</a></li>
+    </ul>
+</div> 
+</div>
+<script>
+$(function(){
+if(!document.getElementsByClassName){document.getElementsByClassName=function(e,d){var c=(d||document).getElementsByTagName("*");var f=new Array();for(var b=0;b<c.length;b++){var h=c[b];var g=h.className.split(" ");for(var a=0;a<g.length;a++){if(g[a]==e){f.push(h);break}}}return f}};
+if(document.cookie.indexOf('fromtc')==-1){var bar = document.getElementById('top_nav');/*transition style,after it will be unified*/document.getElementsByClassName('div_m')[0].style.width = '1180px';bar.style.height = '34px';bar.style.fontSize = '12px';}
+var yu = location.host.split(".").shift(),l = document.getElementsByClassName('nav-list')[0].getElementsByTagName('a'),lotlist = document.getElementById('nav-lott'),header = document.getElementById('nav'),headernav = document.getElementsByClassName('jNavDrop');
+for(i=0;i<l.length;i++){if(l[i].href.indexOf(yu)>0){l[i].parentNode.className  = l[i].parentNode.className + ' cur';}}
+for(i=0;i<headernav.length;i++){headernav[i].onmouseover = function(){this.className.indexOf('on')==-1?(this.className =  this.className +' on') :''; };headernav[i].onmouseout = function(){this.className =  this.className.replace(' on',''); }}
+})
+</script>
+
+
+<div class="lwrap">
+    <div class="lmain">
+    <div class="lmain_in clearfix">
+         <div class="lcrumbs" style="margin-top:0px;">您当前的位置：<a href="http://www.500.com">500彩票网</a> &gt; <a href="http://liansai.500.com/">联赛资料</a> &gt; <a href="http://liansai.500.com/zuqiu-3822/">英超</a> &gt; 伯恩茅斯</div>
+        <!-- lpage_race_head end -->
+        <div class="lsnav_qdnav clearfix">
+            <h2 class="lsnav_qdnav_name">伯恩茅斯</h2>
+            <ul class="lsnav_qdnav_list clearfix">
+                <li class="on"><a href="http://liansai.500.com/team/667/">首页</a></li>
+                <li><a href="http://liansai.500.com/team/667/teamfixture/">赛程</a></li>
+                <li><a href="http://liansai.500.com/team/667/teamlineup/">阵容</a></li>
+            </ul>
+        </div>
+        <!-- lteam_select_box end -->
+
+        <div class="clearfix">
+            <div class="lcontent">
+                <div class="lqiud_summary clearfix">
+                    <div class="itm_logo">
+                    	                            <img  alt="伯恩茅斯" src="http://liansai.500.com/static/soccerdata/images/TeamPic/teamsignnew_667.png">
+                                                <div class="itm_tit">
+                            		伯恩茅斯
+                            <div class="itm_name_en">AFC Bournemouth</div>
+                        </div>
+                    </div>
+                    <div class="itm_bd">
+                        <table>
+                            <tr>
+                                <td width="146">成立时间：</td>
+                                <td>球场容量：0人</td>
+                            </tr>
+                            <tr>
+                                <td>国家地区：英格兰</td>
+                                <td>球场：Dean Court Ground</td>
+                            </tr>
+                            <tr>
+                                <td>所在城市：</td>
+                                                                	<td>球队身价：&euro; 10600万</td>
+                            	                            </tr>
+                            
+                        </table>
+                    </div>
+                </div>
+                <!-- lqiud_summary end -->
+
+                <div class="lcol">
+                    <div class="lcol_hd lborder">
+                        <div class="lcol_tit_r">
+                            <a target="_blank" href="http://liansai.500.com/team/667/teamfixture/">查看完整</a>
+                        </div>
+                        <h3 class="lcol_tit">近期战绩</h3>
+                    </div>
+                    <div class="lcol_bd">
+                        <table class="lcur_race_list ltable jTrHover">
+                            <thead>
+                                <tr>
+                                    <th width="84">赛事</th>
+                                    <th>比赛时间</th>
+                                    <th width="90" class="td_lteam"><span>主队</span></th>
+                                    <th width="90">比分</th>
+                                    <th width="90" class="td_rteam"><span>客队</span></th>
+                                    <th width="60">赛果</th>
+                                    <th width="60">盘路</th>
+                                    <th width="60">大小</th>
+                                    <th width="60">分析</th>
+                                </tr>
+                            </thead>
+                            <tbody class="jTrInterval">
+                                                            <tr>
+                                    <td><a href="http://liansai.500.com/zuqiu-3822/" target="_blank">英超</a></td>
+                                    <td class="td_time">2017-04-09</td>
+                                    <td class="td_lteam"><a href="http://liansai.500.com/team/667/" target="_blank" style="color:#a00000">伯恩茅</a></td>
+                                    <td>
+                                                                                        	1:<span class="lred">3</span>
+                                                                                        &nbsp;(1:2)
+                                    </td>	
+                                    <td class="td_rteam"><a href="http://liansai.500.com/team/1173/" target="_blank" >切尔西</a></td>
+                                    <td><span class="lred"><span class="lblue">负</span></span></td>
+                                    <td>输</td>
+                                    <td>大</td>
+                                    <td class="last"><a  title="伯恩茅VS切尔西数据分析" href="http://odds.500.com/fenxi/shuju-573034.shtml" target="_blank">析</a></td>
+                                </tr>
+                                                            <tr>
+                                    <td><a href="http://liansai.500.com/zuqiu-3822/" target="_blank">英超</a></td>
+                                    <td class="td_time">2017-04-06</td>
+                                    <td class="td_lteam"><a href="http://liansai.500.com/team/1011/" target="_blank" >利物浦</a></td>
+                                    <td>
+                                                                                        	<span class="lgreen">2</span>:<span class="lgreen">2</span>
+                                                                                        &nbsp;(1:1)
+                                    </td>	
+                                    <td class="td_rteam"><a href="http://liansai.500.com/team/667/" target="_blank" style="color:#a00000">伯恩茅</a></td>
+                                    <td><span class="lred"><span class="lgreen">平</span></span></td>
+                                    <td>赢</td>
+                                    <td>大</td>
+                                    <td class="last"><a  title="利物浦VS伯恩茅数据分析" href="http://odds.500.com/fenxi/shuju-573033.shtml" target="_blank">析</a></td>
+                                </tr>
+                                                            <tr>
+                                    <td><a href="http://liansai.500.com/zuqiu-3822/" target="_blank">英超</a></td>
+                                    <td class="td_time">2017-04-02</td>
+                                    <td class="td_lteam"><a href="http://liansai.500.com/team/1128/" target="_blank" >南安普</a></td>
+                                    <td>
+                                                                                        	<span class="lgreen">0</span>:<span class="lgreen">0</span>
+                                                                                        &nbsp;(0:0)
+                                    </td>	
+                                    <td class="td_rteam"><a href="http://liansai.500.com/team/667/" target="_blank" style="color:#a00000">伯恩茅</a></td>
+                                    <td><span class="lred"><span class="lgreen">平</span></span></td>
+                                    <td>赢</td>
+                                    <td>小</td>
+                                    <td class="last"><a  title="南安普VS伯恩茅数据分析" href="http://odds.500.com/fenxi/shuju-573021.shtml" target="_blank">析</a></td>
+                                </tr>
+                                                            <tr>
+                                    <td><a href="http://liansai.500.com/zuqiu-3822/" target="_blank">英超</a></td>
+                                    <td class="td_time">2017-03-19</td>
+                                    <td class="td_lteam"><a href="http://liansai.500.com/team/667/" target="_blank" style="color:#a00000">伯恩茅</a></td>
+                                    <td>
+                                                                                         	<span class="lred">2</span>:0
+                                                                                        &nbsp;(1:0)
+                                    </td>	
+                                    <td class="td_rteam"><a href="http://liansai.500.com/team/511/" target="_blank" >斯旺西</a></td>
+                                    <td><span class="lred"><span class="lred">胜</span></span></td>
+                                    <td>赢</td>
+                                    <td>小</td>
+                                    <td class="last"><a  title="伯恩茅VS斯旺西数据分析" href="http://odds.500.com/fenxi/shuju-573004.shtml" target="_blank">析</a></td>
+                                </tr>
+                                                            <tr>
+                                    <td><a href="http://liansai.500.com/zuqiu-3822/" target="_blank">英超</a></td>
+                                    <td class="td_time">2017-03-11</td>
+                                    <td class="td_lteam"><a href="http://liansai.500.com/team/667/" target="_blank" style="color:#a00000">伯恩茅</a></td>
+                                    <td>
+                                                                                         	<span class="lred">3</span>:2
+                                                                                        &nbsp;(1:1)
+                                    </td>	
+                                    <td class="td_rteam"><a href="http://liansai.500.com/team/1286/" target="_blank" >西汉姆</a></td>
+                                    <td><span class="lred"><span class="lred">胜</span></span></td>
+                                    <td>赢</td>
+                                    <td>大</td>
+                                    <td class="last"><a  title="伯恩茅VS西汉姆数据分析" href="http://odds.500.com/fenxi/shuju-572995.shtml" target="_blank">析</a></td>
+                                </tr>
+                                                            <tr>
+                                    <td><a href="http://liansai.500.com/zuqiu-3822/" target="_blank">英超</a></td>
+                                    <td class="td_time">2017-03-04</td>
+                                    <td class="td_lteam"><a href="http://liansai.500.com/team/1075/" target="_blank" >曼  联</a></td>
+                                    <td>
+                                                                                        	<span class="lgreen">1</span>:<span class="lgreen">1</span>
+                                                                                        &nbsp;(1:1)
+                                    </td>	
+                                    <td class="td_rteam"><a href="http://liansai.500.com/team/667/" target="_blank" style="color:#a00000">伯恩茅</a></td>
+                                    <td><span class="lred"><span class="lgreen">平</span></span></td>
+                                    <td>赢</td>
+                                    <td>小</td>
+                                    <td class="last"><a  title="曼  联VS伯恩茅数据分析" href="http://odds.500.com/fenxi/shuju-572986.shtml" target="_blank">析</a></td>
+                                </tr>
+                                                            <tr>
+                                    <td><a href="http://liansai.500.com/zuqiu-3822/" target="_blank">英超</a></td>
+                                    <td class="td_time">2017-02-25</td>
+                                    <td class="td_lteam"><a href="http://liansai.500.com/team/1284/" target="_blank" >西布罗</a></td>
+                                    <td>
+                                                                                         	<span class="lred">2</span>:1
+                                                                                        &nbsp;(2:1)
+                                    </td>	
+                                    <td class="td_rteam"><a href="http://liansai.500.com/team/667/" target="_blank" style="color:#a00000">伯恩茅</a></td>
+                                    <td><span class="lred"><span class="lblue">负</span></span></td>
+                                    <td>输</td>
+                                    <td>大</td>
+                                    <td class="last"><a  title="西布罗VS伯恩茅数据分析" href="http://odds.500.com/fenxi/shuju-572983.shtml" target="_blank">析</a></td>
+                                </tr>
+                                                            <tr>
+                                    <td><a href="http://liansai.500.com/zuqiu-3822/" target="_blank">英超</a></td>
+                                    <td class="td_time">2017-02-14</td>
+                                    <td class="td_lteam"><a href="http://liansai.500.com/team/667/" target="_blank" style="color:#a00000">伯恩茅</a></td>
+                                    <td>
+                                                                                        	0:<span class="lred">2</span>
+                                                                                        &nbsp;(0:1)
+                                    </td>	
+                                    <td class="td_rteam"><a href="http://liansai.500.com/team/1072/" target="_blank" >曼  城</a></td>
+                                    <td><span class="lred"><span class="lblue">负</span></span></td>
+                                    <td>输</td>
+                                    <td>小</td>
+                                    <td class="last"><a  title="伯恩茅VS曼  城数据分析" href="http://odds.500.com/fenxi/shuju-572965.shtml" target="_blank">析</a></td>
+                                </tr>
+                                                            <tr>
+                                    <td><a href="http://liansai.500.com/zuqiu-3822/" target="_blank">英超</a></td>
+                                    <td class="td_time">2017-02-04</td>
+                                    <td class="td_lteam"><a href="http://liansai.500.com/team/565/" target="_blank" >埃弗顿</a></td>
+                                    <td>
+                                                                                         	<span class="lred">6</span>:3
+                                                                                        &nbsp;(3:0)
+                                    </td>	
+                                    <td class="td_rteam"><a href="http://liansai.500.com/team/667/" target="_blank" style="color:#a00000">伯恩茅</a></td>
+                                    <td><span class="lred"><span class="lblue">负</span></span></td>
+                                    <td>输</td>
+                                    <td>大</td>
+                                    <td class="last"><a  title="埃弗顿VS伯恩茅数据分析" href="http://odds.500.com/fenxi/shuju-572956.shtml" target="_blank">析</a></td>
+                                </tr>
+                                                            <tr>
+                                    <td><a href="http://liansai.500.com/zuqiu-3822/" target="_blank">英超</a></td>
+                                    <td class="td_time">2017-02-01</td>
+                                    <td class="td_lteam"><a href="http://liansai.500.com/team/667/" target="_blank" style="color:#a00000">伯恩茅</a></td>
+                                    <td>
+                                                                                        	0:<span class="lred">2</span>
+                                                                                        &nbsp;(0:0)
+                                    </td>	
+                                    <td class="td_rteam"><a href="http://liansai.500.com/team/516/" target="_blank" >水晶宫</a></td>
+                                    <td><span class="lred"><span class="lblue">负</span></span></td>
+                                    <td>输</td>
+                                    <td>小</td>
+                                    <td class="last"><a  title="伯恩茅VS水晶宫数据分析" href="http://odds.500.com/fenxi/shuju-572945.shtml" target="_blank">析</a></td>
+                                </tr>
+                                                        </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- 当前赛事 end -->
+
+                <div class="lcur_chart">
+                    <table class="lwfull">
+                        <tr>
+                            <td width="280" class="lcur_chart_spf">
+                                <div id="chartCurSPF" class="lcur_chart_spf_pie"></div>
+                                <p>近10场<br>胜平负统计</p>
+                            </td>
+                            <td class="lcur_chart_zj">
+                                <p><b>伯恩茅</b> 近10场战绩 <span class="lred">2胜</span><span class="lgreen">3平</span><span class="lblue">5负</span> 进<span class="lred">13球</span>失<span class="lblue">20球</span></p>
+                                <div class="lcur_chart_zj_pie">
+                                                                  	                                  	 	<span class="itm_f"><i></i></span>
+                                 	                                                                   	                                  	 	<span class="itm_p"><i></i></span>
+                                 	                                                                   	                                  	 	<span class="itm_p"><i></i></span>
+                                 	                                                                   	                                  	 	<span class="itm_s"><i></i></span>
+                                 	                                                                   	                                  	 	<span class="itm_s"><i></i></span>
+                                 	                                                                   	                                  	 	<span class="itm_p"><i></i></span>
+                                 	                                                                   	                                  	 	<span class="itm_f"><i></i></span>
+                                 	                                                                   	                                  	 	<span class="itm_f"><i></i></span>
+                                 	                                                                   	                                  	 	<span class="itm_f"><i></i></span>
+                                 	                                                                   	                                         <span class="itm_f last" ><i></i></span>
+                                 	                                                                     <b class="itm_jin">最近</b>
+                                    <b class="itm_yuan">最远</b>
+                                    <b class="itm_chang">10场比赛</b>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <!-- 统计图 end -->
+
+            </div>
+            <!-- 左侧主内容 end -->
+
+            <div class="lsidebar">
+				                <div class="lbox">
+                    <div class="lbox_hd lborder1">
+                        <a target="_blank"  href="http://liansai.500.com/zuqiu-3822/jifen-9848/" class="lbox_tit_r">查看完整</a>
+                        <h3 class="lbox_tit">联赛排名</h3>
+                    </div>
+                    <div class="lbox_bd">
+                        <table class="lstable2 llianspm_list_s ltc jTrHover	">
+                            <thead>
+                                <tr>
+                                    <th>排名</th>
+                                    <th width="65" class="ltl">队伍</th>
+                                    <th width="26">赛</th>
+                                    <th width="26">胜</th>
+                                    <th width="26">平</th>
+                                    <th width="26">负</th>
+                                    <th width="35">积分</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                                            <tr >
+                                    <td>13</td>
+                                    <td class="ltl"><a href="http://liansai.500.com/team/1197/" target="_blank" title="斯托克">斯托克</a></td>
+                                    <td>32</td>
+                                    <td>9</td>
+                                    <td>9</td>
+                                    <td>14</td>
+                                    <td>36</td>
+                                </tr>
+                                                            <tr >
+                                    <td>14</td>
+                                    <td class="ltl"><a href="http://liansai.500.com/team/1286/" target="_blank" title="西汉姆">西汉姆</a></td>
+                                    <td>32</td>
+                                    <td>10</td>
+                                    <td>6</td>
+                                    <td>16</td>
+                                    <td>36</td>
+                                </tr>
+                                                            <tr class="cur">
+                                    <td>15</td>
+                                    <td class="ltl"><a href="http://liansai.500.com/team/667/" target="_blank" title="伯恩茅">伯恩茅</a></td>
+                                    <td>32</td>
+                                    <td>9</td>
+                                    <td>8</td>
+                                    <td>15</td>
+                                    <td>35</td>
+                                </tr>
+                                                            <tr >
+                                    <td>16</td>
+                                    <td class="ltl"><a href="http://liansai.500.com/team/516/" target="_blank" title="水晶宫">水晶宫</a></td>
+                                    <td>31</td>
+                                    <td>10</td>
+                                    <td>4</td>
+                                    <td>17</td>
+                                    <td>34</td>
+                                </tr>
+                                                            <tr >
+                                    <td>17</td>
+                                    <td class="ltl"><a href="http://liansai.500.com/team/872/" target="_blank" title="赫尔城">赫尔城</a></td>
+                                    <td>32</td>
+                                    <td>8</td>
+                                    <td>6</td>
+                                    <td>18</td>
+                                    <td>30</td>
+                                </tr>
+                             
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                                <!-- 联赛排名 end -->
+
+                <div class="lbox">
+                    <div class="lbox_hd lborder1">
+                        <h3 class="lbox_tit">未来赛事</h3>
+                    </div>
+                    <div class="lbox_bd">
+                        <table class="lstable2 lweilss_list_s ltc jTrHover">
+                            <thead>
+                                <tr>
+                                    <th>比赛时间</th>
+                                    <th width="144">对阵</th>
+                                    <th width="30">分析</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            	                                <tr>
+                                    <td>2017-04-15</td>
+                                    <td class="lteam_s">
+                                        <a href="http://liansai.500.com/team/1238/" target="_blank" title="托特纳姆热刺" class="ltr">热  刺</a>
+                                        <i>vs</i>
+                                        <a href="http://liansai.500.com/team/667/" target="_blank" title="伯恩茅斯" class="ltl">伯恩茅</a></a></td>
+                                    <td class="last"><a  title="托特纳姆热刺VS伯恩茅斯数据分析" href="http://odds.500.com/fenxi/shuju-573051.shtml" target="_blank">析</a></td>
+                                </tr>
+                                                                <tr>
+                                    <td>2017-04-22</td>
+                                    <td class="lteam_s">
+                                        <a href="http://liansai.500.com/team/667/" target="_blank" title="伯恩茅斯" class="ltr">伯恩茅</a>
+                                        <i>vs</i>
+                                        <a href="http://liansai.500.com/team/1095/" target="_blank" title="米德尔斯堡" class="ltl">米德尔</a></a></td>
+                                    <td class="last"><a  title="伯恩茅斯VS米德尔斯堡数据分析" href="http://odds.500.com/fenxi/shuju-573055.shtml" target="_blank">析</a></td>
+                                </tr>
+                                                                <tr>
+                                    <td>2017-04-29</td>
+                                    <td class="lteam_s">
+                                        <a href="http://liansai.500.com/team/466/" target="_blank" title="桑德兰" class="ltr">桑德兰</a>
+                                        <i>vs</i>
+                                        <a href="http://liansai.500.com/team/667/" target="_blank" title="伯恩茅斯" class="ltl">伯恩茅</a></a></td>
+                                    <td class="last"><a  title="桑德兰VS伯恩茅斯数据分析" href="http://odds.500.com/fenxi/shuju-573070.shtml" target="_blank">析</a></td>
+                                </tr>
+                                                                <tr>
+                                    <td>2017-05-06</td>
+                                    <td class="lteam_s">
+                                        <a href="http://liansai.500.com/team/667/" target="_blank" title="伯恩茅斯" class="ltr">伯恩茅</a>
+                                        <i>vs</i>
+                                        <a href="http://liansai.500.com/team/1197/" target="_blank" title="斯托克城" class="ltl">斯托克</a></a></td>
+                                    <td class="last"><a  title="伯恩茅斯VS斯托克城数据分析" href="http://odds.500.com/fenxi/shuju-573075.shtml" target="_blank">析</a></td>
+                                </tr>
+                                                                <tr>
+                                    <td>2017-05-13</td>
+                                    <td class="lteam_s">
+                                        <a href="http://liansai.500.com/team/667/" target="_blank" title="伯恩茅斯" class="ltr">伯恩茅</a>
+                                        <i>vs</i>
+                                        <a href="http://liansai.500.com/team/700/" target="_blank" title="伯恩利" class="ltl">伯恩利</a></a></td>
+                                    <td class="last"><a  title="伯恩茅斯VS伯恩利数据分析" href="http://odds.500.com/fenxi/shuju-573084.shtml" target="_blank">析</a></td>
+                                </tr>
+                                                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- 未来赛事 end -->
+
+                <div class="lbox">
+                    <div class="lbox_hd lborder1">
+                        <a target="_blank"  href="http://liansai.500.com/zuqiu-3822/teams/" class="lbox_tit_r">全部球队</a>
+                        <h3 class="lbox_tit">其他球队</h3>
+                    </div>
+                    <div class="lbox_bd">
+                        <table class="lqitqd_list_s">
+                                                                              <tr>
+                            
+                                <td>
+                                	<a href="http://liansai.500.com/team/1173/">
+                                	 
+                                    	<img src="http://liansai.500.com/static/soccerdata/images/TeamPic/teamsignnew_1173.png">
+                                	 
+                                	<span>切尔西</span>
+                                	</a>
+                                </td>
+                             
+                                                  
+                                <td>
+                                	<a href="http://liansai.500.com/team/1238/">
+                                	 
+                                    	<img src="http://liansai.500.com/static/soccerdata/images/TeamPic/teamsignnew_1238.png">
+                                	 
+                                	<span>热  刺</span>
+                                	</a>
+                                </td>
+                             
+                                                  
+                                <td>
+                                	<a href="http://liansai.500.com/team/1011/">
+                                	 
+                                    	<img src="http://liansai.500.com/static/soccerdata/images/TeamPic/teamsignnew_1011.png">
+                                	 
+                                	<span>利物浦</span>
+                                	</a>
+                                </td>
+                                                        </tr>
+                            
+                                                                             <tr>
+                            
+                                <td>
+                                	<a href="http://liansai.500.com/team/1072/">
+                                	 
+                                    	<img src="http://liansai.500.com/static/soccerdata/images/TeamPic/teamsignnew_1072.png">
+                                	 
+                                	<span>曼  城</span>
+                                	</a>
+                                </td>
+                             
+                                                  
+                                <td>
+                                	<a href="http://liansai.500.com/team/1075/">
+                                	 
+                                    	<img src="http://liansai.500.com/static/soccerdata/images/TeamPic/teamsignnew_1075.png">
+                                	 
+                                	<span>曼  联</span>
+                                	</a>
+                                </td>
+                             
+                                                  
+                                <td>
+                                	<a href="http://liansai.500.com/team/554/">
+                                	 
+                                    	<img src="http://liansai.500.com/static/soccerdata/images/TeamPic/teamsignnew_554.png">
+                                	 
+                                	<span>阿森纳</span>
+                                	</a>
+                                </td>
+                                                        </tr>
+                            
+                                                                             <tr>
+                            
+                                <td>
+                                	<a href="http://liansai.500.com/team/565/">
+                                	 
+                                    	<img src="http://liansai.500.com/static/soccerdata/images/TeamPic/teamsignnew_565.png">
+                                	 
+                                	<span>埃弗顿</span>
+                                	</a>
+                                </td>
+                             
+                                                  
+                                <td>
+                                	<a href="http://liansai.500.com/team/1284/">
+                                	 
+                                    	<img src="http://liansai.500.com/static/soccerdata/images/TeamPic/teamsignnew_1284.png">
+                                	 
+                                	<span>西布罗</span>
+                                	</a>
+                                </td>
+                             
+                                                  
+                                <td>
+                                	<a href="http://liansai.500.com/team/1128/">
+                                	 
+                                    	<img src="http://liansai.500.com/static/soccerdata/images/TeamPic/teamsignnew_1128.png">
+                                	 
+                                	<span>南安普</span>
+                                	</a>
+                                </td>
+                                                        </tr>
+                            
+                            
+                        </table>
+                    </div>
+                </div>
+                <!-- 联赛排名 end -->
+            </div>
+            <!-- 右侧边栏 end -->
+        </div>
+
+        <div class="lqiudzr">
+            <div class="lcol_hd lborder">
+                <h3 class="lcol_tit">上一场球队阵容</h3>
+            </div>
+
+            <div class="lcol_bd clearfix">
+                <div class="lqiudzr_l">
+                    <h4 class="itm_tit"><span class="red">伯恩茅</span><i>1:3</i>切尔西</h4>
+                    <p class="itm_time">英超 2017-04-09</p>
+
+                    
+                    <div class="lzhenrong">
+                     	                        	<p class="lzhenrong_zx" style="width: 95px;">阵型：4-4-2</p>
+                                                <div class="lzhenrong_main">
+                                                                                <div style="top:10px;left:260px;" class="itm">
+                                                             	 	<a href="http://liansai.500.com/player/667-2382/" target="_blank" class="itm_img">
+                               	 	                                		<img style="width: 32px;" src="http://liansai.500.com/static/soccerdata/images/CharacterPic/characterpic1_2382.png">
+                                	                                	</a>
+                                	<a href="http://liansai.500.com/player/667-2382/" target="_blank" title="博鲁茨" class="itm_name">博鲁茨</a>
+                                                          </div>
+                                                        <div style="top:120px;left:140px;" class="itm">
+                                                             	 	<a href="http://liansai.500.com/player/667-21863/" target="_blank" class="itm_img">
+                               	 	                                		<img style="width: 32px;" src="http://liansai.500.com/static/soccerdata/images/CharacterPic/characterpic1_21863.png">
+                                	                                	</a>
+                                	<a href="http://liansai.500.com/player/667-21863/" target="_blank" title="史密斯" class="itm_name">史密斯</a>
+                                                          </div>
+                                                        <div style="top:120px;left:220px;" class="itm">
+                                                             	 	<a href="http://liansai.500.com/player/667-2840/" target="_blank" class="itm_img">
+                               	 	                                		<img style="width: 32px;" src="http://liansai.500.com/static/soccerdata/images/CharacterPic/characterpic1_2840.png">
+                                	                                	</a>
+                                	<a href="http://liansai.500.com/player/667-2840/" target="_blank" title="弗朗西斯" class="itm_name">弗朗西斯</a>
+                                                          </div>
+                                                        <div style="top:120px;left:300px;" class="itm">
+                                                             	 	<a href="http://liansai.500.com/player/667-2841/" target="_blank" class="itm_img">
+                               	 	                                		<img style="width: 32px;" src="http://liansai.500.com/static/soccerdata/images/CharacterPic/characterpic1_2841.png">
+                                	                                	</a>
+                                	<a href="http://liansai.500.com/player/667-2841/" target="_blank" title="库克" class="itm_name">库克</a>
+                                                          </div>
+                                                        <div style="top:120px;left:380px;" class="itm">
+                                                             	 	<a href="http://liansai.500.com/player/667-2849/" target="_blank" class="itm_img">
+                               	 	                                		<img style="width: 32px;" src="http://liansai.500.com/static/soccerdata/images/CharacterPic/characterpic1_2849.png">
+                                	                                	</a>
+                                	<a href="http://liansai.500.com/player/667-2849/" target="_blank" title="但尼尔斯" class="itm_name">但尼尔斯</a>
+                                                          </div>
+                                                        <div style="top:230px;left:140px;" class="itm">
+                                                             	 	<a href="http://liansai.500.com/player/667-2855/" target="_blank" class="itm_img">
+                               	 	                                		<img style="width: 32px;" src="http://liansai.500.com/static/soccerdata/images/CharacterPic/characterpic1_2855.png">
+                                	                                	</a>
+                                	<a href="http://liansai.500.com/player/667-2855/" target="_blank" title="弗拉泽" class="itm_name">弗拉泽</a>
+                                                          </div>
+                                                        <div style="top:230px;left:220px;" class="itm">
+                                                             	 	<a href="http://liansai.500.com/player/667-2846/" target="_blank" class="itm_img">
+                               	 	                                		<img style="width: 32px;" src="http://liansai.500.com/static/soccerdata/images/CharacterPic/characterpic1_2846.png">
+                                	                                	</a>
+                                	<a href="http://liansai.500.com/player/667-2846/" target="_blank" title="阿特" class="itm_name">阿特</a>
+                                                          </div>
+                                                        <div style="top:230px;left:300px;" class="itm">
+                                                             	 	<a href="http://liansai.500.com/player/667-13/" target="_blank" class="itm_img">
+                               	 	                                		<img style="width: 32px;" src="http://liansai.500.com/static/soccerdata/images/CharacterPic/characterpic1_13.png">
+                                	                                	</a>
+                                	<a href="http://liansai.500.com/player/667-13/" target="_blank" title="威尔谢尔" class="itm_name">威尔谢尔</a>
+                                                          </div>
+                                                        <div style="top:230px;left:380px;" class="itm">
+                                                             	 	<a href="http://liansai.500.com/player/667-2845/" target="_blank" class="itm_img">
+                               	 	                                		<img style="width: 32px;" src="http://liansai.500.com/static/soccerdata/images/CharacterPic/characterpic1_2845.png">
+                                	                                	</a>
+                                	<a href="http://liansai.500.com/player/667-2845/" target="_blank" title="皮尤" class="itm_name">皮尤</a>
+                                                          </div>
+                                                        <div style="top:340px;left:220px;" class="itm">
+                                                             	 	<a href="http://liansai.500.com/player/667-2989/" target="_blank" class="itm_img">
+                               	 	                                		<img style="width: 32px;" src="http://liansai.500.com/static/soccerdata/images/CharacterPic/characterpic1_2989.png">
+                                	                                	</a>
+                                	<a href="http://liansai.500.com/player/667-2989/" target="_blank" title="阿福比" class="itm_name">阿福比</a>
+                                                          </div>
+                                                        <div style="top:340px;left:300px;" class="itm">
+                                                             	 	<a href="http://liansai.500.com/player/667-7216/" target="_blank" class="itm_img">
+                               	 	                                		<img style="width: 32px;" src="http://liansai.500.com/static/soccerdata/images/CharacterPic/characterpic1_7216.png">
+                                	                                	</a>
+                                	<a href="http://liansai.500.com/player/667-7216/" target="_blank" title="金" class="itm_name">金</a>
+                                                          </div>
+                              
+                                              
+                       </div>
+                        	<p class="lzhengrong_tb">替补席：
+                        		                        			<a href="http://liansai.500.com/player/667-1386/" target="_blank">格拉德尔</a>
+                        		                        			<a href="http://liansai.500.com/player/667-2839/" target="_blank">奥尔索普</a>
+                        		                        			<a href="http://liansai.500.com/player/667-3086/" target="_blank">伊比</a>
+                        		                        			<a href="http://liansai.500.com/player/667-21867/" target="_blank">卡吉尔</a>
+                        		                        			<a href="http://liansai.500.com/player/667-22353/" target="_blank">库克</a>
+                        		                        			<a href="http://liansai.500.com/player/667-25493/" target="_blank">穆塞</a>
+                        		                        			<a href="http://liansai.500.com/player/667-28427/" target="_blank">史密斯</a>
+                        		  
+                        	</p>
+                    </div>
+                    
+                </div>
+                <!-- lqiudzr_l end -->
+
+                <div class="lqiudzr_r lqiudmd">
+
+                    <h4 class="itm_tit">球员名单</h4>
+                    <dl class="itm itm_smy">
+                        <dt>守门员</dt>
+                                                <dd><em>23.</em><a href="http://liansai.500.com/player/667-2795/"  title="费德里西" target="_blank">费德里西</a></dd>
+                                                 <dd><em>1.</em><a href="http://liansai.500.com/player/667-2382/"  title="博鲁茨" target="_blank">博鲁茨</a></dd>
+                                                 <dd><em>21.</em><a href="http://liansai.500.com/player/667-2839/"  title="奥尔索普" target="_blank">奥尔索普</a></dd>
+                                             </dl>
+                    <dl class="itm itm_hw">
+                        <dt>后卫</dt>
+                                                <dd><em>2.</em><a href="http://liansai.500.com/player/667-2840/"  title="弗朗西斯" target="_blank">弗朗西斯</a></dd>
+                                                 <dd><em>3.</em><a href="http://liansai.500.com/player/667-2841/"  title="库克" target="_blank">库克</a></dd>
+                                                 <dd><em>11.</em><a href="http://liansai.500.com/player/667-2849/"  title="但尼尔斯" target="_blank">但尼尔斯</a></dd>
+                                                 <dd><em>15.</em><a href="http://liansai.500.com/player/667-21863/"  title="史密斯" target="_blank">史密斯</a></dd>
+                                                 <dd><em>14.</em><a href="http://liansai.500.com/player/667-28427/"  title="史密斯" target="_blank">史密斯</a></dd>
+                                                 <dd><em>26.</em><a href="http://liansai.500.com/player/667-2832/"  title="明斯" target="_blank">明斯</a></dd>
+                                                 <dd><em>.</em><a href="http://liansai.500.com/player/667-42360/"  title="奥利弗·赫费尔德" target="_blank">奥利弗·赫费</a></dd>
+                                                 <dd><em>.</em><a href="http://liansai.500.com/player/667-42361/"  title="辛普森" target="_blank">辛普森</a></dd>
+                                                 <dd><em>.</em><a href="http://liansai.500.com/player/667-42359/"  title="C.乔丹" target="_blank">C.乔丹</a></dd>
+                                                 <dd><em>29.</em><a href="http://liansai.500.com/player/667-3022/"  title="威金斯" target="_blank">威金斯</a></dd>
+                                                 <dd><em>38.</em><a href="http://liansai.500.com/player/667-21867/"  title="卡吉尔" target="_blank">卡吉尔</a></dd>
+                                             </dl>
+                    <dl class="itm itm_zc">
+                        <dt>中场</dt>
+                                                <dd><em>18.</em><a href="http://liansai.500.com/player/667-22353/"  title="库克" target="_blank">库克</a></dd>
+                                                 <dd><em>6.</em><a href="http://liansai.500.com/player/667-2842/"  title="苏尔曼" target="_blank">苏尔曼</a></dd>
+                                                 <dd><em>4.</em><a href="http://liansai.500.com/player/667-2415/"  title="戈斯林" target="_blank">戈斯林</a></dd>
+                                                 <dd><em>7.</em><a href="http://liansai.500.com/player/667-2845/"  title="皮尤" target="_blank">皮尤</a></dd>
+                                                 <dd><em>8.</em><a href="http://liansai.500.com/player/667-2846/"  title="阿特" target="_blank">阿特</a></dd>
+                                                 <dd><em>19.</em><a href="http://liansai.500.com/player/667-2690/"  title="斯塔尼斯拉斯" target="_blank">斯塔尼斯拉斯</a></dd>
+                                                 <dd><em>24.</em><a href="http://liansai.500.com/player/667-2855/"  title="弗拉泽" target="_blank">弗拉泽</a></dd>
+                                                 <dd><em>33.</em><a href="http://liansai.500.com/player/667-3086/"  title="伊比" target="_blank">伊比</a></dd>
+                                                 <dd><em>10.</em><a href="http://liansai.500.com/player/667-1386/"  title="格拉德尔" target="_blank">格拉德尔</a></dd>
+                                                 <dd><em>.</em><a href="http://liansai.500.com/player/667-42358/"  title="K.奥康尼利" target="_blank">K.奥康尼利</a></dd>
+                                                 <dd><em>32.</em><a href="http://liansai.500.com/player/667-13/"  title="威尔谢尔" target="_blank">威尔谢尔</a></dd>
+                                             </dl>
+                    <dl class="itm itm_qf">
+                        <dt>前锋</dt>
+                                                <dd><em>13.</em><a href="http://liansai.500.com/player/667-9920/"  title="威尔逊" target="_blank">威尔逊</a></dd>
+                                                 <dd><em>17.</em><a href="http://liansai.500.com/player/667-7216/"  title="金" target="_blank">金</a></dd>
+                                                 <dd><em>9.</em><a href="http://liansai.500.com/player/667-2989/"  title="阿福比" target="_blank">阿福比</a></dd>
+                                                 <dd><em>31.</em><a href="http://liansai.500.com/player/667-25493/"  title="穆塞" target="_blank">穆塞</a></dd>
+                                             </dl>
+                </div>
+                <!-- lqiudzr_r end -->
+            </div>
+
+        </div>
+
+    </div>
+    </div>
+
+</div>
+<link rel="stylesheet" type="text/css" href="http://www.500cache.com/public/css/footer.css?v=2015120" />
+<div class="footer">
+  <div class="f-link"> <a title="关于我们" target="_blank" href="http://www.500.com/about/" rel="nofollow">关于我们</a> | <a title="投资者关系" target="_blank" href="http://ir.500.com/" rel="nofollow">Investor Relations</a> | <a title="用户注册" target="_blank" href="http://passport.500.com/user/" rel="nofollow" id="bottom_newuser">用户注册</a> | <a title="加盟合作" target="_blank" href="http://www.500.com/about/joinus.shtml" rel="nofollow">加盟合作</a> | <a href="http://union.500.com/" target="_blank" title="进入网盟" rel="nofollow">进入网盟</a> | <a title="网站地图" target="_blank" href="http://www.500.com/about/sitemap.shtml">网站地图</a> | <a title="友情链接" target="_blank" href="http://www.500.com/link.shtml">友情链接</a> | <a title="500.com招聘" target="_blank" href="http://job.500.com/" rel="nofollow">500.com招聘</a> | <a title="500彩票网触屏版" target="_blank" href="http://m.500.com/">触屏版</a> </div>
+  <div class="copy_new">
+    <p>&copy;2001-2017 <a href="http://www.500.com/" target="_blank">深圳市易讯天空网络技术有限公司</a> 版权所有&nbsp;&nbsp;股票代码：<span class="red">WBAI</span>&nbsp;&nbsp;客服热线：4000-500-500&nbsp;&nbsp;<a href="http://www.miitbeian.gov.cn/" target="_blank" rel="nofollow">备案：粤ICP备11007122号-2</a>&nbsp;&nbsp;<a href="http://www.500.com/about/xuke.shtml" target="_blank" rel="nofollow">增值电信业务经营许可证：粤B2-20070298</a>&nbsp;&nbsp;<br /><a href="http://www.500.com/about/wangwen.shtml" target="_blank" rel="nofollow">粤网文：[2013]0802-202号</a>&nbsp;&nbsp;<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44030702000009"><img src="http://www.beian.gov.cn/file/ghs.png">粤公网安备 44030702000009号</a>&nbsp;&nbsp;<span class="red">500.com郑重提示：彩票有风险，投注需谨慎</span>&nbsp;&nbsp;不向未满18周岁的青少年出售彩票</p>
+    <p class="security"> <a href="https://seal.qualys.com/sealserv/info/?i=8daaed52-427d-474e-bc07-9c83a8a53188" title="qualys secure" target="_blank" class="security07" rel="nofollow"></a><a target="_blank" href="http://www.500.com/about/wangan/index.htm" title="公共信息网络安全监察" class="security04" rel="nofollow">公共信息网<br />
+      络安全监察</a><a title="中国信用企业" href="http://www.itrust.org.cn/Home/Index/itrust_certifi?wm=1110071222" target="_blank" class="security05" rel="nofollow">中国信<br />用企业</a>  <a href="http://www.anquan.org/authenticate/cert/?site=www.500.com&at=business" title="安全联盟标识" target="_blank" class="security10" rel="nofollow" id="link349"></a> <a title="网上交易保障中心" href="http://www.315online.com.cn/member/315120077.html" target="_blank" class="security03" rel="nofollow">网上交易<br />
+      保障中心</a><!-- 工商 --><a title="工商网监电子标识" href="http://szcert.ebs.org.cn/ec1c33b3-f78d-483e-988c-f41abb93058a" target="_blank" class="security09" rel="nofollow">工商网监<br>电子标识</a><a title="可信网站身份验证" href="http://www.500.com/about/knet.html" target="_blank" class="security08" rel="nofollow"></a><a title="广东省文化厅备案资质" href="http://sq.ccm.gov.cn/ccnt/sczr/service/business/emark/toDetail/9EF18B0460C04F1385E18D9E23013B4D" target="_blank" class="security12 last" rel="nofollow">广东省文化厅<br>备案资质</a></p>
+    <p class="security security2">
+        <a id="___szfw_logo___" href="https://search.szfw.org/cert/l/CX20150210006686006756" target="_blank" class="szfw_logo"><img src="http://www.500cache.com/public/images/cert.jpg" width="110" height="39"></a>
+        <a target="_blank" href="http://210.76.65.188" title="广东省网络警察举报平台" class="security01" rel="nofollow">广东<br />网警</a>
+        <a title="深圳市网络警察举报平台" href="http://www.sznet110.gov.cn/index.jsp" target="_blank" class="security06" rel="nofollow">深圳<br />网警</a>
+    </p>
+  
+  </div>
+</div>
+<!-- Baidu Button BEGIN --> 
+<script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=6678073"></script> 
+<script type="text/javascript" id="bdshell_js"></script> 
+<script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script> 
+<!-- Baidu Button END -->
+
+
+
+<!-- 用户战绩调整 begin -->
+<span class="fu_icon_layer record_tips">
+    <span style="left: 6px;" class="fu_icon_top"></span>
+    <span style="width: auto;" class="fu_icon_con new_record"></span>
+</span>
+<!-- 用户战绩调整 end-->
+<script type="text/javascript" src="http://www.500cache.com/public/js/stats.js?v=123"></script>
+<!--底部链接  -->
+<div class="f-nav">
+  <ul class="f_nav_list">
+    <li><span>热点导读：</span><a target="_blank" title="易胜博" href="http://odds.500.com/ouzhi.php?cid=9" >易胜博</a><a target="_blank" title="福彩3D预测" href="http://zx.500.com/sd/" >福彩3D预测</a><a target="_blank" title="篮彩" href="http://zx.500.com/jclq/" >篮彩</a><a target="_blank" title="彩票预测" href="http://zx.500.com" >彩票预测</a><a target="_blank" title="超级大乐透" href="http://zx.500.com/dlt/" >超级大乐透</a><a target="_blank" title="排列三字谜" href="http://zx.500.com/szpl/zm.shtml" >排列三字谜</a><a target="_blank" title="3d杀号" href="http://zx.500.com/sd/n_zjtj/" >3d杀号</a><a target="_blank" title="胜负彩" href="http://zx.500.com/zc/" >胜负彩</a><a target="_blank" title="大乐透" href="http://zx.500.com/dlt/" >大乐透</a><a target="_blank" title="足球单场" href="http://trade.500.com/bjdc/" >足球单场</a><a target="_blank" title="竞彩足球" href="http://zx.500.com/jczq/" >竞彩足球</a><a target="_blank" title="排三" href="http://trade.500.com/pls/" >排三</a><a target="_blank" title="体彩排列3预测" href="http://zx.500.com/szpl/n_zjtj/" >体彩排列3预测</a><a target="_blank" title="双色球预测" href="http://zx.500.com/ssq/" >双色球预测</a><a target="_blank" title="3D字谜" href="http://zx.500.com/sd/zm.shtml" >3D字谜</a><a target="_blank" title="北京单场" href="http://zx.500.com/zqdc/" >北京单场</a><a target="_blank" title="数字排列" href="http://zx.500.com/szpl/" >数字排列</a></li>
+    <li><span>彩种信息：</span><a target="_blank" title="P5走势图" href="http://datachart.500.com/plw/" >P5走势图</a><a target="_blank" title="排列3走势图" href="http://datachart.500.com/pls/" >排列3走势图</a><a target="_blank" title="彩票走势图" href="http://datachart.500.com/" >彩票走势图</a><a target="_blank" title="七乐彩走势图" href="http://datachart.500.com/qlc/" >七乐彩走势图</a><a target="_blank" title="甘肃11选5" href="http://kaijiang.500.com/gssyxw.shtml" >甘肃11选5</a><a target="_blank" title="3d走势图" href="http://datachart.500.com/sd/" >3d走势图</a><a target="_blank" title="七星彩走势图" href="http://datachart.500.com/qxc/" >七星彩走势图</a><a target="_blank" title="江西11选5走势图" href="http://datachart.500.com/dlc/" >江西11选5走势图</a><a target="_blank" title="双色球走势图" href="http://datachart.500.com/ssq/" >双色球走势图</a><a target="_blank" title="江苏11选5走势图" href="http://datachart.500.com/jssyxw/" >江苏11选5走势图</a><a target="_blank" title="大乐透走势图" href="http://datachart.500.com/dlt/" >大乐透走势图</a><a target="_blank" title="重庆时时彩走势图" href="http://datachart.500.com/ssc/5jbzs.php" >重庆时时彩走势图</a></li>
+     
+  </ul>
+</div>
+
+<div id="lbackoldWrap" class="lbackold_wrap"><a class="lbackold" href="http://liansai.500.com/index.shtml">返回旧版</a></div>
+<!--友情链接  -->
+<div class="f-nav" style="margin:0 auto 12px;">
+  <ul class="f_nav_list">
+    <li><span>友情链接：</span><a target="_blank" title="2016中超球队名单" href="http://liansai.500.com/zuqiu-3773/teams/" >2016中超球队名单</a><a target="_blank" title="世俱杯赛程" href="http://liansai.500.com/zuqiu-3683/jifen-9224/" >世俱杯赛程</a><a target="_blank" title="亚盘" href="http://odds.500.com/yazhi_jczq.shtml" >亚盘</a><a target="_blank" title="欧赔" href="http://odds.500.com/europe_jczq.shtml" >欧赔</a><a target="_blank" title="2016中超积分榜" href="http://liansai.500.com/zuqiu-3773/jifen-9490/" >2016中超积分榜</a><a target="_blank" title="篮球比分直播" href="http://live.500.com/lq.php" >篮球比分直播</a><a target="_blank" title="足球赔率" href="http://odds.500.com/" >足球赔率</a><a target="_blank" title="比分直播" href="http://live.500.com/" >比分直播</a><a target="_blank" title="法甲积分榜" href="http://liansai.500.com/zuqiu-3459/" >法甲积分榜</a><a target="_blank" title="fifa排名" href="http://liansai.500.com/paiming/" >fifa排名</a><a target="_blank" title="NBA排名" href="http://liansai.500.com/lq/301/" >NBA排名</a><a target="_blank" title="德甲积分榜" href="http://liansai.500.com/zuqiu-3468/" >德甲积分榜</a><a target="_blank" title="CBA排名" href="http://liansai.500.com/lq/346/" >CBA排名</a><a target="_blank" title="欧罗巴" href="http://liansai.500.com/zuqiu-3466/" >欧罗巴</a><a target="_blank" title="西甲积分榜" href="http://liansai.500.com/zuqiu-3524/" >西甲积分榜</a><a target="_blank" title="意甲积分榜" href="http://liansai.500.com/zuqiu-3527/" >意甲积分榜</a><a target="_blank" title="英超积分榜" href="http://liansai.500.com/zuqiu-3444/" >英超积分榜</a><a target="_blank" title="me体育" href="https://sports.51golden.com/" >体育美女</a><a target="_blank" title="me体育" href="https://sports.51golden.com/" >C罗梅西最新消息</a></li>
+  </ul>
+</div>
+<!--微信新版-->
+<ul class="wx_up_btn" id="tip-weixin">
+  <li class="last"><a href="javascript:void(0)" id="btn-back2top" class="up_btn1" title="返回顶部" style="display:none;"></a></li>
+</ul>
+<script type="text/javascript">
+// 微信
+(function(window){
+    var $ = window.jQuery,
+        docElem = window.document.documentElement,
+        $win = $(window),
+        $body = $("html,body"),
+        box = $("#box-weixin"),
+        tip = $("#tip-weixin"),
+        btn = $("#btn-weixin"),
+        back2top = $("#btn-back2top"),
+        both = box.add(tip),
+        atFirstScreen = true,
+        visible = isVisible(),
+        easing = $.easing;
+    function isVisible() {
+        return docElem.clientWidth >= 1280;
+    }
+    $win.load(function() {
+        if (visible) {
+            tip.show();
+        }else{
+            both.hide();
+        }
+    }).scroll(function(){
+        var atFS = $win.scrollTop() < 800;
+        if (atFS ^ atFirstScreen) {
+            back2top.toggle(! (atFirstScreen = atFS));
+        }
+    }).resize(function(){
+        if (visible ^ isVisible()) {
+            if (visible = ! visible) {
+                tip.show();
+            } else {
+                both.hide();
+            }
+        }
+    });
+    back2top.click(function(){
+        $body.animate({
+            scrollTop: 0
+        }, 300, "easeInCubic");
+    });
+    // easeInCubic
+    if (! ("easeInCubic" in easing)) {
+        easing.easeInCubic = function (x, t, b, c, d) {
+            return c*(t/=d)*t*t + b;
+        };
+    }
+	
+    var oMain = $(".lmain").eq(0), nLeft, oBackold = $("#lbackoldWrap"), nDocH = $(document).height(), nWinH = $(window).height(), nBackoldH = oBackold.height()+3, nFootH = 224;
+	function fnResetPos(){
+	    nLeft=( $(window).width()+oMain.width() )/2;
+	    nWinH = $(window).height();
+	    $(oBackold).css("left",nLeft);
+	    if(!-[1,]&&!window.XMLHttpRequest){ 
+	        oBackold.css({"position":"absolute","left":nLeft,"top":$(window).height()-nBackoldH});
+	    }
+	};
+	fnResetPos();
+	$(window).resize(function(){fnResetPos();});
+	$(window).scroll(function(){
+	    if( $(window).scrollTop() <= nDocH-nWinH-nFootH ){
+	        $(oBackold).css({"top":"","bottom":0,"position":"fixed"});
+	    } else {
+	        $(oBackold).css({"top":nDocH-nFootH-nBackoldH,"bottom":"","position":"absolute"});
+	    }
+	});
+})(window);
+</script>
+<!--饼形图 begin-->
+<script type="text/javascript" src="http://www.500cache.com/liansai/js/amcharts.js?v=20141127"></script>
+<script type="text/javascript" src="http://www.500cache.com/liansai/js/pie.js?v=20141127"></script>
+<script type="text/javascript" src="http://www.500cache.com/liansai/js/common.js?v=20141127"></script>
+<script>
+AmCharts.makeChart("chartCurSPF", {
+    "type": "pie",
+    "theme": "none",
+    "dataProvider": [{
+        "title": "胜",
+        "value": "20"
+    }, {
+        "title": "负",
+        "value":  "50"
+    }, {
+        "title": "平",
+        "value": "30"
+    }],
+    "titleField": "title",
+    "valueField": "value",
+    "labelRadius": 5,
+
+    "radius": "40%",
+    "innerRadius": "78%",
+    "labelTickAlpha": "0",
+    "labelText": "[[title]][[value]]%",
+    "pullOutRadius": 0,
+    "balloonText": "",
+    "startDuration": "",
+    "startAngle": "360",
+    "colors":['#FF0000','#0000FF','#009900'],
+    "fontColor":['#FF0000','#009900','#0000FF'],
+    "fontSize":14
+});
+var _lname="伯恩茅", _lurl=location.href;
+</script>
+<script type="text/javascript" src="http://www.500cache.com/liansai/js/laisaistorage.js?v=20141127"></script>
+<!--饼形图 end-->
+</body>
+</html>
