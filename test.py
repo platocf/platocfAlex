@@ -50,18 +50,18 @@ print s
 #webfile = urllib.urlopen('http://liansai.500.com/team/667/')
 #request=urllib2.Request("http://odds.500.com/fenxi1/inc/shuju_jiaozhan.php?id=607163&hash=97e865f&home=0&limit=999&bhbc=0&r=1&callback=ajax")
 #http://odds.500.com/fenxi1/yazhi.php?id=654875&ctype=1&start=30&r=1&style=0&guojia=0
-request=urllib2.Request("http://odds.500.com/fenxi1/inc/yazhiajax.php?fid=654875&id=280&t=1493284145317&r=1")
+request=urllib2.Request("http://odds.500.com/fenxi1/yazhi.php?id=654875&ctype=1&start=0&r=1&style=0&guojia=0")
 request.add_header("User-Agent","Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36")
-request.add_header("Accept","application/json, text/javascript, */*")
+request.add_header("Accept","text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8")
 request.add_header("Accept-Encoding","gzip, deflate, sdch")
-request.add_header("Content-Type","application/x-www-form-urlencoded")
-request.add_header("X-Requested-With","XMLHttpRequest")
+#request.add_header("Content-Type","application/x-www-form-urlencoded")
+#request.add_header("X-Requested-With","XMLHttpRequest")
 webfile=urllib2.urlopen(request)
 webcontext = webfile.read()
 chardet_detect_str_encoding(webcontext)
 print webcontext
 webcontext=gzip.GzipFile(fileobj=StringIO.StringIO(webcontext),mode="r")
-webcontext=webcontext.read()
+webcontext=webcontext.read().decode('gbk')
 print webcontext
 soup = BeautifulSoup(webcontext,"html.parser")
 res=json.loads(webcontext)
