@@ -1,0 +1,96 @@
+使用 python urllib2 抓取网页时出现乱码的解决方案
+1条回复
+这里记录的是一个门外汉解决使用 urllib2 抓取网页时遇到乱码、崩溃、求助、解决和涨经验的过程。这类问题，事后看来只是个极小极小的坑，不过竟然花去很多时间，也值得记录一下。过程如下：
+目标：
+
+抓取 http://sports.sina.com.cn/g/premierleague/index.shtml
+代码：
+
+1
+2
+3
+4
+5
+6
+# coding: u8
+import urllib2
+url = "http://sports.sina.com.cn/g/premierleague/index.shtml"
+response = urllib2.urlopen(url)
+html = response.read()
+print html
+输出：
+
+wױ83’͠L/J
+.uVխ[w5;:S煝{7l!Zp8′-y϶=ePUsł;__Zj
+::]K챵
+eYڕkV%IBUVY”*’)ڤS.
+JT>”TTZk+!x*)ld2I,kUUҭ/kXjjkHI U0n2}jUSݲ”>!pj^[Ǉg’o^=Nqȕ7n|57yy’\ul
+j=9T,g/t0ݕ7’^o|v}>8=7흯!tpٹˏgFS?zd~`MuC%U2\ f߉Vqߍ7~2~ɓlE=}M}Xwo}us’>?*zpS:7Oݚ~чb=
+HK!sعinQR}@TsY|,#b\d+#yM@qaRTPVNw
+?[((tGP,A$O/EXP)oNgA\`Z
+4
+eL7ȓVn+
+ɄeR fT`&WՂbV
+f{
+j_p@-@[Ib_ͷCZ’!4O1C,کhy b0W(ժZ˨V5-ټX)5{EkvXÝN (PPUCkϫ? j(
+V3{Z!LOOP+LP%WPL!\=! @XD8ׯjpT,W+#we~م {CBo@_Y+ijp;^,=(h :NxH|Ar]-|Bkq<
+ڻ+}.ܹlt.)cptRXJ4CJЃBv@BXdP&6dógsR^=/fb@s#m} uZh.V80_)$.1W
+hS*zQJÑ|ă{nIPa±a#نL<SA
+%^yg2*\fxJhQh_FBK(c%cBKwaHeRB 8w6<ϾK @.k*[k|^_¹BV;,pu]24Y
+BwԢCm3`>5#FzFG-%Ũ
+W0A{TȪ#u4@e24߈*:*6Ђt&XGe@dc%cເh|΀y$HhGv3s$(Y)sYMvE@lC(.tkب6K(E;Op1?:
+D6wОƘfO&zqZ3Z>0MC{ڟi#.
+tPڻu-u-t38X Wt2h!.>9;TVKrj_$yABZȊ6.ƭI\yK:￢
+s#lhsxzb=INse/FUad4H3lnHo0T^”j*]yfrMY!׋-#I(YVaΡ@1kE뗴2=qRtۈh@y@(GX)I-Z$lNX,vg^~cE
+/虬&jz=АUdY__\FGA} …
+首先想到编码问题，参考了《也谈Python的中文编码处理》一文 ，感觉基本明白怎么回事儿了，按理说
+
+1
+isinstance(html, str) == True
+并且页面的编码确定为 GBK，那么
+
+1
+html.decode('gbk').encode('utf-8')
+就可以将机器码以 gbk 解码，再重新以 utf-8 编码，就可以得到正确的文本。可是收到这样的提示：
+
+UnicodeDecodeError: ‘gbk’ codec can’t decode bytes in position 1-2: illegal multibyte sequence
+经过在 v2ex 求助，以及反复折腾了一下发现得到的果然是 gzip 过的乱码，于是尝试通过 zlib 解压缩
+
+1
+2
+import zlib
+html = zlib.decompress(html)
+可是却得到下面的错误
+
+zlib.error: Error -3 while decompressing data: incorrect header check
+无奈，只得用 gzip 库和 StringIO 库绕路解决
+
+1
+2
+3
+import gzip, StringIO
+html = gzip.GzipFile(fileobj=StringIO.StringIO(html), mode="r")
+html = html.read().decode('gbk').encode('utf-8’)
+终于得到了正确的内容和正确的编码~ ^^
+
+问题到这里就解决了，可是对于不能直接使用简洁的 zlib 库表示很不甘心，毕竟根据 python 的文档 gzip 库也是调用 zlib 来解压的，为什么不直接用 zlib 呢？功夫不负有心人，最后终于在 StackOverflow 上找到了答案。于是最终代码如下：
+
+1
+2
+3
+4
+5
+6
+7
+8
+request = urllib2.Request(url)
+request.add_header('Accept-encoding', 'gzip')
+opener = urllib2.build_opener()
+response = opener.open(request)html = response.read()
+gzipped = response.headers.get('Content-Encoding')
+if gzipped:
+    html = zlib.decompress(html, 16+zlib.MAX_WBITS)
+print html
+代码里在 request header 中默认加入了接受 gzip，服务器会优先返回 gzip 后的页面，这样极大减少数据流的大小，绝大多数服务器都是支持 gzip 的。之后对于意外情况，也加入了对 response header 的判断，对于不包含“Content-Encoding”的数据流就不会去对其解压缩。这样看上去妥妥的了，但其实还是会有很多意外状况，超出这篇的范围，这里就不涉及了。
+
+后记，后来才知道这是一个很常见的坑，出于对防止抓取的考虑，部分网站采取了各种措施。例如：对于没有指定 Accept-Encoding 的请求也会返回 gzip 过的内容；会验证 Request Header 的 User-Agent 和 Referer 甚至 cookies 之类的。对于抓取感兴趣的可以继续阅读《用Python抓取网页的注意事项》，网页抓取虽然是个很成熟的领域，但门外汉面临诸多未知的挑战，唯有多读多做多积累才好。

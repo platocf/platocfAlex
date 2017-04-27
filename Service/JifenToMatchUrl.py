@@ -123,7 +123,7 @@ class JifenToMatchUrl():
                     else:
                         sqlInsert += ",(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
                         pass
-                    insertContext.append(resultChild['p_id'])
+                    insertContext.append(resultChild['pid'])
                     insertContext.append(jsonDataChild['fid'])
                     insertContext.append(jsonDataChild['ghalfscore'])
                     insertContext.append(jsonDataChild['gid'])
@@ -168,7 +168,7 @@ class JifenToMatchUrl():
                         else:
                             sqlInsert += ",(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
                             pass
-                        insertContext.append(resultChild['p_id'])
+                        insertContext.append(resultChild['pid'])
                         insertContext.append(jsonDataChild['fid'])
                         insertContext.append(jsonDataChild['ghalfscore'])
                         insertContext.append(jsonDataChild['gid'])
