@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from bs4 import BeautifulSoup
-import urllib
+import urllib,urllib2
 import json
 import logging
 import MySQLdb
@@ -46,8 +46,11 @@ print s
 # except MySQLdb.Error, e:
 #     print "Mysql Error %d: %s" % (e.args[0], e.args[1])
 #webfile = urllib.urlopen('http://liansai.500.com/team/667/')
-webfile=urllib.urlopen("http://liansai.500.com/index.php?c=score&a=getmatch&stid=11389&round=1")
+request=urllib2.Request("https://soccer.hupu.com/g/players?search_type=basic_search&keywords=%E6%8B%9C%E4%BB%81")
+request.add_header("User-Agent","Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.1.6) Gecko/20091201 Firefox/3.5.6")
+webfile=urllib2.urlopen(request)
 webcontext = webfile.read()
+print webcontext
 soup = BeautifulSoup(webcontext,"html.parser")
 res=json.loads(webcontext)
 for listvalue in res:
