@@ -1,4 +1,7 @@
 # coding:utf-8
+from BEANS.LeagueYearInfo import *
+from BEANS.MatchUrl import *
+from BEANS.League import *
 from MySqlDB.MySqlConn import Mysql
 from bs4 import BeautifulSoup
 import bs4
@@ -15,18 +18,18 @@ class JifenToMatchUrl():
     pass
     def getMatchUrl(self,limit):
         mysql = Mysql()
-        sqlAll = "select * from leagueyearinfo limit %s,10 "
+        sqlAll = ConfigStart.SELECTFROMLEAGUEYEARINFOLIMIT
         resultSelect = mysql.getAll(sqlAll, limit)
         if resultSelect==False:
             return
         for resultChild in  resultSelect:
-            webfile=urllib.urlopen(resultChild['p_jifen_url'])
+            webfile=urllib.urlopen(resultChild[LeagueYearInfo.p_jifen_url])
             webcontext = webfile.read()
             webfile.close()
-            webContent = unicode(webcontext, 'gbk')
+            webContent = unicode(webcontext, ConfigStart.GBK)
             soup = BeautifulSoup(webContent, ConfigStart.PARSEMETHOD)
             getUrls=soup.find_all(class_="ltab_btn")
-            sqlInsert ="INSERT INTO matchurl(p_leagueyearinfoid,p_url,p_property) VALUES "
+            sqlInsert =ConfigStart.INSERTINTOMATCHURL_TOP
             l=[]
             i=0
             print resultChild['p_jifen_url']

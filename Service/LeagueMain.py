@@ -2,6 +2,9 @@
 '''
 联赛的主页信息获取
 '''
+from BEANS.LeagueYearInfo import *
+from BEANS.MatchUrl import *
+from BEANS.League import *
 from bs4 import BeautifulSoup
 from MySqlDB.MySqlConn import Mysql
 import bs4
@@ -27,7 +30,7 @@ class LeagueMain():
         mysql = Mysql()
         p_id,p_name,p_type,p_country,p_main_url=0,'',0,'',''
         if mutex.acquire():
-            sqlString = "select * from league where p_crawler=0"
+            sqlString = ConfigStart.SELECTFROMLEAGUECRAWLER
             result=mysql.getOne(sqlString)
             if isinstance(result,bool):
                 print "分析完毕"
@@ -36,9 +39,10 @@ class LeagueMain():
                 return
                 pass
             else:
-                mysql.update("update league set p_crawler=1 where p_id=%s",result['p_id'])
-                print result['p_name']
-                p_id,p_name,p_type,p_country,p_main_url=result['p_id'],result['p_name'],result['p_type'],result['p_country'],result['p_main_url']
+                mysql.update(ConfigStart.UPDATELEAGUESETCRAWLER,result[League.p_id])
+                print result[League.p_name]
+                p_id,p_name,p_type,p_country,p_main_url=result[League.p_id],\
+                                                        result[League.p_name],result[League.p_type],result[League.p_country],result[League.p_main_url]
             mutex.release()
             pass
         #获取每个联赛现存所有赛季并得到对应的url
@@ -46,27 +50,29 @@ class LeagueMain():
         webfile = urllib.urlopen(p_main_url)
         webContent = webfile.read()
         webfile.close()
-        webContent=unicode(webContent,'gbk')
+        webContent=unicode(webContent,ConfigStart.GBK)
         soup = BeautifulSoup(webContent, ConfigStart.PARSEMETHOD)
-        leagueYears=soup.find_all(class_='ldrop_list')
+        leagueYears=soup.find_all(class_=ConfigStart.DROPLISTCLASS)
         for leagueYear in leagueYears[0].children:
             if(type(leagueYear)== bs4.element.Tag):
-                print leagueYear.a['title']
-                print leagueYear.a['href']
-                print re.findall(r'\b\d+\b',leagueYear.a['title'])
-                l = [[p_id, ConfigStart.STARTURL+leagueYear.a['href'],leagueYear.a['title'], leagueYear.a.string]]
-                sqlInsert = "insert into leagueyearinfo(p_leagueid,p_league_url,p_league_year,p_name) values(%s,%s,%s,%s)"
+                print leagueYear.a[ConfigStart.STRINGTITLE]
+                print leagueYear.a[ConfigStart.HREF]
+                #print re.findall(r'\b\d+\b',leagueYear.a['title'])
+                l = [[p_id, ConfigStart.STARTURL+leagueYear.a[ConfigStart.HREF],leagueYear.a[ConfigStart.STRINGTITLE], leagueYear.a.string]]
+                sqlInsert = ConfigStart.INSERTINTOLEAGUEYEARINFO
                 result = mysql.insertMany(sqlInsert, l)
                 print result
         pass
         mysql.dispose()
     def getWaitCrawler(self):
         mysql = Mysql()
-        sqlString = "select count(*) as count from league where p_crawler=0"
+        sqlString = ConfigStart.SELECTCOUNTFROMLEAGUECRAWLER
         result = mysql.getOne(sqlString)
         mysql.dispose()
-        return result['count']
+        return result[ConfigStart.RESULT]
+        pass
+    pass
 pass
-if __name__ == '__main__':
+if __name__ == ConfigStart.MAIN:
     test=LeagueMain()
     print  test.getWaitCrawler()
