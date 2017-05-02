@@ -11,7 +11,7 @@ import json
 import sys
 import re
 reload(sys)
-sys.setdefaultencoding('utf-8')
+sys.setdefaultencoding(ConfigStart.UTF8)
 class JifenToMatchUrl():
     def __init__(self):
         pass

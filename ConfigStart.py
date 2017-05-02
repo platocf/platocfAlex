@@ -90,7 +90,25 @@ UTF8='utf-8'
 GBK='gbk'
 GB2312='gb2312'
 
+'''
+两球队的对战分析数据页
+'''
+#两队对战分析
+ANALYSISDATAURL = "http://odds.500.com/fenxi/shuju-%s.shtml"
+#两对欧指分析
+ANALYSISOUZHIURL='http://odds.500.com/fenxi/ouzhi-%s.shtml'
+#让球指数分析
+ANALYSISRANGQIU='http://odds.500.com/fenxi/rangqiu-%s.shtml'
+#亚盘对比
+ANALYSISYAZHI='http://odds.500.com/fenxi/yazhi-%s.shtml'
+#大小指数分析
+ANALYSISDAXIAO='http://odds.500.com/fenxi/daxiao-%s.shtml'
+#比分指数分析
+ANALYSISBIFEN='http://odds.500.com/fenxi/bifen-%s.shtml'
+#技术统计
+ANALYSISJISHU='http://odds.500.com/fenxi/stat-%s.shtml'
 if __name__ == '__main__':
+    #testurl = ANALYSISDATAURL%(55)
     print ''
 
 

@@ -271,4 +271,8 @@ matchinfo
 p_id    p_leagueid     fid     ghalfscore      gid          gname       gscore      gstanding       gsxname     handline    hhalfscore      hid     hname       hscore      hstanding       hsxname     round   status      stime
 
 
+欧赔表
+当前索引号   对应matchinto的索引     赔率公司id       欧赔胜      欧赔平     欧赔负     返还率     凯利指数胜       凯利指数平       凯利指数负
+
+
 
