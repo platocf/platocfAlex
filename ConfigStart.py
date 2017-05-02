@@ -74,6 +74,8 @@ SELECTFROMLEAGUECRAWLER="select * from "+League.tablename+" where "+League.p_cra
 SELECTCOUNTFROMLEAGUECRAWLER="select count(*) as "+RESULT+" from "+League.tablename+" where "+League.p_crawler+"=0"
 #更新p_crawler从league表中
 UPDATELEAGUESETCRAWLER="update "+League.tablename+" set "+League.p_crawler+"=1 where "+League.p_id+"=%s"
+#查询matchinfo分页10 limit
+SELECTFROMMATCHINFOLIMIT="select * from "+MatchInfo.tablename+" limit %s,10"
 #int为整数零
 NULL=0
 TRUE=1

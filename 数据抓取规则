@@ -270,9 +270,12 @@ matchinfo
 索引id   联赛id    数据id   客队半场得分  客队主面    客队名称     客队得分   客队起始线     客队名称缩写    水线      主队半场得分   主队主页 主队名称   主队得分      主队起始线       主队名称   第几场  状态        比赛时间
 p_id    p_leagueid     fid     ghalfscore      gid          gname       gscore      gstanding       gsxname     handline    hhalfscore      hid     hname       hscore      hstanding       hsxname     round   status      stime
 
-
-欧赔表
-当前索引号   对应matchinto的索引     赔率公司id       欧赔胜      欧赔平     欧赔负     返还率     凯利指数胜       凯利指数平       凯利指数负
+赔率公司 company
+公司索引号       公司名称
+p_id            company_name
+欧赔表oupei
+当前索引号   对应matchinto的索引     赔率公司id       欧赔胜      欧赔平     欧赔负     返还率     凯利指数胜       凯利指数平       凯利指数负      当前发布时间
+p_id            matchinfoid           companyid        op_s        op_p        op_f       ret         kl_s             kl_p             kl_f          update_time
 
 
 
