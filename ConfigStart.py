@@ -98,9 +98,11 @@ GB2312='gb2312'
 #两队对战分析
 ANALYSISDATAURL = "http://odds.500.com/fenxi/shuju-%s.shtml"
 #两对欧指分析
-ANALYSISOUZHIURL='http://odds.500.com/fenxi/ouzhi-%s.shtml'
+ANALYSISOUZHIURL='http://odds.500.com/fenxi1/ouzhi.php?id=%s&ctype=1&start=%s&r=1&style=0&guojia=0&chupan=1'
+#欧指数据
+ANALYSISOUZHIDATAURL='http://odds.500.com/fenxi1/json/ouzhi.php?_=1493729244144&fid=%s&cid=%s&r=1&type=europe'
 #让球指数分析
-ANALYSISRANGQIU='http://odds.500.com/fenxi/rangqiu-%s.shtml'
+ANALYSISRANGQIU='http://odds.500.com/fenxi1/rangqiu.php?id=%s&ctype=1&start=%s&r=1&style=0&guojia=0&chupan=1&lot=all'
 #亚盘对比
 ANALYSISYAZHI='http://odds.500.com/fenxi/yazhi-%s.shtml'
 #大小指数分析

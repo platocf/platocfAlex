@@ -6,10 +6,12 @@ from MySqlDB.MySqlConn import Mysql
 import ConfigStart
 import urllib
 import gzip
+import json
 import StringIO
 from bs4 import BeautifulSoup
 import sys
 import urllib2
+from tools.OpenUrl import *
 reload(sys)
 sys.setdefaultencoding(ConfigStart.UTF8)
 class AnalysisData():
@@ -25,21 +27,36 @@ class AnalysisData():
             return
         for resultChild in  resultSelect:
             fid = resultChild['fid']
-            ouzhiUrl = ConfigStart.ANALYSISOUZHIURL%(fid)
-            request = urllib2.Request(ouzhiUrl)
-            request.add_header("User-Agent",
-                               "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36")
-            request.add_header("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8")
-            request.add_header("Accept-Encoding", "gzip, deflate, sdch")
-            webfile = urllib2.urlopen(request)
-            webcontext = webfile.read()
-            print webcontext
-            webcontext = gzip.GzipFile(fileobj=StringIO.StringIO(webcontext), mode="r")
-            webcontext = webcontext.read().decode('gbk')
-            print webcontext
-            soup = BeautifulSoup(webcontext, ConfigStart.PARSEMETHOD)
-            ouzhiData1=soup.find_all(ttl='zy')
-            print ouzhiData1
+            i = 0
+            '''
+            =====================================欧赔开始================================================
+            '''
+            while True:
+                url = ConfigStart.ANALYSISOUZHIURL % (fid,i * 30)
+                openUrls = OpenUrls()
+                webcontext = openUrls.getWebContent(url, i)
+                soup = BeautifulSoup(webcontext, "html.parser")
+                ouzhiData1 = soup.find_all(ttl='zy')
+                if ouzhiData1.__len__() == 0:
+                    print '获取完毕'
+                    break
+                j = 0
+                for ouzhiDataChild in ouzhiData1:
+                    print "------------------------%s------------------------" % (i * 30 + j)
+                    print ouzhiDataChild['id']
+                    print ouzhiDataChild.contents[3]['title']
+                    webjson = openUrls.getWebContent(ConfigStart.ANALYSISOUZHIDATAURL%(fid,ouzhiDataChild['id']),1)
+                    webjson=json.loads(webjson)
+                    print webjson
+                    for webjsonChild in webjson:
+                        print webjsonChild[0]
+                        #开始写入数据到库中 TODO:
+                    j += 1
+                    pass
+            '''
+            ===========================欧赔结束=================================================
+            '''
+            i += 1
             pass
         pass
         pass
@@ -47,4 +64,4 @@ class AnalysisData():
 pass
 if __name__ == '__main__':
     analysis = AnalysisData()
-    analysis.getDataFromMatchInfo(10)
+    analysis.getDataFromMatchInfo(5000)

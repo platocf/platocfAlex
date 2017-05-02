@@ -10,6 +10,7 @@ import datetime
 import gzip, StringIO
 import sys
 import re
+from tools.OpenUrl import *
 # reload(sys)
 # sys.setdefaultencoding('gbk')
 s=datetime.datetime.strptime("2011-1-1 3:00", '%Y-%m-%d %H:%M')
@@ -50,24 +51,29 @@ print s
 #webfile = urllib.urlopen('http://liansai.500.com/team/667/')
 #request=urllib2.Request("http://odds.500.com/fenxi1/inc/shuju_jiaozhan.php?id=607163&hash=97e865f&home=0&limit=999&bhbc=0&r=1&callback=ajax")
 #http://odds.500.com/fenxi1/yazhi.php?id=654875&ctype=1&start=30&r=1&style=0&guojia=0
-request=urllib2.Request("http://odds.500.com/fenxi1/ouzhi.php?id=607184&ctype=1&start=30&r=1&style=0&guojia=0&chupan=1")
-request.add_header("User-Agent","Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36")
-request.add_header("Accept","text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8")
-request.add_header("Accept-Encoding","gzip, deflate, sdch")
-#request.add_header("Content-Type","application/x-www-form-urlencoded")
-#request.add_header("X-Requested-With","XMLHttpRequest")
-webfile=urllib2.urlopen(request)
-webcontext = webfile.read()
-chardet_detect_str_encoding(webcontext)
-print webcontext
-webcontext=gzip.GzipFile(fileobj=StringIO.StringIO(webcontext),mode="r")
-webcontext=webcontext.read().decode('utf8')
-print webcontext
-soup = BeautifulSoup(webcontext,"html.parser")
-ouzhiData1=soup.find_all(ttl='zy')
-res=json.loads(webcontext)
-for listvalue in res:
-    print listvalue
+i=0
+while True:
+    url = "http://odds.500.com/fenxi1/ouzhi.php?id=607186&ctype=1&start=%s&r=1&style=0&guojia=0&chupan=1"%(i*30)
+    openUrls = OpenUrls()
+    webcontext=openUrls.getWebContent(url,i)
+    soup = BeautifulSoup(webcontext,"html.parser")
+    ouzhiData1=soup.find_all(ttl='zy')
+    if ouzhiData1.__len__() == 0:
+        print '获取完毕'
+        break
+    #print ouzhiData1
+    j=0
+    for ouzhiDataChild in ouzhiData1:
+        print "------------------------%s------------------------"%(i*30+j)
+        print ouzhiDataChild['id']
+        print ouzhiDataChild.contents[3]['title']
+        j+=1
+        pass
+    i += 1
+
+# res=json.loads(webcontext)
+# for listvalue in res:
+#     print listvalue
 # print webcontext
 # print soup
 # print soup.title
