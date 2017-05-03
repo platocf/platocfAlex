@@ -1,14 +1,11 @@
 # coding:utf-8
-'''
-获取所有的数据对应页面的数据
-'''
-from MySqlDB.MySqlConn import Mysql
 import ConfigStart
 import urllib
 import gzip
 import json
 import StringIO
 from bs4 import BeautifulSoup
+from MySqlDB.MySqlConn import Mysql
 import sys
 import urllib2
 from tools.OpenUrl import *
@@ -54,8 +51,30 @@ class AnalysisData():
                     j += 1
                     pass
             '''
-            ===========================欧赔结束=================================================
+            ===========================欧赔结束===============让球指数开始==================================
             '''
+            while True:
+                url = ConfigStart.ANALYSISRANGQIU % (fid,i * 30)
+                openUrls = OpenUrls()
+                webcontext = openUrls.getWebContent(url, i)
+                soup = BeautifulSoup(webcontext, "html.parser")
+                ouzhiData1 = soup.find_all(ttl='zy')
+                if ouzhiData1.__len__() == 0:
+                    print '获取完毕'
+                    break
+                j = 0
+                for ouzhiDataChild in ouzhiData1:
+                    print "------------------------%s------------------------" % (i * 30 + j)
+                    print ouzhiDataChild['cid']
+                    print ouzhiDataChild.contents[3]['title']
+                    webjson = openUrls.getWebContent(ConfigStart.ANALYSISRANGQIUDATAURL%(fid,ouzhiDataChild['cid'],ouzhiDataChild.contents[3].string),1)
+                    webjson=json.loads(webjson)
+                    print webjson
+                    for webjsonChild in webjson:
+                        print webjsonChild[0]
+                        #开始写入数据到库中 TODO:
+                    j += 1
+                    pass
             i += 1
             pass
         pass

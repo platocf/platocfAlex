@@ -103,6 +103,8 @@ ANALYSISOUZHIURL='http://odds.500.com/fenxi1/ouzhi.php?id=%s&ctype=1&start=%s&r=
 ANALYSISOUZHIDATAURL='http://odds.500.com/fenxi1/json/ouzhi.php?_=1493729244144&fid=%s&cid=%s&r=1&type=europe'
 #让球指数分析
 ANALYSISRANGQIU='http://odds.500.com/fenxi1/rangqiu.php?id=%s&ctype=1&start=%s&r=1&style=0&guojia=0&chupan=1&lot=all'
+#让球指数
+ANALYSISRANGQIUDATAURL='http://odds.500.com/fenxi1/json/rspf.php?_=1493773551248&fid=%s&cid=%s&r=1&handicapline=%s&type=rspf'
 #亚盘对比
 ANALYSISYAZHI='http://odds.500.com/fenxi/yazhi-%s.shtml'
 #大小指数分析
