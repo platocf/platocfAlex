@@ -4,7 +4,7 @@ Created on 2016年5月7日
 
 @author: baocheng 
 '''
-DBHOST = "192.168.1.101"
+DBHOST = "192.168.10.210"
 DBPORT = 3306
 DBUSER = "root"
 DBPWD = "123456"

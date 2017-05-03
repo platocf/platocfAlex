@@ -273,9 +273,43 @@ p_id    p_leagueid     fid     ghalfscore      gid          gname       gscore  
 赔率公司 company
 公司索引号       公司名称
 p_id            company_name
+
 欧赔表oupei
 当前索引号   对应matchinto的索引     赔率公司id       欧赔胜      欧赔平     欧赔负     返还率     凯利指数胜       凯利指数平       凯利指数负      当前发布时间
 p_id            matchinfoid           companyid        op_s        op_p        op_f       ret         kl_s             kl_p             kl_f          update_time
 
+让球指数表 rangqiu
+当前索引号   对应matchinto的索引     让球数      赔率公司id       让球胜      让球平     让球负     返还率     凯利指数胜       凯利指数平       凯利指数负     当前发布时间
+p_id            matchinfoid       rangqiucount   companyid        rq_s        rq_p        rq_f       ret         kl_s             kl_p             kl_f          update_time
 
+亚盘指数表  yazhi
+当前索引号   对应matchinto的索引     赔率公司id     左水     盘水线     右水     更新时间
+p_id            matchinfoid          companyid      left    handline    right     update_time
 
+大小指数表  daxiao
+当前索引号   对应matchinto的索引     赔率公司id     左水     盘水线     右水     更新时间
+p_id            matchinfoid          companyid      left    handline    right     update_time
+
+比分指数表  befen
+当前索引号   对应matchinto的索引     赔率公司id    1:0    2:0     2:1     3:0     3:1     3:2     4:0     4:1     4:2     4;3     0:0     1:1     2:2     3:3     4:4
+p_id            matchinfoid          companyid    e_1_0  e_2_0  e_2_1   e_3_0   e_3_1   e_3_2   e_4_0   e_4_1   e_4_2   e_4_3   e_0_0   e_1_1   e_2_2   e_3_3   e_4_4
+
+进球指数表 jinqiu
+当前索引号   对应matchinto的索引      0       1       2       3       4       5       6       7
+p_id            matchinfoid          e_0     e_1     e_2     e_3     e_4     e_5     e_6     e_7plus
+
+单双进球指数表 dsjinqiu
+当前索引号   对应matchinto的索引      单          双        返还率     0-1     2-3     4-6     7+
+p_id            matchinfoid         single      double       ret       e01      e23     e47     e7plus
+
+半全场指数表 bqc
+当前索引号   对应matchinto的索引      胜胜  胜平  胜负  平胜  平平  平负  负胜    负平     负负
+p_id            matchinfoid           e11   e10   e1-1  e01    e00  e0-1  e-11    e-10    e-1-1
+
+当前场次的整队技术统计 teamstatistics
+当前表索引         对应场次id             进攻次数            危险进攻            射门次数            射正次数            任意球             角球                  越位              犯规              黄牌              红牌              控球率
+   p_id            matchinfoid          static_attack     static_dattack       static_shoot        static_shootz    static_freekick     static_corner       static_offside      static_foul     static_yelcrad      static_redcrad      static_control
+
+当前场次球员的技术统计 playerstatistics
+当前表索引    对应场次id      号码     球员   英文名称   位置      出场类型    时间     进球   助攻      射门   射正     传球    抢断     犯规   被侵犯    越位      解围    黄牌      红牌      扑救
+   p_id      matchinfoid     number   name_c   name_e   position     type       time    goal   assists   shoot  shootz   pass   steals    foul   befoul   offside   rescue  yelcrad   redcrad    saves

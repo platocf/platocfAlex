@@ -20,3 +20,20 @@ class OpenUrls():
             webcontext = webcontext.read().decode('utf8')
         pass
         return webcontext
+        pass
+    pass
+    def getWebContentJson(self,url):
+        request = urllib2.Request(url)
+        request.add_header("User-Agent",
+                           "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36")
+        request.add_header("Accept", "application/json, text/javascript, */*")
+        request.add_header("Accept-Encoding", "gzip, deflate, sdch")
+        request.add_header("X-Requested-With","XMLHttpRequest")
+        webfile = urllib2.urlopen(request)
+        webcontext = webfile.read()
+        webcontext = gzip.GzipFile(fileobj=StringIO.StringIO(webcontext), mode="r")
+        webcontext = webcontext.read().decode('gbk')
+        return webcontext
+        pass
+
+    pass

@@ -99,16 +99,20 @@ GB2312='gb2312'
 ANALYSISDATAURL = "http://odds.500.com/fenxi/shuju-%s.shtml"
 #两对欧指分析
 ANALYSISOUZHIURL='http://odds.500.com/fenxi1/ouzhi.php?id=%s&ctype=1&start=%s&r=1&style=0&guojia=0&chupan=1'
-#欧指数据
+#欧指各公司数据
 ANALYSISOUZHIDATAURL='http://odds.500.com/fenxi1/json/ouzhi.php?_=1493729244144&fid=%s&cid=%s&r=1&type=europe'
 #让球指数分析
 ANALYSISRANGQIU='http://odds.500.com/fenxi1/rangqiu.php?id=%s&ctype=1&start=%s&r=1&style=0&guojia=0&chupan=1&lot=all'
-#让球指数
+#让球各公司指数
 ANALYSISRANGQIUDATAURL='http://odds.500.com/fenxi1/json/rspf.php?_=1493773551248&fid=%s&cid=%s&r=1&handicapline=%s&type=rspf'
 #亚盘对比
-ANALYSISYAZHI='http://odds.500.com/fenxi/yazhi-%s.shtml'
+ANALYSISYAZHI='http://odds.500.com/fenxi1/yazhi.php?id=%s&ctype=1&start=%s&r=1&style=0&guojia=0'
+#亚盘各公司分析
+ANALYSISYAZHIDATAURL='http://odds.500.com/fenxi1/inc/yazhiajax.php?fid=%s&id=%s&t=1493777167209&r=1'
 #大小指数分析
-ANALYSISDAXIAO='http://odds.500.com/fenxi/daxiao-%s.shtml'
+ANALYSISDAXIAO='http://odds.500.com/fenxi1/daxiao.php?id=%s&ctype=1&start=%s&r=1&style=0&guojia=0'
+#大小指数各公司分析
+ANALYSISDAXIAODATAURL='http://odds.500.com/fenxi1/inc/daxiaoajax.php?fid=%s&id=%s&t=1493778774481'
 #比分指数分析
 ANALYSISBIFEN='http://odds.500.com/fenxi/bifen-%s.shtml'
 #技术统计
