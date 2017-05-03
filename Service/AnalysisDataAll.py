@@ -43,7 +43,7 @@ class AnalysisData():
             '''
             =====================================欧赔开始================================================
             '''
-            while False:
+            while True:
                 url = ConfigStart.ANALYSISOUZHIURL % (fid,i * 30)
                 openUrls = OpenUrls()
                 webcontext = openUrls.getWebContent(url, i)
@@ -56,14 +56,31 @@ class AnalysisData():
                 for ouzhiDataChild in ouzhiData1:
                     print "------------------------%s------------------------" % (i * 30 + j)
                     print ouzhiDataChild['id']
-                    print ouzhiDataChild.contents[3]['title']
+                    insertSql ="INSERT INTO `oupei` (`matchinfoid`, `companyid`, `op_s`, `op_p`, `op_f`, `ret`, `kl_s`, `kl_p`, `kl_f`, `update_time`) VALUES ('1', '1', '1', '1', '1', '1', '1', '1', '1', '2017-05-03 18:56:05')"
+                    insertContext = []
+                    companyName = ouzhiDataChild.find_all('td',class_='tb_plgs')
+                    print companyName[0]['title']
+                    companyId = self.selectRetCompanyId(companyName[0]['title'])
+                    insertContext.append(fid)
+                    insertContext.append(companyId)
                     webjson = openUrls.getWebContent(ConfigStart.ANALYSISOUZHIDATAURL%(fid,ouzhiDataChild['id']),1)
                     webjson=json.loads(webjson)
                     print webjson
+                    kellyjson = openUrls.getWebContent(ConfigStart.ANALYSISOUZHIKELLYURL%(fid,ouzhiDataChild['id']),1)
+                    kellyjson = json.loads(kellyjson)
+                    index=0
                     for webjsonChild in webjson:
-                        print webjsonChild[0]
-                        #开始写入数据到库中 TODO:
-
+                        indexT=0
+                        for kellyjsonChild in kellyjson:
+                            if index ==indexT:
+                                #TODO:添加数据到数据库中
+                                break
+                                pass
+                            pass
+                            indexT+=1
+                        pass
+                        index +=1
+                    pass
                     j += 1
                     pass
                 i +=1
@@ -201,5 +218,5 @@ class AnalysisData():
 pass
 if __name__ == '__main__':
     analysis = AnalysisData()
-    #analysis.getDataFromMatchInfo(1000)
-    analysis.selectRetCompanyId("立博")
+    analysis.getDataFromMatchInfo(2000)
+    #analysis.selectRetCompanyId("立博")

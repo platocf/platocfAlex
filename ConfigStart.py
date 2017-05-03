@@ -101,6 +101,8 @@ ANALYSISDATAURL = "http://odds.500.com/fenxi/shuju-%s.shtml"
 ANALYSISOUZHIURL='http://odds.500.com/fenxi1/ouzhi.php?id=%s&ctype=1&start=%s&r=1&style=0&guojia=0&chupan=1'
 #欧指各公司数据
 ANALYSISOUZHIDATAURL='http://odds.500.com/fenxi1/json/ouzhi.php?_=1493729244144&fid=%s&cid=%s&r=1&type=europe'
+#欧指各公司凯利指数
+ANALYSISOUZHIKELLYURL='http://odds.500.com/fenxi1/json/ouzhi.php?_=1493807219440&fid=%s&cid=%s&r=1&type=kelly'
 #让球指数分析
 ANALYSISRANGQIU='http://odds.500.com/fenxi1/rangqiu.php?id=%s&ctype=1&start=%s&r=1&style=0&guojia=0&chupan=1&lot=all'
 #让球各公司指数
