@@ -16,9 +16,8 @@ class AnalysisData():
     def __init__(self):
         pass
     pass
-    def selectRetCompanyId(self,name):
-        mysql = Mysql()
-        selectSql = "select p_id as result from company where company_name =%s "
+    def selectRetCompanyId(self,name,mysql):
+        selectSql = "select p_id as result from company where company_name =BINARY%s "
         insertSql = "insert into company(company_name) values(%s)"
         resCount=mysql.getOne(selectSql,name)
         if(resCount==False):
@@ -26,8 +25,13 @@ class AnalysisData():
             pass
         pass
         resCount = mysql.getOne(selectSql, name)
-        mysql.dispose()
-        return resCount['result']
+        resvalue=0
+        if resCount==False:
+            print "company表的字段可能不够长"
+            pass
+        else:
+            resvalue=resCount['result']
+        return resvalue
         pass
     pass
     def getDataFromMatchInfo(self,limit):
@@ -56,16 +60,16 @@ class AnalysisData():
                 for ouzhiDataChild in ouzhiData1:
                     print "------------------------%s------------------------" % (i * 30 + j)
                     print ouzhiDataChild['id']
-                    insertSql ="INSERT INTO `oupei` (`matchinfoid`, `companyid`, `op_s`, `op_p`, `op_f`, `ret`, `kl_s`, `kl_p`, `kl_f`, `update_time`) VALUES ('1', '1', '1', '1', '1', '1', '1', '1', '1', '2017-05-03 18:56:05')"
+                    insertSql ="INSERT INTO `oupei` (`matchinfoid`, `companyid`, `op_s`, `op_p`, `op_f`, `ret`, `kl_s`, `kl_p`, `kl_f`, `update_time`) VALUES  "
                     insertContext = []
                     companyName = ouzhiDataChild.find_all('td',class_='tb_plgs')
                     print companyName[0]['title']
-                    companyId = self.selectRetCompanyId(companyName[0]['title'])
-                    insertContext.append(fid)
-                    insertContext.append(companyId)
+                    companyId = self.selectRetCompanyId(companyName[0]['title'],mysql)
                     webjson = openUrls.getWebContent(ConfigStart.ANALYSISOUZHIDATAURL%(fid,ouzhiDataChild['id']),1)
                     webjson=json.loads(webjson)
                     print webjson
+                    if webjson.__len__()==0:
+                        continue
                     kellyjson = openUrls.getWebContent(ConfigStart.ANALYSISOUZHIKELLYURL%(fid,ouzhiDataChild['id']),1)
                     kellyjson = json.loads(kellyjson)
                     index=0
@@ -74,6 +78,23 @@ class AnalysisData():
                         for kellyjsonChild in kellyjson:
                             if index ==indexT:
                                 #TODO:添加数据到数据库中
+                                if index==0:
+                                    insertSql += "(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+                                    pass
+                                else:
+                                    insertSql += ",(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+                                    pass
+                                insertContext.append(fid)
+                                insertContext.append(companyId)
+                                insertContext.append(webjsonChild[0])
+                                insertContext.append(webjsonChild[1])
+                                insertContext.append(webjsonChild[2])
+                                insertContext.append(webjsonChild[3])
+                                insertContext.append(kellyjsonChild[0])
+                                insertContext.append(kellyjsonChild[1])
+                                insertContext.append(kellyjsonChild[2])
+                                insertContext.append(kellyjsonChild[3])
+                                pass
                                 break
                                 pass
                             pass
@@ -81,6 +102,7 @@ class AnalysisData():
                         pass
                         index +=1
                     pass
+                    mysql.update(insertSql,insertContext)
                     j += 1
                     pass
                 i +=1
