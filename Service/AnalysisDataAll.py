@@ -43,14 +43,25 @@ class AnalysisData():
             return
         for resultChild in  resultSelect:
             fid = resultChild['fid']
+            print fid
             i = 0
             '''
             =====================================欧赔开始================================================
             '''
+            count_cursor = 0
             while True:
+                if count_cursor!=i*30:
+                    break
                 url = ConfigStart.ANALYSISOUZHIURL % (fid,i * 30)
+                print "=============================================%s==================================="%url
                 openUrls = OpenUrls()
-                webcontext = openUrls.getWebContent(url, i)
+                while True:
+                    webcontext = openUrls.getWebContent(url,mysql,i)
+                    if webcontext.find('500.com')==-1:
+                        continue
+                        pass
+                    else:
+                        break
                 soup = BeautifulSoup(webcontext, "html.parser")
                 ouzhiData1 = soup.find_all(ttl='zy')
                 if ouzhiData1.__len__() == 0:
@@ -58,20 +69,41 @@ class AnalysisData():
                     break
                 j = 0
                 for ouzhiDataChild in ouzhiData1:
-                    print "------------------------%s------------------------" % (i * 30 + j)
+                    print "------------------------%s------------------------" % (i * 30 + j+1)
+                    count_cursor=i * 30 + j+1
                     print ouzhiDataChild['id']
                     insertSql ="INSERT INTO `oupei` (`matchinfoid`, `companyid`, `op_s`, `op_p`, `op_f`, `ret`, `kl_s`, `kl_p`, `kl_f`, `update_time`) VALUES  "
                     insertContext = []
                     companyName = ouzhiDataChild.find_all('td',class_='tb_plgs')
                     print companyName[0]['title']
                     companyId = self.selectRetCompanyId(companyName[0]['title'],mysql)
-                    webjson = openUrls.getWebContent(ConfigStart.ANALYSISOUZHIDATAURL%(fid,ouzhiDataChild['id']),1)
-                    webjson=json.loads(webjson)
+                    webjson=0
+                    while True:
+                        try:
+                            webjson = openUrls.useProxy(ConfigStart.ANALYSISOUZHIDATAURL%(fid,ouzhiDataChild['id']),mysql,0)
+                            webjson=json.loads(webjson)
+                            break
+                            pass
+                        except Exception, e:
+                            continue
+                            pass
+                        pass
+                    pass
                     print webjson
                     if webjson.__len__()==0:
                         continue
-                    kellyjson = openUrls.getWebContent(ConfigStart.ANALYSISOUZHIKELLYURL%(fid,ouzhiDataChild['id']),1)
-                    kellyjson = json.loads(kellyjson)
+                    kellyjson=0
+                    while True:
+                        try:
+                            kellyjson = openUrls.useProxy(ConfigStart.ANALYSISOUZHIKELLYURL % (fid, ouzhiDataChild['id']), mysql, 0)
+                            kellyjson = json.loads(kellyjson)
+                            break
+                            pass
+                        except Exception, e:
+                            continue
+                            pass
+                        pass
+                    pass
                     index=0
                     for webjsonChild in webjson:
                         indexT=0
@@ -226,14 +258,14 @@ class AnalysisData():
             '''
                 ===========================比分指数结束================技术统计开始==============================
             '''
-            url = ConfigStart.ANALYSISJISHU % (535904)
-            openUrls = OpenUrls()
-            webcontext = openUrls.getWebContent(url, 0)
-            soup = BeautifulSoup(webcontext, "html.parser")
-            ouzhiData1 = soup.find_all(class_=re.compile('team-statis'))
-            if ouzhiData1.__len__() == 0:
-                print '获取完毕'
-                pass
+            # url = ConfigStart.ANALYSISJISHU % (535904)
+            # openUrls = OpenUrls()
+            # webcontext = openUrls.getWebContent(url, 0)
+            # soup = BeautifulSoup(webcontext, "html.parser")
+            # ouzhiData1 = soup.find_all(class_=re.compile('team-statis'))
+            # if ouzhiData1.__len__() == 0:
+            #     print '获取完毕'
+            #     pass
         pass
         pass
     pass

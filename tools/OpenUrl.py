@@ -46,57 +46,72 @@ angenlist =['Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like
 'NOKIA5700/ UCWEB7.0.2.37/28/999                                                                                                                                                                           ',
 'Openwave/ UCWEB7.0.2.37/28/999                                                                                                                                                                            ',
 'Mozilla/4.0 (compatible; MSIE 6.0; ) Opera/UCWEB7.0.2.37/28/999']
+#设置503错误打上标记默认15分钟以后解除使用 e.code
+#设置502错误打上标记默认5分钟以后使用      e.code
+#设置You need to purchase or upgrade your license标记10分钟以后使用
 class OpenUrls():
     def __init__(self):
         pass
     pass
-    def getWebContent(self,url,i):
+    def getWebContent(self,url,mysql,i):
+        #每个连接当前使用次数
+        perCountList=[]
+        perIPPort=[]
         print url
         webcontext=''
         while True:
             try:
-                print time.time()
-                test1 = time.time()
-                print "%.10f"%(random.random())
-                test2=str(test1).replace('.','')+str(random.randint(0,10))
-                test3=test1+4000
-                test3=str(test3).replace('.','')+str(random.randint(0,10))
-                cookie = cookielib.MozillaCookieJar()
+                # print time.time()
+                # test1 = time.time()
+                # print "%.10f"%(random.random())
+                # test2=str(test1).replace('.','')+str(random.randint(0,10))
+                # test3=test1+4000
+                # test3=str(test3).replace('.','')+str(random.randint(0,10))
+                #cookie = cookielib.MozillaCookieJar()
                 # 从文件中的读取cookie内容到变量
-                cookie.load(os.path.dirname(os.path.realpath(__file__))+'\\cookies.txt', ignore_discard=True, ignore_expires=True)
-                for item in cookie:
-                    #TODO:修改session值
-                    if item.name == 'sdc_userflag':
-                        item.value ="%s::%s::%s"%(test2,test3,random.randint(0,10))
-                    if item.name =='sdc_session':
-                        item.value=test2
-                    if item.name == 'motion_id':
-                        item.value=test2+("%.10f"%(random.random()))
+                # cookie.load(os.path.dirname(os.path.realpath(__file__))+'\\cookies.txt', ignore_discard=True, ignore_expires=True)
+                # for item in cookie:
+                #     #TODO:修改session值
+                #     if item.name == 'sdc_userflag':
+                #         item.value ="%s::%s::%s"%(test2,test3,random.randint(0,10))
+                #     if item.name =='sdc_session':
+                #         item.value=test2
+                #     if item.name == 'motion_id':
+                #         item.value=test2+("%.10f"%(random.random()))
                     #print 'name:' + item.name + '-value:' + item.value
-                opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cookie))
+                #opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cookie))
                 request = urllib2.Request(url)
-                agentSingle = random.choice(angenlist)
+                #agentSingle = random.choice(angenlist)
                 request.add_header("User-Agent",
-                                   "%s" % (agentSingle))
+                                   "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36" )
                 request.add_header("Accept",
                                    "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8")
                 request.add_header("Accept-Encoding", "gzip, deflate, sdch")
-                request.add_header("X-Requested-With","XMLHttpRequest")
-                webfile=opener.open(request)
-                #webfile = urllib2.urlopen(request)
-                webcontext = webfile.read()
-                webcontext = gzip.GzipFile(fileobj=StringIO.StringIO(webcontext), mode="r")
-                if i == 0:
-                    webcontext = webcontext.read().decode('gbk')
-                else:
-                    webcontext = webcontext.read().decode('utf8')
+                #request.add_header("Upgrade-Insecure-Requests","1")
+                #request.add_header("X-Requested-With","XMLHttpRequest")
+                #webfile=opener.open(request)
+                webfile = urllib2.urlopen(request).read()
+                #webcontext = webfile.read()
+                useCharset = chardet_detect_str_encoding(webfile)
+                if useCharset==None or useCharset == '':
+                    if i == 0:
+                        useCharset = 'gbk'
+                        pass
+                    else:
+                        useCharset = 'utf8'
+                webfile = gzip.GzipFile(fileobj=StringIO.StringIO(webfile), mode="r")
+                webfile = webfile.read().decode(useCharset)
+                webcontext=webfile
+                time.sleep(1)
                 pass
                 break
             except Exception, e:
-                print 'try again....'
-                time.sleep(60*3)
-                continue
+                print '%stry again....切换到代理中.....'%e
+                webcontext=self.useProxy(url,mysql,i)
+                break
+
         pass
+        print webcontext
         return webcontext
     pass
     def getWebContentJson(self,url):
@@ -115,27 +130,78 @@ class OpenUrls():
 
     pass
     # '211.159.220.48','808'      '84.244.7.32','8081'   '222.85.39.16','808'
-    def useProxy(self,url,i=0):
-        #resultIP=mysql.getAll("select * from proxyip")
-        #getint=random.randint(0,resultIP.__len__() -1)
-        cookies = urllib2.HTTPCookieProcessor()
-        proxyHandler = urllib2.ProxyHandler({"http": '%s' % ('183.88.5.124:8080')})
-        opener = urllib2.build_opener(cookies, proxyHandler)
-        agentSingle = random.choice(angenlist)
-        opener.addheaders = [('User-Agent',
-                              'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36'),
-                             ("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8"),("Accept-Encoding", "gzip, deflate, sdch"),("X-Requested-With","XMLHttpRequest")]
-        req = opener.open(url,timeout=5)
-        webcontext = req.read()
-        chardet_detect_str_encoding(webcontext)
-        print webcontext
-        webcontext = gzip.GzipFile(fileobj=StringIO.StringIO(webcontext), mode="r")
-        if i == 0:
-            webcontext = webcontext.read().decode('TIS-620')
-        else:
-            webcontext = webcontext.read().decode('utf8')
-        pass
-        print webcontext
+    def useProxy(self,url,mysql,i):
+        resultIP=mysql.getAll("SELECT *,t.`accessible`/t.usecount AS res FROM proxyip t WHERE t.`accessible`/t.usecount>0.1 ORDER BY res DESC")
+        proxyIP=""
+        webcontext=''
+        #当前IP尝试次数
+        tryIndex=0
+        for resultIPChild in resultIP:
+            proxyIP=resultIPChild['address_port']
+            while True:
+                try:
+                    #更新代理使用次数
+                    mysql.update('UPDATE proxyip SET `usecount`=`usecount`+1 where p_id=%s', resultIPChild['p_id'])
+                    cookies = urllib2.HTTPCookieProcessor()
+                    proxyHandler = urllib2.ProxyHandler({"http": '%s' % (proxyIP)})
+                    opener = urllib2.build_opener(cookies, proxyHandler)
+                    agentSingle = random.choice(angenlist)
+                    opener.addheaders = [('User-Agent',
+                                          'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36'),
+                                         ("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8"),("Accept-Encoding", "gzip, deflate, sdch"),("X-Requested-With","XMLHttpRequest")]
+                    tryIndex +=1
+                    req = opener.open(url,timeout=5)
+                    webcontext = req.read()
+                    mysql.update('UPDATE proxyip SET `accessible`=`accessible`+1 where p_id=%s', resultIPChild['p_id'])
+                    useCharset=chardet_detect_str_encoding(webcontext)
+                    if useCharset==None or useCharset=='':
+                        if i==0:
+                            useCharset='gbk'
+                            pass
+                        else:
+                            useCharset='utf8'
+                    #print webcontext
+                    if(useCharset!='ascii'):
+                        webcontext = gzip.GzipFile(fileobj=StringIO.StringIO(webcontext), mode="r")
+                        webcontext = webcontext.read().decode(useCharset)
+                        pass
+                    else:
+                        pass
+                    pass
+                    print webcontext
+                    break
+                except Exception, e:
+                    if tryIndex >=5:
+                        tryIndex=0
+                        print "当前代理不可用，正在切换.....%s"%e
+                        break
+                        pass
+                    else:
+                        print "当前继续尝试此链接,第%s次"%tryIndex
+                        if i==0:
+                            i=1
+                            pass
+                        else:
+                            i=0
+                            pass
+                        continue
+            if webcontext!='' and (type(webcontext) != gzip.GzipFile) and webcontext.find('exceeds the license')==-1:
+                print type(webcontext) == str
+                print "返回%s"%webcontext
+                break
+                pass
+            pass
+            mysql.update('UPDATE proxyip SET `accessible`=`accessible`-1 where p_id=%s', resultIPChild['p_id'])
+            if type(webcontext) == gzip.GzipFile :
+                if i == 0:
+                    i = 1
+                    pass
+                else:
+                    i = 0
+                    pass
+                pass
+            pass
+        print "当前代理不可用，正在切换....."
         return webcontext
     pass
 

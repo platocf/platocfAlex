@@ -16,7 +16,8 @@ import cookielib
 # sys.setdefaultencoding('gbk')
 s=datetime.datetime.strptime("2011-1-1 3:00", '%Y-%m-%d %H:%M')
 print s
-
+str1="888"
+c = type(str1)
 
 request = urllib2.Request("http://www.500.com")
 opener = urllib2.build_opener(urllib2.HTTPHandler(debuglevel=1))#为了开启回显，需要手动构造一个HTTPHandler

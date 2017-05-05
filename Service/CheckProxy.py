@@ -28,22 +28,30 @@ grasp_num = 0
 req = urllib2.Request('http://api.xicidaili.com/free2016.txt', None, req_header)
 html_doc = urllib2.urlopen(req, None, req_timeout).read()
 _arr=html_doc.split('\r\n')
-for _arrChild in _arr:
-    proxyHandler = urllib2.ProxyHandler({"http": r'%s' % (_arrChild)})
-    opener = urllib2.build_opener(cookies, proxyHandler)
-    opener.addheaders = [('User-Agent',
-                          'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.63 Safari/537.36')]
-    t1 = time.time()
-    try:
-        req = opener.open(testUrl, timeout=req_timeout)
-        result = req.read()
-        charsetCur=chardet_detect_str_encoding(result)
-        timeused = time.time() - t1
-        insertSql = "insert into proxyip(address_port,charsetcur) values(%s,%s)"
-        l=[]
-        l.append(_arrChild)
-        l.append(charsetCur)
-        print mysql.update(insertSql,l)
-        mysql.end()
-    except Exception,e:
-        print e
+while True:
+    for _arrChild in _arr:
+        selectSql = "select count(*) as result from proxyip where address_port=%s "
+        res_select=mysql.getOne(selectSql,_arrChild)
+        if res_select['result'] == 0:
+            proxyHandler = urllib2.ProxyHandler({"http": r'%s' % (_arrChild)})
+            opener = urllib2.build_opener(cookies, proxyHandler)
+            opener.addheaders = [('User-Agent',
+                                  'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.63 Safari/537.36')]
+            t1 = time.time()
+            try:
+                req = opener.open(testUrl, timeout=req_timeout)
+                result = req.read()
+                charsetCur=chardet_detect_str_encoding(result)
+                timeused = time.time() - t1
+                insertSql = "insert into proxyip(address_port) values(%s)"
+                l=[]
+                l.append(_arrChild)
+                print mysql.update(insertSql,l)
+                mysql.end()
+            except Exception,e:
+                print e
+                pass
+            pass
+        else:
+            continue
+    time.sleep(5*60)
