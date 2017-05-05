@@ -23,6 +23,7 @@ def chardet_detect_str_encoding(inputStr):
     detectedEncoding = detectedEncodingDict['encoding'];
     print "That is, we have %d%% confidence to say that the input string encoding is %s" % (
     int(detectedEncodingDict['confidence'] * 100), detectedEncoding);
+    return detectedEncoding
 
 
 if __name__ == '__main__':

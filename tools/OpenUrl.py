@@ -2,6 +2,7 @@
 import urllib,urllib2
 import gzip, StringIO
 from MySqlDB.MySqlConn import Mysql
+from Service.ShowCharType import *
 import random
 import cookielib
 import time
@@ -56,6 +57,7 @@ class OpenUrls():
             try:
                 print time.time()
                 test1 = time.time()
+                print "%.10f"%(random.random())
                 test2=str(test1).replace('.','')+str(random.randint(0,10))
                 test3=test1+4000
                 test3=str(test3).replace('.','')+str(random.randint(0,10))
@@ -68,6 +70,8 @@ class OpenUrls():
                         item.value ="%s::%s::%s"%(test2,test3,random.randint(0,10))
                     if item.name =='sdc_session':
                         item.value=test2
+                    if item.name == 'motion_id':
+                        item.value=test2+("%.10f"%(random.random()))
                     #print 'name:' + item.name + '-value:' + item.value
                 opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cookie))
                 request = urllib2.Request(url)
@@ -77,6 +81,7 @@ class OpenUrls():
                 request.add_header("Accept",
                                    "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8")
                 request.add_header("Accept-Encoding", "gzip, deflate, sdch")
+                request.add_header("X-Requested-With","XMLHttpRequest")
                 webfile=opener.open(request)
                 #webfile = urllib2.urlopen(request)
                 webcontext = webfile.read()
@@ -89,6 +94,7 @@ class OpenUrls():
                 break
             except Exception, e:
                 print 'try again....'
+                time.sleep(60*3)
                 continue
         pass
         return webcontext
@@ -108,21 +114,24 @@ class OpenUrls():
         pass
 
     pass
+    # '211.159.220.48','808'      '84.244.7.32','8081'   '222.85.39.16','808'
     def useProxy(self,url,i=0):
         #resultIP=mysql.getAll("select * from proxyip")
         #getint=random.randint(0,resultIP.__len__() -1)
         cookies = urllib2.HTTPCookieProcessor()
-        proxyHandler = urllib2.ProxyHandler({"http": r'http://%s:%s' % ('211.62.158.36','8080')})
+        proxyHandler = urllib2.ProxyHandler({"http": '%s' % ('183.88.5.124:8080')})
         opener = urllib2.build_opener(cookies, proxyHandler)
         agentSingle = random.choice(angenlist)
         opener.addheaders = [('User-Agent',
                               'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36'),
-                             ("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8"),("Accept-Encoding", "gzip, deflate, sdch")]
-        req = opener.open(url,timeout=20)
+                             ("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8"),("Accept-Encoding", "gzip, deflate, sdch"),("X-Requested-With","XMLHttpRequest")]
+        req = opener.open(url,timeout=5)
         webcontext = req.read()
+        chardet_detect_str_encoding(webcontext)
+        print webcontext
         webcontext = gzip.GzipFile(fileobj=StringIO.StringIO(webcontext), mode="r")
         if i == 0:
-            webcontext = webcontext.read().decode('gbk')
+            webcontext = webcontext.read().decode('TIS-620')
         else:
             webcontext = webcontext.read().decode('utf8')
         pass
@@ -149,5 +158,5 @@ if __name__ == '__main__':
     #mysql =Mysql()
     openUrl = OpenUrls()
     #openUrl.saveCookie()
-    openUrl.getWebContent("http://192.168.9.33/Smartbj/index.html",1)
-    #openUrl.useProxy("http://politics.people.com.cn/n1/2017/0503/c1024-29252322.html")
+    #openUrl.getWebContent("http://192.168.9.33/Smartbj/index.html",1)
+    openUrl.useProxy("http://odds.500.com/fenxi1/json/ouzhi.php?_=1493729244144&fid=449834&cid=513&r=1&type=europe",0)
