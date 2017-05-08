@@ -30,6 +30,7 @@ html_doc = urllib2.urlopen(req, None, req_timeout).read()
 _arr=html_doc.split('\r\n')
 while True:
     for _arrChild in _arr:
+        print _arrChild
         selectSql = "select count(*) as result from proxyip where address_port=%s "
         res_select=mysql.getOne(selectSql,_arrChild)
         if res_select['result'] == 0:
@@ -54,4 +55,4 @@ while True:
             pass
         else:
             continue
-    time.sleep(5*60)
+    time.sleep(10*60)

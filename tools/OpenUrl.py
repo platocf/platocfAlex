@@ -106,7 +106,7 @@ class OpenUrls():
                 pass
                 break
             except Exception, e:
-                print '%stry again....切换到代理中.....'%e
+                print '%stry again....从本机切换到代理中.....'%e
                 webcontext=self.useProxy(url,mysql,i)
                 break
 
@@ -142,6 +142,7 @@ class OpenUrls():
                 try:
                     #更新代理使用次数
                     mysql.update('UPDATE proxyip SET `usecount`=`usecount`+1 where p_id=%s', resultIPChild['p_id'])
+                    mysql.end()
                     cookies = urllib2.HTTPCookieProcessor()
                     proxyHandler = urllib2.ProxyHandler({"http": '%s' % (proxyIP)})
                     opener = urllib2.build_opener(cookies, proxyHandler)
@@ -153,6 +154,7 @@ class OpenUrls():
                     req = opener.open(url,timeout=5)
                     webcontext = req.read()
                     mysql.update('UPDATE proxyip SET `accessible`=`accessible`+1 where p_id=%s', resultIPChild['p_id'])
+                    mysql.end()
                     useCharset=chardet_detect_str_encoding(webcontext)
                     if useCharset==None or useCharset=='':
                         if i==0:
@@ -192,6 +194,7 @@ class OpenUrls():
                 pass
             pass
             mysql.update('UPDATE proxyip SET `accessible`=`accessible`-1 where p_id=%s', resultIPChild['p_id'])
+            mysql.end()
             if type(webcontext) == gzip.GzipFile :
                 if i == 0:
                     i = 1

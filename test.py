@@ -14,6 +14,13 @@ from tools.OpenUrl import *
 import cookielib
 # reload(sys)
 # sys.setdefaultencoding('gbk')
+
+
+
+def kelly(s,p,f):
+    print 1.0/(1.0/s+1.0/p+1.0/f)
+    pass
+kelly(2.84,3.4,2.2)
 s=datetime.datetime.strptime("2011-1-1 3:00", '%Y-%m-%d %H:%M')
 print s
 str1="888"

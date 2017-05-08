@@ -49,18 +49,19 @@ class AnalysisData():
             =====================================欧赔开始================================================
             '''
             count_cursor = 0
-            while True:
+            while False:
                 if count_cursor!=i*30:
                     break
                 url = ConfigStart.ANALYSISOUZHIURL % (fid,i * 30)
                 print "=============================================%s==================================="%url
                 openUrls = OpenUrls()
-                while True:
-                    webcontext = openUrls.getWebContent(url,mysql,i)
-                    if webcontext.find('500.com')==-1:
-                        continue
-                        pass
-                    else:
+                webcontext = openUrls.getWebContent(url,mysql,i)
+                if webcontext.find('500.com')==-1 and webcontext!='':
+                    print "查看webcontext:%s"%webcontext
+                    continue
+                    pass
+                else:
+                    if webcontext =='':
                         break
                 soup = BeautifulSoup(webcontext, "html.parser")
                 ouzhiData1 = soup.find_all(ttl='zy')
@@ -143,10 +144,20 @@ class AnalysisData():
             ===========================欧赔结束===============让球指数开始==================================
             '''
             i=0
-            while False:
+            count_cursor2=0
+            while True:
+                if count_cursor2!=i*30:
+                    break
                 url = ConfigStart.ANALYSISRANGQIU % (fid,i * 30)
                 openUrls = OpenUrls()
-                webcontext = openUrls.getWebContent(url, i)
+                webcontext = openUrls.getWebContent(url,mysql,i)
+                if webcontext.find('rangqiu')==-1 and webcontext!='':
+                    print "查看——球指数——webcontext:%s"%webcontext
+                    continue
+                    pass
+                else:
+                    if webcontext =='':
+                        break
                 soup = BeautifulSoup(webcontext, "html.parser")
                 ouzhiData1 = soup.find_all(ttl='zy')
                 if ouzhiData1.__len__() == 0:
@@ -154,15 +165,48 @@ class AnalysisData():
                     break
                 j = 0
                 for ouzhiDataChild in ouzhiData1:
-                    print "------------------------%s------------------------" % (i * 30 + j)
+                    print "------------------------%s------------------------" % (i * 30 + j+1)
+                    count_cursor2=i * 30 + j+1
                     print ouzhiDataChild['cid']
                     print ouzhiDataChild.contents[3]['title']
-                    webjson = openUrls.getWebContent(ConfigStart.ANALYSISRANGQIUDATAURL%(fid,ouzhiDataChild['cid'],ouzhiDataChild.contents[5].string),1)
-                    webjson=json.loads(webjson)
+                    companyId = self.selectRetCompanyId(ouzhiDataChild.contents[3]['title'], mysql)
+                    insertSql = "INSERT INTO `rangqiu` (`matchinfoid`,`rangqiucount`,`companyid`, `rq_s`, `rq_p`, `rq_f`, `ret`,`update_time`) VALUES  "
+                    insertContext = []
+                    webjson = 0
+                    while True:
+                        try:
+                            webjson = openUrls.useProxy(ConfigStart.ANALYSISRANGQIUDATAURL % (fid, ouzhiDataChild['cid'], ouzhiDataChild.contents[5].string),mysql, 1)
+                            webjson = json.loads(webjson)
+                            break
+                            pass
+                        except Exception, e:
+                            continue
+                            pass
+                        pass
+                    pass
                     print webjson
+                    index=0
                     for webjsonChild in webjson:
                         print webjsonChild[0]
                         #开始写入数据到库中 TODO:
+                        if index == 0:
+                            insertSql += "(%s, %s, %s, %s, %s, %s, %s, %s)"
+                            index += 1
+                            pass
+                        else:
+                            insertSql += ",(%s, %s, %s, %s, %s, %s, %s, %s)"
+                            pass
+                        insertContext.append(fid)
+                        insertContext.append(ouzhiDataChild['handicapline'])
+                        insertContext.append(companyId)
+                        insertContext.append(webjsonChild[0])
+                        insertContext.append(webjsonChild[1])
+                        insertContext.append(webjsonChild[2])
+                        insertContext.append(webjsonChild[3])
+                        insertContext.append(webjsonChild[4])
+                        pass
+                    pass
+                    mysql.update(insertSql, insertContext)
                     j += 1
                     pass
                 i += 1
