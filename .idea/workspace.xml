@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="78fa3d0a-b822-4896-9ad5-fff19fa59c77" name="Default" comment="" />
+    <list default="true" id="78fa3d0a-b822-4896-9ad5-fff19fa59c77" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ConfigStart.py" afterPath="$PROJECT_DIR$/ConfigStart.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MySqlDB/Config.py" afterPath="$PROJECT_DIR$/MySqlDB/Config.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Service/AnalysisDataAll.py" afterPath="$PROJECT_DIR$/Service/AnalysisDataAll.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Service/CheckProxy.py" afterPath="$PROJECT_DIR$/Service/CheckProxy.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/OpenUrl.py" afterPath="$PROJECT_DIR$/tools/OpenUrl.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/数据抓取规则" afterPath="$PROJECT_DIR$/数据抓取规则" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,8 +23,8 @@
       <file leaf-file-name="ConfigStart.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ConfigStart.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="369">
-              <caret line="118" column="56" lean-forward="true" selection-start-line="118" selection-start-column="56" selection-end-line="118" selection-end-column="56" />
+            <state relative-caret-position="264">
+              <caret line="124" column="58" lean-forward="true" selection-start-line="124" selection-start-column="58" selection-end-line="124" selection-end-column="58" />
               <folding />
             </state>
           </provider>
@@ -25,8 +33,8 @@
       <file leaf-file-name="AnalysisDataAll.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Service/AnalysisDataAll.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="162" column="45" lean-forward="true" selection-start-line="162" selection-start-column="45" selection-end-line="162" selection-end-column="45" />
+            <state relative-caret-position="321">
+              <caret line="585" column="31" lean-forward="true" selection-start-line="585" selection-start-column="24" selection-end-line="585" selection-end-column="31" />
               <folding>
                 <element signature="e#15#33#0" expanded="true" />
               </folding>
@@ -34,11 +42,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Config.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MySqlDB/Config.py">
+      <file leaf-file-name="数据抓取规则" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/数据抓取规则">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+            <state relative-caret-position="219">
+              <caret line="304" column="10" lean-forward="true" selection-start-line="304" selection-start-column="10" selection-end-line="304" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -47,10 +55,10 @@
       <file leaf-file-name="OpenUrl.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tools/OpenUrl.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-828">
-              <caret line="139" column="49" lean-forward="true" selection-start-line="139" selection-start-column="49" selection-end-line="139" selection-end-column="49" />
+            <state relative-caret-position="225">
+              <caret line="98" column="28" lean-forward="true" selection-start-line="98" selection-start-column="28" selection-end-line="98" selection-end-column="28" />
               <folding>
-                <element signature="e#15598#16168#0" expanded="false" />
+                <element signature="e#15602#16172#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -59,8 +67,8 @@
       <file leaf-file-name="ShowCharType.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Service/ShowCharType.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+            <state relative-caret-position="19">
+              <caret line="1" column="23" lean-forward="false" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -70,17 +78,7 @@
         <entry file="file://$PROJECT_DIR$/test.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="133">
-              <caret line="7" column="11" lean-forward="true" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CheckProxy.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Service/CheckProxy.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="5" column="34" lean-forward="true" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="34" />
+              <caret line="7" column="11" lean-forward="false" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -158,25 +156,25 @@
         <option value="$PROJECT_DIR$/tools/__init__.py" />
         <option value="$PROJECT_DIR$/Service/test.py" />
         <option value="$PROJECT_DIR$/Service/AnalysisData.py" />
-        <option value="$PROJECT_DIR$/数据抓取规则" />
-        <option value="$PROJECT_DIR$/ConfigStart.py" />
         <option value="$PROJECT_DIR$/Service/JifenToMatchUrl.py" />
         <option value="$PROJECT_DIR$/Service/cookie.txt" />
         <option value="$PROJECT_DIR$/Service/GetProxyToMysql.py" />
         <option value="$PROJECT_DIR$/Service/ShowCharType.py" />
+        <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/MySqlDB/Config.py" />
         <option value="$PROJECT_DIR$/Service/CheckProxy.py" />
         <option value="$PROJECT_DIR$/tools/OpenUrl.py" />
-        <option value="$PROJECT_DIR$/test.py" />
+        <option value="$PROJECT_DIR$/ConfigStart.py" />
+        <option value="$PROJECT_DIR$/数据抓取规则" />
         <option value="$PROJECT_DIR$/Service/AnalysisDataAll.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="x" value="-4" />
+    <option name="y" value="-4" />
+    <option name="width" value="1288" />
+    <option name="height" value="988" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -399,8 +397,8 @@
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Python.AnalysisDataAll" />
-        <item index="1" class="java.lang.String" itemvalue="Python.test" />
-        <item index="2" class="java.lang.String" itemvalue="Python.CheckProxy" />
+        <item index="1" class="java.lang.String" itemvalue="Python.CheckProxy" />
+        <item index="2" class="java.lang.String" itemvalue="Python.test" />
         <item index="3" class="java.lang.String" itemvalue="Python.OpenUrl" />
         <item index="4" class="java.lang.String" itemvalue="Python.GetProxyToMysql" />
       </list>
@@ -454,18 +452,19 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-4" y="-4" width="1288" height="988" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34355178" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34304932" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40803382" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40695068" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -499,6 +498,21 @@
           <line>23</line>
           <option name="timeStamp" value="250" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Service/AnalysisDataAll.py</url>
+          <line>556</line>
+          <option name="timeStamp" value="286" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Service/AnalysisDataAll.py</url>
+          <line>587</line>
+          <option name="timeStamp" value="288" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Service/AnalysisDataAll.py</url>
+          <line>577</line>
+          <option name="timeStamp" value="289" />
+        </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
@@ -507,24 +521,23 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="254" />
+      <option name="time" value="290" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
-        <watch expression="TABLE_LEAGUEYEARINFO[0].p_id" language="Python" />
-        <watch expression="ouzhiDataChild.contents[3]['title']" language="Python" />
-        <watch expression="ouzhiData1.__len__()" language="Python" />
-        <watch expression="detectedEncodingDict['confidence']" language="Python" />
-        <watch expression="detectedEncoding" language="Python" />
-        <watch expression="type(webcontext)" language="Python" />
-        <watch expression="type(webcontext) == gzip.GzipFile" language="Python" />
-        <watch expression="webcontext" language="Python" />
-        <watch expression="webcontext.read()" language="Python" />
-        <watch expression="webcontext" language="Python" />
-        <watch expression="webcontext.find('500.com')" language="Python" />
-        <watch expression="e" language="Python" />
-        <watch expression="e.code" language="Python" />
-        <watch expression="ouzhiDataChild['handicapline']" language="Python" />
+        <watch expression="soup.find_all(class_='game_time')[0].string.split('-')[0]" language="Python" />
+        <watch expression="re.sub(&quot;\D&quot;, &quot;&quot;, soup.find_all(class_='game_time')[0].string.split('-')[0])" language="Python" />
+        <watch expression="webjsonChild" language="Python" />
+        <watch expression="BeautifulSoup(webjson[9], &quot;html.parser&quot;).find_all('td')[1].stripped_strings" language="Python" />
+        <watch expression="BeautifulSoup(webjsonChild, &quot;html.parser&quot;).find_all('td')[3].string" language="Python" />
+        <watch expression="type(tdChild.span)" language="Python" />
+        <watch expression="type(None)==type(tdChild.span)" language="Python" />
+        <watch expression="type.NoneType" language="Python" />
+        <watch expression="ouzhiDataChild.a.string" language="Python" />
+        <watch expression="ouzhiDataChild" language="Python" />
+        <watch expression="tdChild.string" language="Python" />
+        <watch expression="tdChild.p" language="Python" />
+        <watch expression="ouzhiData1[0].find_all('td')" language="Python" />
       </configuration>
     </watches-manager>
   </component>
@@ -762,13 +775,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Service/GetProxyToMysql.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="722">
-          <caret line="43" column="39" lean-forward="true" selection-start-line="43" selection-start-column="39" selection-end-line="43" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Service/JifenToMatchUrl.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="57">
@@ -779,13 +785,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/数据抓取规则">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="466">
-          <caret line="278" column="140" lean-forward="false" selection-start-line="278" selection-start-column="140" selection-end-line="278" selection-end-column="140" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MySqlDB/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -793,42 +792,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Service/ShowCharType.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MySqlDB/Config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Service/CheckProxy.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="34" lean-forward="true" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ConfigStart.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="118" column="56" lean-forward="true" selection-start-line="118" selection-start-column="56" selection-end-line="118" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
-          <caret line="7" column="11" lean-forward="true" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
+          <caret line="7" column="11" lean-forward="false" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
           <folding />
         </state>
       </provider>
@@ -841,20 +808,70 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Service/GetProxyToMysql.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-133">
+          <caret line="16" column="62" lean-forward="false" selection-start-line="16" selection-start-column="62" selection-end-line="16" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MySqlDB/Config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" column="24" lean-forward="false" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Service/ShowCharType.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="1" column="23" lean-forward="false" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Service/CheckProxy.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="36" column="26" lean-forward="true" selection-start-line="36" selection-start-column="26" selection-end-line="36" selection-end-column="26" />
+          <folding>
+            <element signature="e#48#62#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/tools/OpenUrl.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-828">
-          <caret line="139" column="49" lean-forward="true" selection-start-line="139" selection-start-column="49" selection-end-line="139" selection-end-column="49" />
+        <state relative-caret-position="225">
+          <caret line="98" column="28" lean-forward="true" selection-start-line="98" selection-start-column="28" selection-end-line="98" selection-end-column="28" />
           <folding>
-            <element signature="e#15598#16168#0" expanded="false" />
+            <element signature="e#15602#16172#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ConfigStart.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="124" column="58" lean-forward="true" selection-start-line="124" selection-start-column="58" selection-end-line="124" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/数据抓取规则">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="304" column="10" lean-forward="true" selection-start-line="304" selection-start-column="10" selection-end-line="304" selection-end-column="10" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Service/AnalysisDataAll.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="162" column="45" lean-forward="true" selection-start-line="162" selection-start-column="45" selection-end-line="162" selection-end-column="45" />
+        <state relative-caret-position="321">
+          <caret line="585" column="31" lean-forward="true" selection-start-line="585" selection-start-column="24" selection-end-line="585" selection-end-column="31" />
           <folding>
             <element signature="e#15#33#0" expanded="true" />
           </folding>

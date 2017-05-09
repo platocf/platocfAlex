@@ -117,6 +117,12 @@ ANALYSISDAXIAO='http://odds.500.com/fenxi1/daxiao.php?id=%s&ctype=1&start=%s&r=1
 ANALYSISDAXIAODATAURL='http://odds.500.com/fenxi1/inc/daxiaoajax.php?fid=%s&id=%s&t=1493778774481'
 #比分指数分析
 ANALYSISBIFEN='http://odds.500.com/fenxi/bifen-%s.shtml'
+#进球指数对比分析
+ANALYSISJINQIUZHISHU='http://odds.500.com/fenxi/jqs-%s.shtml'
+#单双进球指数对比分析
+ANALYSISDANSHUANGJINQIUZHISHU='http://odds.500.com/fenxi/ds-%s.shtml'
+#半全场进球指数对比分析
+ANALYSISBQCZHISHU='http://odds.500.com/fenxi/bqc-%s.shtml'
 #技术统计
 ANALYSISJISHU='http://odds.500.com/fenxi/stat-%s.shtml'
 if __name__ == '__main__':

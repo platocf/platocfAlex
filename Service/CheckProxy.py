@@ -4,7 +4,7 @@ import urllib2
 import time
 from MySqlDB.MySqlConn import Mysql
 from Service.ShowCharType import *
-import sys  
+import sys
 reload(sys)  
 sys.setdefaultencoding( "utf-8" )
 mysql = Mysql()
@@ -25,10 +25,15 @@ cookies = urllib2.HTTPCookieProcessor()
 checked_num = 0  
 grasp_num = 0  
 
+
+
+
+
 req = urllib2.Request('http://api.xicidaili.com/free2016.txt', None, req_header)
 html_doc = urllib2.urlopen(req, None, req_timeout).read()
 _arr=html_doc.split('\r\n')
 while True:
+    file_object = open('proxy.log', 'w+')
     for _arrChild in _arr:
         print _arrChild
         selectSql = "select count(*) as result from proxyip where address_port=%s "
@@ -49,10 +54,13 @@ while True:
                 l.append(_arrChild)
                 print mysql.update(insertSql,l)
                 mysql.end()
+                file_object.write(_arrChild)
+                file_object.write('\r\n')
             except Exception,e:
                 print e
                 pass
             pass
         else:
             continue
+    file_object.close()
     time.sleep(10*60)

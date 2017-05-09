@@ -295,20 +295,20 @@ p_id            matchinfoid          companyid      left    handline    right   
 p_id            matchinfoid          companyid    e_1_0  e_2_0  e_2_1   e_3_0   e_3_1   e_3_2   e_4_0   e_4_1   e_4_2   e_4_3   e_0_0   e_1_1   e_2_2   e_3_3   e_4_4
 
 进球指数表 jinqiu
-当前索引号   对应matchinto的索引      0       1       2       3       4       5       6       7
-p_id            matchinfoid          e_0     e_1     e_2     e_3     e_4     e_5     e_6     e_7plus
+当前索引号   对应matchinto的索引              0       1       2       3       4       5       6       7
+p_id            matchinfoid   companyid       e_0     e_1     e_2     e_3     e_4     e_5     e_6     e_7plus
 
 单双进球指数表 dsjinqiu
-当前索引号   对应matchinto的索引      单          双        返还率     0-1     2-3     4-6     7+
-p_id            matchinfoid         single      double       ret       e01      e23     e47     e7plus
+当前索引号   对应matchinto的索引                  单          双        返还率     0-1     2-3     4-6     7+
+p_id            matchinfoid      companyid       single      double       ret       e01      e23     e47     e7plus
 
 半全场指数表 bqc
-当前索引号   对应matchinto的索引      胜胜  胜平  胜负  平胜  平平  平负  负胜    负平     负负
-p_id            matchinfoid           e11   e10   e1-1  e01    e00  e0-1  e-11    e-10    e-1-1
+当前索引号   对应matchinto的索引              胜胜  胜平  胜负  平胜  平平  平负  负胜    负平     负负
+p_id            matchinfoid    companyid       e11   e10   e1-1  e01    e00  e0-1  e-11    e-10    e-1-1
 
 当前场次的整队技术统计 teamstatistics
-当前表索引         对应场次id             进攻次数            危险进攻            射门次数            射正次数            任意球             角球                  越位              犯规              黄牌              红牌              控球率
-   p_id            matchinfoid          static_attack     static_dattack       static_shoot        static_shootz    static_freekick     static_corner       static_offside      static_foul     static_yelcrad      static_redcrad      static_control
+当前表索引         对应场次id     主队或客队(h或者g)        进攻次数            危险进攻            射门次数            射正次数            任意球             角球                  越位              犯规              黄牌              红牌              控球率
+   p_id            matchinfoid     horg            static_attack     static_dattack       static_shoot        static_shootz    static_freekick     static_corner       static_offside      static_foul     static_yelcrad      static_redcrad      static_control
 
 当前场次球员的技术统计 playerstatistics
 当前表索引    对应场次id      号码     球员   英文名称   位置      出场类型    时间     进球   助攻      射门   射正     传球    抢断     犯规   被侵犯    越位      解围    黄牌      红牌      扑救
