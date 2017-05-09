@@ -554,7 +554,7 @@ class AnalysisData():
             '''
                 ===========================半全场指数对比结束================数据统计开始==============================
             '''
-            url = ConfigStart.ANALYSISJISHU % (607180)
+            url = ConfigStart.ANALYSISJISHU % (238925)
             openUrls = OpenUrls()
             webcontext = openUrls.getWebContent(url,mysql,0)
             soup = BeautifulSoup(webcontext, "html.parser")
@@ -562,7 +562,7 @@ class AnalysisData():
             if ouzhiData1.__len__() == 0:
                 print '获取完毕'
                 pass
-            insertSql = "INSERT INTO `teamstatistics` (`matchinfoid`,`horg`, `static_attack`, `static_dattack`, `static_shoot`, `static_shootz`, `static_freekick`, `static_corner`, `static_offside`, `static_foul`, `static_yelcrad`, `static_redcrad`, `static_control`) VALUES ('1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1')"
+            insertSql = "INSERT INTO `teamstatistics` (`matchinfoid`,`horg`, `static_attack`, `static_dattack`, `static_shoot`, `static_shootz`, `static_freekick`, `static_corner`, `static_offside`, `static_foul`, `static_yelcrad`, `static_redcrad`, `static_control`) VALUES "
             insertContext = []
             insertContext2 = []
             insertContext.append(fid)
@@ -574,19 +574,47 @@ class AnalysisData():
             iLoop=0
             insertSql2=insertSql
             index=0
+            insertSql += "(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+            insertSql2 += "(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
             allDataArray=ouzhiData1[0].find_all('td')
-            while iLoop<allDataArray.__len__():
-                if index == 0:
-                    insertSql += "(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
-                    index += 1
-                else:
-                    insertSql += ",(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
-                insertContext.append(allDataArray[index*5+2])
-                insertContext2.append([index*5+4])
-                iLoop = index*5
+            while index*5+4<allDataArray.__len__():
+                insertContext.append(allDataArray[index*5+2].string)
+                insertContext2.append(allDataArray[index*5+4].string)
+                index += 1
                 pass
             mysql.update(insertSql, insertContext)
             mysql.update(insertSql, insertContext2)
+            '''
+            球员信息
+            '''
+            playerInfo=soup.find_all(class_='player-box')
+            isHost=0
+            for playerInfoChild in playerInfo:
+                insertSql = "INSERT INTO `playerstatistics` (`matchinfoid`, `number`, `name_c`, `position`, `type`, `time`, `goal`, `assists`, `shoot`, `shootz`, `pass`, `steals`, `foul`, `befoul`, `offside`, `rescue`, `yelcrad`, `redcrad`, `saves`,`horg`) VALUES "
+                insertContext = []
+                singleInfo =playerInfoChild.find_all('tr')
+                index=0
+                for singleInfoChild in singleInfo:
+                    singletdInfo=singleInfoChild.find_all('td')
+                    if singletdInfo.__len__()==0:
+                        continue
+                    if index == 0:
+                        insertSql += "(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+                        index += 1
+                    else:
+                        insertSql += ",(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+                    insertContext.append(fid)
+                    for singletdInfoChild in singletdInfo:
+                        print singletdInfoChild.string
+                        insertContext.append(singletdInfoChild.string)
+                    if(isHost==0):
+                        insertContext.append('h')
+                    else:insertContext.append('g')
+                    pass
+                mysql.update(insertSql, insertContext)
+            '''
+                ==========================数据统计结束==============================
+            '''
         pass
         pass
     pass
