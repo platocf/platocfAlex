@@ -16,22 +16,28 @@ class AnalysisData():
     def __init__(self):
         pass
     pass
-    def selectRetCompanyId(self,name,mysql):
+    def selectRetCompanyId(self,name,mysql,fid):
         selectSql = "select p_id as result from company where company_name =BINARY%s "
         insertSql = "insert into company(company_name) values(%s)"
-        resCount=mysql.getOne(selectSql,name)
-        if(resCount==False):
-            mysql.insertOne(insertSql,name)
+        try:
+            resCount=mysql.getOne(selectSql,name)
+            if(resCount==False):
+                mysql.insertOne(insertSql,name)
+                pass
             pass
-        pass
-        resCount = mysql.getOne(selectSql, name)
-        resvalue=0
-        if resCount==False:
-            print "company表的字段可能不够长"
-            pass
-        else:
-            resvalue=resCount['result']
-        return resvalue
+            resCount = mysql.getOne(selectSql, name)
+            resvalue = 0
+            if resCount == False:
+                print "company表的字段可能不够长"
+                pass
+            else:
+                resvalue = resCount['result']
+            return resvalue
+        except Exception,e:
+            file=open("6666.log",'wb+')
+            file.write("%s==========错误的原因:%s--%s"%(e,fid,name))
+            file.close()
+            print "%s==========错误的原因:%s--%s"%(e,fid,name)
         pass
     pass
     def getDataFromMatchInfo(self,limit):
@@ -42,8 +48,13 @@ class AnalysisData():
             print "没有要查找的数据"
             return
         for resultChild in  resultSelect:
-            fid = resultChild['fid']
+            fid = 566669#resultChild['fid']
             print fid
+            deleteSqls = ["DELETE FROM yazhi WHERE matchinfoid=%s "," DELETE FROM oupei WHERE matchinfoid=%s "," DELETE FROM rangqiu WHERE matchinfoid=%s "," DELETE FROM daxiao WHERE matchinfoid=%s "," DELETE FROM befen WHERE matchinfoid=%s " ," DELETE FROM jinqiu WHERE matchinfoid=%s "," DELETE FROM dsjinqiu WHERE matchinfoid=%s "," DELETE FROM bqc WHERE matchinfoid=%s "," DELETE FROM teamstatistics WHERE matchinfoid=%s "," DELETE FROM playerstatistics WHERE matchinfoid=%s"]
+            for deleteSqlsChild in deleteSqls:
+                mysql.delete(deleteSqlsChild,fid)
+                mysql.end()
+            print "清理数据成功"
             i = 0
             '''
             =====================================欧赔开始================================================
@@ -77,7 +88,7 @@ class AnalysisData():
                     insertContext = []
                     companyName = ouzhiDataChild.find_all('td',class_='tb_plgs')
                     print companyName[0]['title']
-                    companyId = self.selectRetCompanyId(companyName[0]['title'],mysql)
+                    companyId = self.selectRetCompanyId(companyName[0]['title'],mysql,fid)
                     webjson=0
                     while True:
                         try:
@@ -136,6 +147,7 @@ class AnalysisData():
                         index +=1
                     pass
                     mysql.update(insertSql,insertContext)
+                    mysql.end()
                     j += 1
                     pass
                 i +=1
@@ -169,7 +181,7 @@ class AnalysisData():
                     count_cursor2=i * 30 + j+1
                     print ouzhiDataChild['cid']
                     print ouzhiDataChild.contents[3]['title']
-                    companyId = self.selectRetCompanyId(ouzhiDataChild.contents[3]['title'], mysql)
+                    companyId = self.selectRetCompanyId(ouzhiDataChild.contents[3]['title'], mysql,fid)
                     insertSql = "INSERT INTO `rangqiu` (`matchinfoid`,`rangqiucount`,`companyid`, `rq_s`, `rq_p`, `rq_f`, `ret`,`update_time`) VALUES  "
                     insertContext = []
                     webjson = 0
@@ -207,6 +219,7 @@ class AnalysisData():
                         pass
                     pass
                     mysql.update(insertSql, insertContext)
+                    mysql.end()
                     j += 1
                     pass
                 i += 1
@@ -215,14 +228,17 @@ class AnalysisData():
                         ===========================让球指数结束===============亚盘开始==================================
             '''
             i = 0
+            getyear=''
             count_cursor3=0
-            while False:
+            while True:
                 if count_cursor3!=i*30:
                     break
                 url = ConfigStart.ANALYSISYAZHI % (fid, i * 30)
                 openUrls = OpenUrls()
                 webcontext = openUrls.getWebContent(url,mysql,i)
                 soup = BeautifulSoup(webcontext, "html.parser")
+                if i==0:
+                    getyear=re.sub("\D", "", soup.find_all(class_='game_time')[0].string.split('-')[0])
                 ouzhiData1 = soup.find_all(xls='row')
                 if ouzhiData1.__len__() == 0:
                     print '获取完毕'
@@ -248,7 +264,7 @@ class AnalysisData():
                     pass
                     #soupChild = BeautifulSoup(webjson, "html.parser")
                     print webjson
-                    companyId = self.selectRetCompanyId(ouzhiDataChild.contents[3].a.span.string, mysql)
+                    companyId = self.selectRetCompanyId(ouzhiDataChild.contents[3].a.span.string, mysql,fid)
                     insertSql = "INSERT INTO `yazhi` (`matchinfoid`,`companyid`, `left`, `handline`, `right`, `update_time`) VALUES  "
                     insertContext = []
                     index=0
@@ -270,8 +286,16 @@ class AnalysisData():
                             insertContext.append(_char)
                             break
                         insertContext.append(tdWebjsonChild[2].string)
-                        insertContext.append("%s-%s"%(re.sub("\D", "", soup.find_all(class_='game_time')[0].string.split('-')[0]),tdWebjsonChild[3].string))
+                        try:
+                            if(i!=0):
+                                print i
+                            insertContext.append("%s-%s"%(getyear,tdWebjsonChild[3].string))
+                        except Exception,e:
+                            file = open('6666.log','wb+')
+                            file.write("%s-%s-%s"%(fid,tdWebjsonChild[3].string,e))
+                            file.close()
                     mysql.update(insertSql, insertContext)
+                    mysql.end()
                     j += 1
                     pass
                 i += 1
@@ -280,14 +304,17 @@ class AnalysisData():
                 ===========================亚盘结束===============大小指数开始==================================
             '''
             i = 0
+            getyear=''
             count_cursor4=0
-            while False:
+            while True:
                 if count_cursor4!=i*30:
                     break
                 url = ConfigStart.ANALYSISDAXIAO % (fid, i * 30)
                 openUrls = OpenUrls()
                 webcontext = openUrls.getWebContent(url,mysql,i)
                 soup = BeautifulSoup(webcontext, "html.parser")
+                if i==0:
+                    getyear=re.sub("\D", "", soup.find_all(class_='game_time')[0].string.split('-')[0])
                 ouzhiData1 = soup.find_all(xls='row')
                 if ouzhiData1.__len__() == 0:
                     print '获取完毕'
@@ -312,7 +339,7 @@ class AnalysisData():
                         pass
                     pass
                     print webjson
-                    companyId = self.selectRetCompanyId(ouzhiDataChild.contents[3].a.span.string, mysql)
+                    companyId = self.selectRetCompanyId(ouzhiDataChild.contents[3].a.span.string, mysql,fid)
                     insertSql = "INSERT INTO `daxiao` (`matchinfoid`,`companyid`, `left`, `handline`, `right`, `update_time`) VALUES  "
                     insertContext = []
                     index=0
@@ -335,9 +362,10 @@ class AnalysisData():
                             break
                         insertContext.append(tdWebjsonChild[2].string)
                         insertContext.append("%s-%s" % (
-                        re.sub("\D", "", soup.find_all(class_='game_time')[0].string.split('-')[0]),
+                            getyear,
                         tdWebjsonChild[3].string))
                     mysql.update(insertSql, insertContext)
+                    mysql.end()
                     j += 1
                     pass
                 i += 1
@@ -345,7 +373,7 @@ class AnalysisData():
             '''
                 ===========================大小指数结束===============比分指数开始==================================
             '''
-            while False:
+            while True:
                 url = ConfigStart.ANALYSISBIFEN % (fid)
                 openUrls = OpenUrls()
                 #INSERT INTO `befen` (`matchinfoid`, `companyid`, `e_1_0h`, `e_1_0g`, `e_2_0h`, `e_2_0g`, `e_2_1h`, `e_2_1g`, `e_3_0h`, `e_3_0g`, `e_3_1h`, `e_3_1g`, `e_3_2h`, `e_3_2g`, `e_4_0h`, `e_4_0g`, `e_4_1h`, `e_4_1g`, `e_4_2h`, `e_4_2g`, `e_4_3h`, `e_4_3g`, `e_0_0`, `e_1_1`, `e_2_2`, `e_3_3`, `e_4_4`) VALUES ('1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1')
@@ -366,7 +394,7 @@ class AnalysisData():
                     else:
                         insertSql += ",(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
                     insertContext.append(fid)
-                    companyId = self.selectRetCompanyId(ouzhiDataChild.a.string, mysql)
+                    companyId = self.selectRetCompanyId(ouzhiDataChild.a.string, mysql,fid)
                     insertContext.append(companyId)
                     tdChilds = ouzhiDataChild.find_all('td')
                     for tdChild in tdChilds:
@@ -382,20 +410,27 @@ class AnalysisData():
                                 continue
                                 pass
                             pass
-                        for string in tdChild.stripped_strings :
+                        appendIndex = 0
+                        for string in tdChild.strings:
                             print string
+                            if string.strip() == '':
+                                string = None
                             insertContext.append(string)
+                            appendIndex += 1
                             pass
+                        if (appendIndex == 0):
+                            insertContext.append(None)
                     pass
                     print insertContext
                             #TODO:添加到数据库中
                 mysql.update(insertSql, insertContext)
+                mysql.end()
                 break
             '''
                 ===========================比分指数结束================进球指数对比开始==============================
             '''
             #http://odds.500.com/fenxi/jqs-607180.shtml
-            while False:
+            while True:
                 url = ConfigStart.ANALYSISJINQIUZHISHU % (fid)
                 openUrls = OpenUrls()
                 # INSERT INTO `befen` (`matchinfoid`, `companyid`, `e_1_0h`, `e_1_0g`, `e_2_0h`, `e_2_0g`, `e_2_1h`, `e_2_1g`, `e_3_0h`, `e_3_0g`, `e_3_1h`, `e_3_1g`, `e_3_2h`, `e_3_2g`, `e_4_0h`, `e_4_0g`, `e_4_1h`, `e_4_1g`, `e_4_2h`, `e_4_2g`, `e_4_3h`, `e_4_3g`, `e_0_0`, `e_1_1`, `e_2_2`, `e_3_3`, `e_4_4`) VALUES ('1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1')
@@ -423,8 +458,10 @@ class AnalysisData():
                                 continue
                                 pass
                             if tdChild.attrs['class'][0] == 'tb_plgs':
-                                companyId = self.selectRetCompanyId(tdChild.string, mysql)
-                                insertContext.append(companyId)
+                                for string in tdChild.strings:
+                                    companyId = self.selectRetCompanyId(string, mysql,fid)
+                                    insertContext.append(companyId)
+                                    break
                                 continue
                                 pass
                         if type(None) != type(tdChild.span):
@@ -432,14 +469,22 @@ class AnalysisData():
                                 continue
                                 pass
                             pass
-                        for string in tdChild.stripped_strings:
+                        appendIndex = 0
+                        for string in tdChild.strings:
                             print string
+                            if string.strip() == '':
+                                string = None
                             insertContext.append(string)
+                            appendIndex += 1
+                            break
                             pass
+                        if (appendIndex == 0):
+                            insertContext.append(None)
                     pass
                     print insertContext
                     # TODO:添加到数据库中
                 mysql.update(insertSql, insertContext)
+                mysql.end()
                 break
             pass
 
@@ -447,7 +492,7 @@ class AnalysisData():
                 ===========================进球指数对比结束================单双进球指数对比开始==============================
             '''
             # http://odds.500.com/fenxi/ds-607180.shtml
-            while False:
+            while True:
                 url = ConfigStart.ANALYSISDANSHUANGJINQIUZHISHU % (fid)
                 openUrls = OpenUrls()
                 # INSERT INTO `dsjinqiu` (`matchinfoid`, `companyid`, `single`, `double`, `ret`, `e01`, `e23`, `e47`, `e7plus`) VALUES ('1', '1', '1', '1', '1', '1', '1', '1', '1')
@@ -475,8 +520,10 @@ class AnalysisData():
                                 continue
                                 pass
                             if tdChild.attrs['class'][0] == 'tb_plgs':
-                                companyId = self.selectRetCompanyId(tdChild.string, mysql)
-                                insertContext.append(companyId)
+                                for string in tdChild.strings:
+                                    companyId = self.selectRetCompanyId(string, mysql,fid)
+                                    insertContext.append(companyId)
+                                    break
                                 continue
                                 pass
                         if type(None) != type(tdChild.span):
@@ -484,23 +531,29 @@ class AnalysisData():
                                 continue
                                 pass
                             pass
+                        appendIndex=0
                         for string in tdChild.strings:
                             print string
-                            if string=='':
+                            if string.strip()=='':
                                 string=None
                             insertContext.append(string)
+                            appendIndex +=1
+                            break
                             pass
+                        if(appendIndex==0):
+                            insertContext.append(None)
                     pass
                     print insertContext
                     # TODO:添加到数据库中
                 mysql.update(insertSql, insertContext)
+                mysql.end()
                 break
             pass
             '''
                 ===========================单双进球指数对比结束================半全场指数对比开始==============================
             '''
             # http://odds.500.com/fenxi/bqc-565613.shtml
-            while False:
+            while True:
                 url = ConfigStart.ANALYSISBQCZHISHU % (fid)
                 openUrls = OpenUrls()
                 # INSERT INTO `bqc` (`matchinfoid`, `companyid`, `e11`, `e10`, `e1-1`, `e01`, `e00`, `e0-1`, `e-11`, `e-10`, `e-1-1`) VALUES ('1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1')
@@ -529,7 +582,7 @@ class AnalysisData():
                                 pass
                             if tdChild.attrs['class'][0] == 'tb_plgs':
                                 for _name in tdChild.p.strings:
-                                    companyId = self.selectRetCompanyId(_name, mysql)
+                                    companyId = self.selectRetCompanyId(_name, mysql,fid)
                                     insertContext.append(companyId)
                                     break
                                 continue
@@ -539,22 +592,28 @@ class AnalysisData():
                                 continue
                                 pass
                             pass
+                        appendIndex = 0
                         for string in tdChild.strings:
                             print string
-                            if string == '':
+                            if string.strip() == '':
                                 string = None
                             insertContext.append(string)
+                            appendIndex += 1
+                            break
                             pass
+                        if (appendIndex == 0):
+                            insertContext.append(None)
                     pass
                     print insertContext
                     # TODO:添加到数据库中
                 mysql.update(insertSql, insertContext)
+                mysql.end()
                 break
             pass
             '''
                 ===========================半全场指数对比结束================数据统计开始==============================
             '''
-            url = ConfigStart.ANALYSISJISHU % (238925)
+            url = ConfigStart.ANALYSISJISHU % (fid)
             openUrls = OpenUrls()
             webcontext = openUrls.getWebContent(url,mysql,0)
             soup = BeautifulSoup(webcontext, "html.parser")
@@ -569,8 +628,8 @@ class AnalysisData():
             insertContext2.append(fid)
             insertContext.append('h')
             insertContext2.append('g')
-            for ouzhiDataChild in ouzhiData1:
-                print ouzhiDataChild
+            # for ouzhiDataChild in ouzhiData1:
+            #     print ouzhiDataChild
             iLoop=0
             insertSql2=insertSql
             index=0
@@ -583,7 +642,9 @@ class AnalysisData():
                 index += 1
                 pass
             mysql.update(insertSql, insertContext)
+            mysql.end()
             mysql.update(insertSql, insertContext2)
+            mysql.end()
             '''
             球员信息
             '''
@@ -611,11 +672,20 @@ class AnalysisData():
                         insertContext.append('h')
                     else:insertContext.append('g')
                     pass
-                mysql.update(insertSql, insertContext)
+                #print insertSql
+                if (index != 0):
+                    mysql.update(insertSql, insertContext)
+                    mysql.end()
             '''
                 ==========================数据统计结束==============================
             '''
+            # 设置use已经抓取标志
+            useSql = "update matchinfo set used=1 where fid = %s"
+            mysql.update(useSql, fid)
+            mysql.end()
+            print "matchurl更新成功"
         pass
+        mysql.dispose()
         pass
     pass
 pass

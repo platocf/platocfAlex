@@ -111,7 +111,7 @@ class OpenUrls():
                 break
 
         pass
-        print webcontext
+        #print webcontext
         return webcontext
     pass
     def getWebContentJson(self,url):
@@ -170,10 +170,10 @@ class OpenUrls():
                     else:
                         pass
                     pass
-                    print webcontext
+                    #print webcontext
                     break
                 except Exception, e:
-                    if tryIndex >=5:
+                    if tryIndex >=3:
                         tryIndex=0
                         print "当前代理不可用，正在切换.....%s"%e
                         break

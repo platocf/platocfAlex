@@ -15,7 +15,9 @@ import cookielib
 # reload(sys)
 # sys.setdefaultencoding('gbk')
 
-
+file=open("6666.log",'wb+')
+file.write("%s==========错误的原因:%s--%s"%('1','2','3'))
+file.close()
 
 def kelly(s,p,f):
     print 1.0/(1.0/s+1.0/p+1.0/f)

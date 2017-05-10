@@ -58,7 +58,7 @@ INSERTINTOLEAGUEYEARINFO ="insert into "+LeagueYearInfo.tablename+"("+LeagueYear
 UPDATELEAGUEYEARINFO_TOP="INSERT INTO "+LeagueYearInfo.tablename+"("+LeagueYearInfo.p_id+","+LeagueYearInfo.p_jifen_url+") VALUES "
 UPDATELEAGUEYEARINFO_BOTTOM=" ON DUPLICATE KEY UPDATE "+LeagueYearInfo.p_jifen_url+"=VALUES("+LeagueYearInfo.p_jifen_url+") "
 #查询matchurl表的总数量
-MATCHURL_COUNT ="select count(*) as "+RESULT+" from "+MatchUrl.tablename+" "
+MATCHURL_COUNT ="select count(*) as "+RESULT+" from "+MatchUrl.tablename+" where p_use=0"
 #插入matchurl
 INSERTINTOMATCHURL_TOP ="INSERT INTO "+MatchUrl.tablename+"("+MatchUrl.p_leagueyearinfoid+","+MatchUrl.p_url+","+MatchUrl.p_property+") VALUES "
 #插入一条数据到league表中
@@ -75,7 +75,10 @@ SELECTCOUNTFROMLEAGUECRAWLER="select count(*) as "+RESULT+" from "+League.tablen
 #更新p_crawler从league表中
 UPDATELEAGUESETCRAWLER="update "+League.tablename+" set "+League.p_crawler+"=1 where "+League.p_id+"=%s"
 #查询matchinfo分页10 limit
-SELECTFROMMATCHINFOLIMIT="select * from "+MatchInfo.tablename+" limit %s,10"
+SELECTFROMMATCHINFOLIMIT="select * from "+MatchInfo.tablename+" where used=0 limit %s,10"
+#查询matchinfo不分页
+SELECTFROMMATCHINFO="select count(*) as result from "+MatchInfo.tablename+" where used=0"
+
 #int为整数零
 NULL=0
 TRUE=1

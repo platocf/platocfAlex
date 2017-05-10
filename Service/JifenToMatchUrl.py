@@ -63,7 +63,7 @@ class JifenToMatchUrl():
     pass
     def getMatchInfo(self,limit):
         mysql = Mysql()
-        sqlAll = "select * from matchurl limit %s,10"
+        sqlAll = "select * from matchurl WHERE p_use=0 limit %s,10"
         resultSelect = mysql.getAll(sqlAll, limit)
         if resultSelect == False:
             return
@@ -197,7 +197,10 @@ class JifenToMatchUrl():
                     pass
                 pass
                 #INSERT INTO `matchinfo` (`p_leagueid`, `fid`, `ghalfscore`, `gid`, `gname`, `gscore`, `gstanding`, `gsxname`, `handline`, `hhalfscore`, `hid`, `hname`, `hscore`, `hstanding`, `hsxname`, `round`, `status`, `stime`) VALUES ('1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '2017-04-21 17:24:58')
-
+            #设置p_use已经抓取标志
+            useSql = "update matchurl set p_use=1 where pid = %s"
+            mysql.update(useSql,resultChild['pid'])
+            print "matchurl更新成功"
         pass
         mysql.dispose()
     pass
