@@ -48,7 +48,7 @@ class AnalysisData():
             print "没有要查找的数据"
             return
         for resultChild in  resultSelect:
-            fid = 566669#resultChild['fid']
+            fid = 445346#resultChild['fid']
             print fid
             deleteSqls = ["DELETE FROM yazhi WHERE matchinfoid=%s "," DELETE FROM oupei WHERE matchinfoid=%s "," DELETE FROM rangqiu WHERE matchinfoid=%s "," DELETE FROM daxiao WHERE matchinfoid=%s "," DELETE FROM befen WHERE matchinfoid=%s " ," DELETE FROM jinqiu WHERE matchinfoid=%s "," DELETE FROM dsjinqiu WHERE matchinfoid=%s "," DELETE FROM bqc WHERE matchinfoid=%s "," DELETE FROM teamstatistics WHERE matchinfoid=%s "," DELETE FROM playerstatistics WHERE matchinfoid=%s"]
             for deleteSqlsChild in deleteSqls:
@@ -230,7 +230,7 @@ class AnalysisData():
             i = 0
             getyear=''
             count_cursor3=0
-            while True:
+            while False:
                 if count_cursor3!=i*30:
                     break
                 url = ConfigStart.ANALYSISYAZHI % (fid, i * 30)
@@ -306,7 +306,7 @@ class AnalysisData():
             i = 0
             getyear=''
             count_cursor4=0
-            while True:
+            while False:
                 if count_cursor4!=i*30:
                     break
                 url = ConfigStart.ANALYSISDAXIAO % (fid, i * 30)
@@ -339,6 +339,8 @@ class AnalysisData():
                         pass
                     pass
                     print webjson
+                    if webjson==None:
+                        continue
                     companyId = self.selectRetCompanyId(ouzhiDataChild.contents[3].a.span.string, mysql,fid)
                     insertSql = "INSERT INTO `daxiao` (`matchinfoid`,`companyid`, `left`, `handline`, `right`, `update_time`) VALUES  "
                     insertContext = []
@@ -373,7 +375,7 @@ class AnalysisData():
             '''
                 ===========================大小指数结束===============比分指数开始==================================
             '''
-            while True:
+            while False:
                 url = ConfigStart.ANALYSISBIFEN % (fid)
                 openUrls = OpenUrls()
                 #INSERT INTO `befen` (`matchinfoid`, `companyid`, `e_1_0h`, `e_1_0g`, `e_2_0h`, `e_2_0g`, `e_2_1h`, `e_2_1g`, `e_3_0h`, `e_3_0g`, `e_3_1h`, `e_3_1g`, `e_3_2h`, `e_3_2g`, `e_4_0h`, `e_4_0g`, `e_4_1h`, `e_4_1g`, `e_4_2h`, `e_4_2g`, `e_4_3h`, `e_4_3g`, `e_0_0`, `e_1_1`, `e_2_2`, `e_3_3`, `e_4_4`) VALUES ('1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1')
@@ -430,7 +432,7 @@ class AnalysisData():
                 ===========================比分指数结束================进球指数对比开始==============================
             '''
             #http://odds.500.com/fenxi/jqs-607180.shtml
-            while True:
+            while False:
                 url = ConfigStart.ANALYSISJINQIUZHISHU % (fid)
                 openUrls = OpenUrls()
                 # INSERT INTO `befen` (`matchinfoid`, `companyid`, `e_1_0h`, `e_1_0g`, `e_2_0h`, `e_2_0g`, `e_2_1h`, `e_2_1g`, `e_3_0h`, `e_3_0g`, `e_3_1h`, `e_3_1g`, `e_3_2h`, `e_3_2g`, `e_4_0h`, `e_4_0g`, `e_4_1h`, `e_4_1g`, `e_4_2h`, `e_4_2g`, `e_4_3h`, `e_4_3g`, `e_0_0`, `e_1_1`, `e_2_2`, `e_3_3`, `e_4_4`) VALUES ('1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1')
@@ -492,7 +494,7 @@ class AnalysisData():
                 ===========================进球指数对比结束================单双进球指数对比开始==============================
             '''
             # http://odds.500.com/fenxi/ds-607180.shtml
-            while True:
+            while False:
                 url = ConfigStart.ANALYSISDANSHUANGJINQIUZHISHU % (fid)
                 openUrls = OpenUrls()
                 # INSERT INTO `dsjinqiu` (`matchinfoid`, `companyid`, `single`, `double`, `ret`, `e01`, `e23`, `e47`, `e7plus`) VALUES ('1', '1', '1', '1', '1', '1', '1', '1', '1')
@@ -534,6 +536,8 @@ class AnalysisData():
                         appendIndex=0
                         for string in tdChild.strings:
                             print string
+                            if string.find('%')!=-1:
+                                string=string.split('%')[0]
                             if string.strip()=='':
                                 string=None
                             insertContext.append(string)
@@ -553,7 +557,7 @@ class AnalysisData():
                 ===========================单双进球指数对比结束================半全场指数对比开始==============================
             '''
             # http://odds.500.com/fenxi/bqc-565613.shtml
-            while True:
+            while False:
                 url = ConfigStart.ANALYSISBQCZHISHU % (fid)
                 openUrls = OpenUrls()
                 # INSERT INTO `bqc` (`matchinfoid`, `companyid`, `e11`, `e10`, `e1-1`, `e01`, `e00`, `e0-1`, `e-11`, `e-10`, `e-1-1`) VALUES ('1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1')
@@ -637,14 +641,20 @@ class AnalysisData():
             insertSql2 += "(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
             allDataArray=ouzhiData1[0].find_all('td')
             while index*5+4<allDataArray.__len__():
-                insertContext.append(allDataArray[index*5+2].string)
-                insertContext2.append(allDataArray[index*5+4].string)
+                value1=allDataArray[index*5+2].string
+                value2=allDataArray[index*5+4].string
+                if value1.find('%') != -1:
+                    value1 = value1.split('%')[0]
+                if value2.find('%') != -1:
+                    value2 = value2.split('%')[0]
+                insertContext.append(value1)
+                insertContext2.append(value2)
                 index += 1
                 pass
-            mysql.update(insertSql, insertContext)
-            mysql.end()
-            mysql.update(insertSql, insertContext2)
-            mysql.end()
+            # mysql.update(insertSql, insertContext)
+            # mysql.end()
+            # mysql.update(insertSql, insertContext2)
+            # mysql.end()
             '''
             球员信息
             '''

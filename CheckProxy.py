@@ -24,10 +24,10 @@ testUrl = "http://www.baidu.com/"
 cookies = urllib2.HTTPCookieProcessor()  
 checked_num = 0  
 grasp_num = 0
-req = urllib2.Request('http://api.xicidaili.com/free2016.txt', None, req_header)
-html_doc = urllib2.urlopen(req, None, req_timeout).read()
-_arr=html_doc.split('\r\n')
 while True:
+    req = urllib2.Request('http://api.xicidaili.com/free2016.txt', None, req_header)
+    html_doc = urllib2.urlopen(req, None, req_timeout).read()
+    _arr = html_doc.split('\r\n')
     file_object = open('proxy.log', 'w+')
     for _arrChild in _arr:
         print _arrChild
@@ -58,4 +58,5 @@ while True:
         else:
             continue
     file_object.close()
-    time.sleep(10*60)
+    print "wait for 5 minitues continue.......\r\n"
+    time.sleep(5*60)

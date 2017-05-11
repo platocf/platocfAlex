@@ -131,7 +131,9 @@ class OpenUrls():
     pass
     # '211.159.220.48','808'      '84.244.7.32','8081'   '222.85.39.16','808'
     def useProxy(self,url,mysql,i):
-        resultIP=mysql.getAll("SELECT *,t.`accessible`/t.usecount AS res FROM proxyip t WHERE t.`accessible`/t.usecount>0.1 ORDER BY res DESC")
+        #resultIP=mysql.getAll("SELECT *,t.`accessible`/t.usecount AS res FROM proxyip t WHERE t.`accessible`/t.usecount>0.1 ORDER BY res DESC")
+        resultIP = mysql.getAll(
+            "SELECT *,t.`accessible`/t.usecount AS res FROM proxyip t ORDER BY res DESC")
         proxyIP=""
         webcontext=''
         #当前IP尝试次数
