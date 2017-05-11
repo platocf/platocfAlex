@@ -47,8 +47,15 @@ class AnalysisData():
         if resultSelect == False:
             print "没有要查找的数据"
             return
+        #写日志
         for resultChild in  resultSelect:
-            fid = 445346#resultChild['fid']
+            fid = resultChild['fid']
+            selectLogSql = "select count(*) as result from log where fid =%s  "
+            selRes=mysql.getOne(selectLogSql,fid)
+            if selRes['result']==0:
+                logSql = "insert into log(fid) values(%s)"
+                mysql.update(logSql,fid)
+            mysql.end()
             print fid
             deleteSqls = ["DELETE FROM yazhi WHERE matchinfoid=%s "," DELETE FROM oupei WHERE matchinfoid=%s "," DELETE FROM rangqiu WHERE matchinfoid=%s "," DELETE FROM daxiao WHERE matchinfoid=%s "," DELETE FROM befen WHERE matchinfoid=%s " ," DELETE FROM jinqiu WHERE matchinfoid=%s "," DELETE FROM dsjinqiu WHERE matchinfoid=%s "," DELETE FROM bqc WHERE matchinfoid=%s "," DELETE FROM teamstatistics WHERE matchinfoid=%s "," DELETE FROM playerstatistics WHERE matchinfoid=%s"]
             for deleteSqlsChild in deleteSqls:
@@ -60,7 +67,7 @@ class AnalysisData():
             =====================================欧赔开始================================================
             '''
             count_cursor = 0
-            while False:
+            while True:
                 if count_cursor!=i*30:
                     break
                 url = ConfigStart.ANALYSISOUZHIURL % (fid,i * 30)
@@ -90,6 +97,8 @@ class AnalysisData():
                     print companyName[0]['title']
                     companyId = self.selectRetCompanyId(companyName[0]['title'],mysql,fid)
                     webjson=0
+                    #每当进一次except就去减少一次可访问次数
+                    reduceCount=0
                     while True:
                         try:
                             webjson = openUrls.useProxy(ConfigStart.ANALYSISOUZHIDATAURL%(fid,ouzhiDataChild['id']),mysql,0)
@@ -97,11 +106,14 @@ class AnalysisData():
                             break
                             pass
                         except Exception, e:
+                            reduceCount=1
                             continue
                             pass
                         pass
                     pass
                     print webjson
+                    if webjson == None:
+                        continue
                     if webjson.__len__()==0:
                         continue
                     kellyjson=0
@@ -157,7 +169,7 @@ class AnalysisData():
             '''
             i=0
             count_cursor2=0
-            while False:
+            while True:
                 if count_cursor2!=i*30:
                     break
                 url = ConfigStart.ANALYSISRANGQIU % (fid,i * 30)
@@ -197,6 +209,8 @@ class AnalysisData():
                         pass
                     pass
                     print webjson
+                    if webjson == None:
+                        continue
                     index=0
                     for webjsonChild in webjson:
                         print webjsonChild[0]
@@ -230,7 +244,7 @@ class AnalysisData():
             i = 0
             getyear=''
             count_cursor3=0
-            while False:
+            while True:
                 if count_cursor3!=i*30:
                     break
                 url = ConfigStart.ANALYSISYAZHI % (fid, i * 30)
@@ -263,6 +277,8 @@ class AnalysisData():
                         pass
                     pass
                     #soupChild = BeautifulSoup(webjson, "html.parser")
+                    if webjson == None:
+                        continue
                     print webjson
                     companyId = self.selectRetCompanyId(ouzhiDataChild.contents[3].a.span.string, mysql,fid)
                     insertSql = "INSERT INTO `yazhi` (`matchinfoid`,`companyid`, `left`, `handline`, `right`, `update_time`) VALUES  "
@@ -306,7 +322,7 @@ class AnalysisData():
             i = 0
             getyear=''
             count_cursor4=0
-            while False:
+            while True:
                 if count_cursor4!=i*30:
                     break
                 url = ConfigStart.ANALYSISDAXIAO % (fid, i * 30)
@@ -375,7 +391,7 @@ class AnalysisData():
             '''
                 ===========================大小指数结束===============比分指数开始==================================
             '''
-            while False:
+            while True:
                 url = ConfigStart.ANALYSISBIFEN % (fid)
                 openUrls = OpenUrls()
                 #INSERT INTO `befen` (`matchinfoid`, `companyid`, `e_1_0h`, `e_1_0g`, `e_2_0h`, `e_2_0g`, `e_2_1h`, `e_2_1g`, `e_3_0h`, `e_3_0g`, `e_3_1h`, `e_3_1g`, `e_3_2h`, `e_3_2g`, `e_4_0h`, `e_4_0g`, `e_4_1h`, `e_4_1g`, `e_4_2h`, `e_4_2g`, `e_4_3h`, `e_4_3g`, `e_0_0`, `e_1_1`, `e_2_2`, `e_3_3`, `e_4_4`) VALUES ('1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1')
@@ -432,7 +448,7 @@ class AnalysisData():
                 ===========================比分指数结束================进球指数对比开始==============================
             '''
             #http://odds.500.com/fenxi/jqs-607180.shtml
-            while False:
+            while True:
                 url = ConfigStart.ANALYSISJINQIUZHISHU % (fid)
                 openUrls = OpenUrls()
                 # INSERT INTO `befen` (`matchinfoid`, `companyid`, `e_1_0h`, `e_1_0g`, `e_2_0h`, `e_2_0g`, `e_2_1h`, `e_2_1g`, `e_3_0h`, `e_3_0g`, `e_3_1h`, `e_3_1g`, `e_3_2h`, `e_3_2g`, `e_4_0h`, `e_4_0g`, `e_4_1h`, `e_4_1g`, `e_4_2h`, `e_4_2g`, `e_4_3h`, `e_4_3g`, `e_0_0`, `e_1_1`, `e_2_2`, `e_3_3`, `e_4_4`) VALUES ('1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1')
@@ -494,7 +510,7 @@ class AnalysisData():
                 ===========================进球指数对比结束================单双进球指数对比开始==============================
             '''
             # http://odds.500.com/fenxi/ds-607180.shtml
-            while False:
+            while True:
                 url = ConfigStart.ANALYSISDANSHUANGJINQIUZHISHU % (fid)
                 openUrls = OpenUrls()
                 # INSERT INTO `dsjinqiu` (`matchinfoid`, `companyid`, `single`, `double`, `ret`, `e01`, `e23`, `e47`, `e7plus`) VALUES ('1', '1', '1', '1', '1', '1', '1', '1', '1')
@@ -557,7 +573,7 @@ class AnalysisData():
                 ===========================单双进球指数对比结束================半全场指数对比开始==============================
             '''
             # http://odds.500.com/fenxi/bqc-565613.shtml
-            while False:
+            while True:
                 url = ConfigStart.ANALYSISBQCZHISHU % (fid)
                 openUrls = OpenUrls()
                 # INSERT INTO `bqc` (`matchinfoid`, `companyid`, `e11`, `e10`, `e1-1`, `e01`, `e00`, `e0-1`, `e-11`, `e-10`, `e-1-1`) VALUES ('1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1')
@@ -651,10 +667,10 @@ class AnalysisData():
                 insertContext2.append(value2)
                 index += 1
                 pass
-            # mysql.update(insertSql, insertContext)
-            # mysql.end()
-            # mysql.update(insertSql, insertContext2)
-            # mysql.end()
+            mysql.update(insertSql, insertContext)
+            mysql.end()
+            mysql.update(insertSql, insertContext2)
+            mysql.end()
             '''
             球员信息
             '''
@@ -680,6 +696,7 @@ class AnalysisData():
                         insertContext.append(singletdInfoChild.string)
                     if(isHost==0):
                         insertContext.append('h')
+                        isHost +=1
                     else:insertContext.append('g')
                     pass
                 #print insertSql
@@ -694,6 +711,9 @@ class AnalysisData():
             mysql.update(useSql, fid)
             mysql.end()
             print "matchurl更新成功"
+            logSqlEnd = "update log set isused=1 where fid=%s"
+            mysql.update(logSqlEnd,fid)
+            mysql.end()
         pass
         mysql.dispose()
         pass

@@ -130,7 +130,7 @@ class OpenUrls():
 
     pass
     # '211.159.220.48','808'      '84.244.7.32','8081'   '222.85.39.16','808'
-    def useProxy(self,url,mysql,i):
+    def useProxy(self,url,mysql,i,reduce=0):
         #resultIP=mysql.getAll("SELECT *,t.`accessible`/t.usecount AS res FROM proxyip t WHERE t.`accessible`/t.usecount>0.1 ORDER BY res DESC")
         resultIP = mysql.getAll(
             "SELECT *,t.`accessible`/t.usecount AS res FROM proxyip t ORDER BY res DESC")
@@ -138,6 +138,7 @@ class OpenUrls():
         webcontext=''
         #当前IP尝试次数
         tryIndex=0
+        changeProxyCount=0
         for resultIPChild in resultIP:
             proxyIP=resultIPChild['address_port']
             while True:
@@ -165,6 +166,8 @@ class OpenUrls():
                         else:
                             useCharset='utf8'
                     #print webcontext
+                    if(useCharset == 'GB2312' or useCharset == 'gb2312'):
+                        print useCharset
                     if(useCharset!='ascii'):
                         webcontext = gzip.GzipFile(fileobj=StringIO.StringIO(webcontext), mode="r")
                         webcontext = webcontext.read().decode(useCharset)
@@ -181,7 +184,7 @@ class OpenUrls():
                         break
                         pass
                     else:
-                        print "当前继续尝试此链接,第%s次"%tryIndex
+                        print "当前继续尝试此链接,第%s次.....url:%s"%(tryIndex,url)
                         if i==0:
                             i=1
                             pass
@@ -189,7 +192,7 @@ class OpenUrls():
                             i=0
                             pass
                         continue
-            if webcontext!='' and (type(webcontext) != gzip.GzipFile) and webcontext.find('exceeds the license')==-1:
+            if webcontext!='' and (type(webcontext) != gzip.GzipFile) and webcontext.find('exceeds the license')==-1 and webcontext.find('httpclient.html')==-1 and webcontext.find('MAAF')==-1:
                 print type(webcontext) == str
                 print "返回%s"%webcontext
                 break
@@ -206,7 +209,10 @@ class OpenUrls():
                     pass
                 pass
             pass
-            print "当前代理不可用，正在切换....."
+            changeProxyCount +=1
+            print "当前代理不可用，正在第%s次切换.....url:%s"%(changeProxyCount,url)
+        if(changeProxyCount>=(resultIP.__len__() -1)):
+            self.useProxy(url,mysql,i)
         return webcontext
     pass
 

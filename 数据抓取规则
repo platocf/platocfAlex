@@ -313,3 +313,7 @@ p_id            matchinfoid    companyid       e11   e10   e1-1  e01    e00  e0-
 当前场次球员的技术统计 playerstatistics
 当前表索引    对应场次id  主队或客队(h或者g)      号码     球员   英文名称   位置      出场类型    时间     进球   助攻      射门   射正     传球    抢断     犯规   被侵犯    越位      解围    黄牌      红牌      扑救
    p_id      matchinfoid         horg             number   name_c   name_e   position     type       time    goal   assists   shoot  shootz   pass   steals    foul   befoul   offside   rescue  yelcrad   redcrad    saves
+
+日志信息   可以去记录每个步骤的记录情况然后去定位重新抓取 但现在只统计fid是否全部抓取成功
+当前表索引       记录当前对战fid       记录统计是否结束
+  p_id               fid                    isUsed

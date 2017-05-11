@@ -16,7 +16,7 @@ req_header = {'User-Agent':'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.11 (KHT
   'Connection':'keep-alive',  
   'Referer':'http://www.baidu.com/'  
    }  
-req_timeout = 3
+req_timeout = 12
 testUrl = "http://www.baidu.com/"
 # url = ""  
 # req = urllib2.Request(url,None,req_header)  
@@ -58,5 +58,5 @@ while True:
         else:
             continue
     file_object.close()
-    print "wait for 5 minitues continue.......\r\n"
-    time.sleep(5*60)
+    print "==============wait for 5 minitues continue.......===========================\r\n"
+    #time.sleep(5*60)
