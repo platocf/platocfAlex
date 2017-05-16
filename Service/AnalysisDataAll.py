@@ -49,7 +49,7 @@ class AnalysisData():
             return
         #写日志
         for resultChild in  resultSelect:
-            fid = resultChild['fid']
+            fid = 165523#resultChild['fid']
             selectLogSql = "select count(*) as result from log where fid =%s  "
             selRes=mysql.getOne(selectLogSql,fid)
             if selRes['result']==0:
@@ -67,7 +67,7 @@ class AnalysisData():
             =====================================欧赔开始================================================
             '''
             count_cursor = 0
-            while True:
+            while False:
                 if count_cursor!=i*30:
                     break
                 url = ConfigStart.ANALYSISOUZHIURL % (fid,i * 30)
@@ -696,13 +696,13 @@ class AnalysisData():
                         insertContext.append(singletdInfoChild.string)
                     if(isHost==0):
                         insertContext.append('h')
-                        isHost +=1
                     else:insertContext.append('g')
                     pass
                 #print insertSql
                 if (index != 0):
                     mysql.update(insertSql, insertContext)
                     mysql.end()
+                isHost += 1
             '''
                 ==========================数据统计结束==============================
             '''
