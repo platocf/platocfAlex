@@ -6,6 +6,7 @@ from Service.ShowCharType import *
 import random
 import cookielib
 import time
+import datetime
 import os
 import json
 angenlist =['Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36 OPR/26.0.1656.60                                                                             ',
@@ -134,8 +135,9 @@ class OpenUrls():
     #reduce=0表示为返回需要json格式
     def useProxy(self,url,mysql,i,reduce=0):
         #resultIP=mysql.getAll("SELECT *,t.`accessible`/t.usecount AS res FROM proxyip t WHERE t.`accessible`/t.usecount>0.1 ORDER BY res DESC")
+        now_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         resultIP = mysql.getAll(
-            "SELECT *,t.`accessible`/t.usecount AS res FROM proxyip t ORDER BY res DESC")
+            "SELECT * FROM proxyip WHERE DATE_ADD(proxyip.time,interval 15 minute)<%s AND proxyip.accessible/proxyip.usecount>0",now_time)
         proxyIP=""
         webcontext=''
         #当前IP尝试次数
@@ -148,6 +150,7 @@ class OpenUrls():
             while True:
                 try:
                     #更新代理使用次数
+
                     mysql.update('UPDATE proxyip SET `usecount`=`usecount`+1 where p_id=%s', resultIPChild['p_id'])
                     mysql.end()
                     cookies = urllib2.HTTPCookieProcessor()
@@ -189,6 +192,17 @@ class OpenUrls():
                     break
                 except Exception, e:
                     exceptFlag = 1
+                    message ='%s'%e
+                    now_time=datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                    if(message.find('503')!=-1 or message.find('500')!=-1 or message.find('501')!=-1):
+                        #更新时间数据
+                        updateSql_s = "UPDATE proxyip SET proxyip.time=%s where p_id=%s"
+                        lList=[]
+                        lList.append(now_time)
+                        lList.append(resultIPChild['p_id'])
+                        mysql.update(updateSql_s,lList)
+                        print "当前代理不可用，正在切换.....%s" % e
+                        break
                     if tryIndex >=2:
                         tryIndex=0
                         print "当前代理不可用，正在切换.....%s"%e

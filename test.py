@@ -24,6 +24,7 @@ def kelly(s,p,f):
     pass
 kelly(2.84,3.4,2.2)
 s=datetime.datetime.strptime("2011-1-1 3:00", '%Y-%m-%d %H:%M')
+datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 print s
 str1="888"
 c = type(str1)
