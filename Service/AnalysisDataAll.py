@@ -49,13 +49,13 @@ class AnalysisData():
             return
         #写日志
         for resultChild in  resultSelect:
-            fid = 165523#resultChild['fid']
+            fid = resultChild['fid']
             selectLogSql = "select count(*) as result from log where fid =%s  "
             selRes=mysql.getOne(selectLogSql,fid)
             if selRes['result']==0:
                 logSql = "insert into log(fid) values(%s)"
                 mysql.update(logSql,fid)
-            mysql.end()
+                mysql.end()
             print fid
             deleteSqls = ["DELETE FROM yazhi WHERE matchinfoid=%s "," DELETE FROM oupei WHERE matchinfoid=%s "," DELETE FROM rangqiu WHERE matchinfoid=%s "," DELETE FROM daxiao WHERE matchinfoid=%s "," DELETE FROM befen WHERE matchinfoid=%s " ," DELETE FROM jinqiu WHERE matchinfoid=%s "," DELETE FROM dsjinqiu WHERE matchinfoid=%s "," DELETE FROM bqc WHERE matchinfoid=%s "," DELETE FROM teamstatistics WHERE matchinfoid=%s "," DELETE FROM playerstatistics WHERE matchinfoid=%s"]
             for deleteSqlsChild in deleteSqls:
@@ -67,20 +67,20 @@ class AnalysisData():
             =====================================欧赔开始================================================
             '''
             count_cursor = 0
-            while False:
+            while True:
                 if count_cursor!=i*30:
                     break
                 url = ConfigStart.ANALYSISOUZHIURL % (fid,i * 30)
                 print "=============================================%s==================================="%url
                 openUrls = OpenUrls()
-                webcontext = openUrls.getWebContent(url,mysql,i)
-                if webcontext.find('500.com')==-1 and webcontext!='':
-                    print "查看webcontext:%s"%webcontext
-                    continue
-                    pass
-                else:
-                    if webcontext =='':
-                        break
+                webcontext = openUrls.getWebContent(url,mysql,i,1)
+                # if webcontext.find('500.com')==-1 and webcontext!='':
+                #     print "查看webcontext:%s"%webcontext
+                #     continue
+                #     pass
+                # else:
+                #     if webcontext =='':
+                #         break
                 soup = BeautifulSoup(webcontext, "html.parser")
                 ouzhiData1 = soup.find_all(ttl='zy')
                 if ouzhiData1.__len__() == 0:
@@ -174,14 +174,14 @@ class AnalysisData():
                     break
                 url = ConfigStart.ANALYSISRANGQIU % (fid,i * 30)
                 openUrls = OpenUrls()
-                webcontext = openUrls.getWebContent(url,mysql,i)
-                if webcontext.find('rangqiu')==-1 and webcontext!='':
-                    print "查看——球指数——webcontext:%s"%webcontext
-                    continue
-                    pass
-                else:
-                    if webcontext =='':
-                        break
+                webcontext = openUrls.getWebContent(url,mysql,i,1)
+                # if webcontext.find('rangqiu')==-1 and webcontext!='':
+                #     print "查看——球指数——webcontext:%s"%webcontext
+                #     continue
+                #     pass
+                # else:
+                #     if webcontext =='':
+                #         break
                 soup = BeautifulSoup(webcontext, "html.parser")
                 ouzhiData1 = soup.find_all(ttl='zy')
                 if ouzhiData1.__len__() == 0:
@@ -210,6 +210,8 @@ class AnalysisData():
                     pass
                     print webjson
                     if webjson == None:
+                        continue
+                    if webjson.__len__()==0:
                         continue
                     index=0
                     for webjsonChild in webjson:
@@ -249,7 +251,7 @@ class AnalysisData():
                     break
                 url = ConfigStart.ANALYSISYAZHI % (fid, i * 30)
                 openUrls = OpenUrls()
-                webcontext = openUrls.getWebContent(url,mysql,i)
+                webcontext = openUrls.getWebContent(url,mysql,i,1)
                 soup = BeautifulSoup(webcontext, "html.parser")
                 if i==0:
                     getyear=re.sub("\D", "", soup.find_all(class_='game_time')[0].string.split('-')[0])
@@ -278,6 +280,8 @@ class AnalysisData():
                     pass
                     #soupChild = BeautifulSoup(webjson, "html.parser")
                     if webjson == None:
+                        continue
+                    if webjson.__len__()==0:
                         continue
                     print webjson
                     companyId = self.selectRetCompanyId(ouzhiDataChild.contents[3].a.span.string, mysql,fid)
@@ -327,7 +331,7 @@ class AnalysisData():
                     break
                 url = ConfigStart.ANALYSISDAXIAO % (fid, i * 30)
                 openUrls = OpenUrls()
-                webcontext = openUrls.getWebContent(url,mysql,i)
+                webcontext = openUrls.getWebContent(url,mysql,i,1)
                 soup = BeautifulSoup(webcontext, "html.parser")
                 if i==0:
                     getyear=re.sub("\D", "", soup.find_all(class_='game_time')[0].string.split('-')[0])
@@ -356,6 +360,8 @@ class AnalysisData():
                     pass
                     print webjson
                     if webjson==None:
+                        continue
+                    if webjson.__len__()==0:
                         continue
                     companyId = self.selectRetCompanyId(ouzhiDataChild.contents[3].a.span.string, mysql,fid)
                     insertSql = "INSERT INTO `daxiao` (`matchinfoid`,`companyid`, `left`, `handline`, `right`, `update_time`) VALUES  "
@@ -395,7 +401,7 @@ class AnalysisData():
                 url = ConfigStart.ANALYSISBIFEN % (fid)
                 openUrls = OpenUrls()
                 #INSERT INTO `befen` (`matchinfoid`, `companyid`, `e_1_0h`, `e_1_0g`, `e_2_0h`, `e_2_0g`, `e_2_1h`, `e_2_1g`, `e_3_0h`, `e_3_0g`, `e_3_1h`, `e_3_1g`, `e_3_2h`, `e_3_2g`, `e_4_0h`, `e_4_0g`, `e_4_1h`, `e_4_1g`, `e_4_2h`, `e_4_2g`, `e_4_3h`, `e_4_3g`, `e_0_0`, `e_1_1`, `e_2_2`, `e_3_3`, `e_4_4`) VALUES ('1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1')
-                webcontext = openUrls.getWebContent(url,mysql,0)
+                webcontext = openUrls.getWebContent(url,mysql,0,1)
                 soup = BeautifulSoup(webcontext, "html.parser")
                 ouzhiData1 = soup.find_all('tr',class_=re.compile('tr'))
                 if ouzhiData1.__len__() == 0:
@@ -441,8 +447,9 @@ class AnalysisData():
                     pass
                     print insertContext
                             #TODO:添加到数据库中
-                mysql.update(insertSql, insertContext)
-                mysql.end()
+                if index!=0:
+                    mysql.update(insertSql, insertContext)
+                    mysql.end()
                 break
             '''
                 ===========================比分指数结束================进球指数对比开始==============================
@@ -452,7 +459,7 @@ class AnalysisData():
                 url = ConfigStart.ANALYSISJINQIUZHISHU % (fid)
                 openUrls = OpenUrls()
                 # INSERT INTO `befen` (`matchinfoid`, `companyid`, `e_1_0h`, `e_1_0g`, `e_2_0h`, `e_2_0g`, `e_2_1h`, `e_2_1g`, `e_3_0h`, `e_3_0g`, `e_3_1h`, `e_3_1g`, `e_3_2h`, `e_3_2g`, `e_4_0h`, `e_4_0g`, `e_4_1h`, `e_4_1g`, `e_4_2h`, `e_4_2g`, `e_4_3h`, `e_4_3g`, `e_0_0`, `e_1_1`, `e_2_2`, `e_3_3`, `e_4_4`) VALUES ('1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1')
-                webcontext = openUrls.getWebContent(url, mysql, 0)
+                webcontext = openUrls.getWebContent(url, mysql, 0,1)
                 soup = BeautifulSoup(webcontext, "html.parser")
                 ouzhiData1 = soup.find_all('tr', class_=re.compile('tr'))
                 if ouzhiData1.__len__() == 0:
@@ -501,8 +508,9 @@ class AnalysisData():
                     pass
                     print insertContext
                     # TODO:添加到数据库中
-                mysql.update(insertSql, insertContext)
-                mysql.end()
+                if index!=0:
+                    mysql.update(insertSql, insertContext)
+                    mysql.end()
                 break
             pass
 
@@ -514,7 +522,7 @@ class AnalysisData():
                 url = ConfigStart.ANALYSISDANSHUANGJINQIUZHISHU % (fid)
                 openUrls = OpenUrls()
                 # INSERT INTO `dsjinqiu` (`matchinfoid`, `companyid`, `single`, `double`, `ret`, `e01`, `e23`, `e47`, `e7plus`) VALUES ('1', '1', '1', '1', '1', '1', '1', '1', '1')
-                webcontext = openUrls.getWebContent(url, mysql, 0)
+                webcontext = openUrls.getWebContent(url, mysql, 0,1)
                 soup = BeautifulSoup(webcontext, "html.parser")
                 ouzhiData1 = soup.find_all('tr', class_=re.compile('tr'))
                 if ouzhiData1.__len__() == 0:
@@ -565,8 +573,9 @@ class AnalysisData():
                     pass
                     print insertContext
                     # TODO:添加到数据库中
-                mysql.update(insertSql, insertContext)
-                mysql.end()
+                if index!=0:
+                    mysql.update(insertSql, insertContext)
+                    mysql.end()
                 break
             pass
             '''
@@ -577,7 +586,7 @@ class AnalysisData():
                 url = ConfigStart.ANALYSISBQCZHISHU % (fid)
                 openUrls = OpenUrls()
                 # INSERT INTO `bqc` (`matchinfoid`, `companyid`, `e11`, `e10`, `e1-1`, `e01`, `e00`, `e0-1`, `e-11`, `e-10`, `e-1-1`) VALUES ('1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1')
-                webcontext = openUrls.getWebContent(url, mysql, 0)
+                webcontext = openUrls.getWebContent(url, mysql, 0,1)
                 soup = BeautifulSoup(webcontext, "html.parser")
                 ouzhiData1 = soup.find_all('tr', class_=re.compile('tr'))
                 if ouzhiData1.__len__() == 0:
@@ -626,8 +635,9 @@ class AnalysisData():
                     pass
                     print insertContext
                     # TODO:添加到数据库中
-                mysql.update(insertSql, insertContext)
-                mysql.end()
+                if index!=0:
+                    mysql.update(insertSql, insertContext)
+                    mysql.end()
                 break
             pass
             '''
@@ -635,42 +645,44 @@ class AnalysisData():
             '''
             url = ConfigStart.ANALYSISJISHU % (fid)
             openUrls = OpenUrls()
-            webcontext = openUrls.getWebContent(url,mysql,0)
+            webcontext = openUrls.getWebContent(url,mysql,0,1)
             soup = BeautifulSoup(webcontext, "html.parser")
             ouzhiData1 = soup.find_all(class_=re.compile('team-statis'))
             if ouzhiData1.__len__() == 0:
                 print '获取完毕'
                 pass
-            insertSql = "INSERT INTO `teamstatistics` (`matchinfoid`,`horg`, `static_attack`, `static_dattack`, `static_shoot`, `static_shootz`, `static_freekick`, `static_corner`, `static_offside`, `static_foul`, `static_yelcrad`, `static_redcrad`, `static_control`) VALUES "
-            insertContext = []
-            insertContext2 = []
-            insertContext.append(fid)
-            insertContext2.append(fid)
-            insertContext.append('h')
-            insertContext2.append('g')
-            # for ouzhiDataChild in ouzhiData1:
-            #     print ouzhiDataChild
-            iLoop=0
-            insertSql2=insertSql
-            index=0
-            insertSql += "(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
-            insertSql2 += "(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
-            allDataArray=ouzhiData1[0].find_all('td')
-            while index*5+4<allDataArray.__len__():
-                value1=allDataArray[index*5+2].string
-                value2=allDataArray[index*5+4].string
-                if value1.find('%') != -1:
-                    value1 = value1.split('%')[0]
-                if value2.find('%') != -1:
-                    value2 = value2.split('%')[0]
-                insertContext.append(value1)
-                insertContext2.append(value2)
-                index += 1
-                pass
-            mysql.update(insertSql, insertContext)
-            mysql.end()
-            mysql.update(insertSql, insertContext2)
-            mysql.end()
+            else:
+                insertSql = "INSERT INTO `teamstatistics` (`matchinfoid`,`horg`, `static_attack`, `static_dattack`, `static_shoot`, `static_shootz`, `static_freekick`, `static_corner`, `static_offside`, `static_foul`, `static_yelcrad`, `static_redcrad`, `static_control`) VALUES "
+                insertContext = []
+                insertContext2 = []
+                insertContext.append(fid)
+                insertContext2.append(fid)
+                insertContext.append('h')
+                insertContext2.append('g')
+                # for ouzhiDataChild in ouzhiData1:
+                #     print ouzhiDataChild
+                iLoop=0
+                insertSql2=insertSql
+                index=0
+                insertSql += "(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+                insertSql2 += "(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+                allDataArray=ouzhiData1[0].find_all('td')
+                if(allDataArray.__len__()>0):
+                    while index*5+4<allDataArray.__len__():
+                        value1=allDataArray[index*5+2].string
+                        value2=allDataArray[index*5+4].string
+                        if value1.find('%') != -1:
+                            value1 = value1.split('%')[0]
+                        if value2.find('%') != -1:
+                            value2 = value2.split('%')[0]
+                        insertContext.append(value1)
+                        insertContext2.append(value2)
+                        index += 1
+                        pass
+                    mysql.update(insertSql, insertContext)
+                    mysql.end()
+                    mysql.update(insertSql, insertContext2)
+                    mysql.end()
             '''
             球员信息
             '''

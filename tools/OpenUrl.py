@@ -7,6 +7,7 @@ import random
 import cookielib
 import time
 import os
+import json
 angenlist =['Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36 OPR/26.0.1656.60                                                                             ',
 'Opera/8.0 (Windows NT 5.1; U; en)                                                                                                                                                                         ',
 'Mozilla/5.0 (Windows NT 5.1; U; en; rv:1.8.1) Gecko/20061208 Firefox/2.0.0 Opera 9.50                                                                                                                     ',
@@ -53,7 +54,7 @@ class OpenUrls():
     def __init__(self):
         pass
     pass
-    def getWebContent(self,url,mysql,i):
+    def getWebContent(self,url,mysql,i,reduce):
         #每个连接当前使用次数
         perCountList=[]
         perIPPort=[]
@@ -107,7 +108,7 @@ class OpenUrls():
                 break
             except Exception, e:
                 print '%stry again....从本机切换到代理中.....'%e
-                webcontext=self.useProxy(url,mysql,i)
+                webcontext=self.useProxy(url,mysql,i,reduce)
                 break
 
         pass
@@ -130,6 +131,7 @@ class OpenUrls():
 
     pass
     # '211.159.220.48','808'      '84.244.7.32','8081'   '222.85.39.16','808'
+    #reduce=0表示为返回需要json格式
     def useProxy(self,url,mysql,i,reduce=0):
         #resultIP=mysql.getAll("SELECT *,t.`accessible`/t.usecount AS res FROM proxyip t WHERE t.`accessible`/t.usecount>0.1 ORDER BY res DESC")
         resultIP = mysql.getAll(
@@ -140,6 +142,8 @@ class OpenUrls():
         tryIndex=0
         changeProxyCount=0
         for resultIPChild in resultIP:
+            # 添加异常标志
+            exceptFlag = 0
             proxyIP=resultIPChild['address_port']
             while True:
                 try:
@@ -174,11 +178,18 @@ class OpenUrls():
                         pass
                     else:
                         pass
+                    #测试是否为json
+                    if reduce==0:
+                        json.loads(webcontext)
+                        pass
+                    pass
                     pass
                     #print webcontext
+                    exceptFlag=0
                     break
                 except Exception, e:
-                    if tryIndex >=3:
+                    exceptFlag = 1
+                    if tryIndex >=2:
                         tryIndex=0
                         print "当前代理不可用，正在切换.....%s"%e
                         break
@@ -192,7 +203,7 @@ class OpenUrls():
                             i=0
                             pass
                         continue
-            if webcontext!='' and (type(webcontext) != gzip.GzipFile) and webcontext.find('exceeds the license')==-1 and webcontext.find('httpclient.html')==-1 and webcontext.find('MAAF')==-1:
+            if webcontext!='' and exceptFlag==0:
                 print type(webcontext) == str
                 print "返回%s"%webcontext
                 break
