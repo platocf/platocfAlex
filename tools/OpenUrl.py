@@ -137,7 +137,7 @@ class OpenUrls():
         #resultIP=mysql.getAll("SELECT *,t.`accessible`/t.usecount AS res FROM proxyip t WHERE t.`accessible`/t.usecount>0.1 ORDER BY res DESC")
         now_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         resultIP = mysql.getAll(
-            "SELECT * FROM proxyip WHERE DATE_ADD(proxyip.time,interval 15 minute)<%s AND proxyip.accessible/proxyip.usecount>0",now_time)
+            "SELECT * FROM proxyip WHERE DATE_ADD(proxyip.time,interval 15 minute)<%s AND proxyip.accessible/proxyip.usecount>0 order by (proxyip.accessible/proxyip.usecount) desc",now_time)
         proxyIP=""
         webcontext=''
         #当前IP尝试次数
@@ -161,10 +161,10 @@ class OpenUrls():
                                           'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36'),
                                          ("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8"),("Accept-Encoding", "gzip, deflate, sdch"),("X-Requested-With","XMLHttpRequest")]
                     tryIndex +=1
-                    req = opener.open(url,timeout=5)
-                    webcontext = req.read()
                     mysql.update('UPDATE proxyip SET `accessible`=`accessible`+1 where p_id=%s', resultIPChild['p_id'])
                     mysql.end()
+                    req = opener.open(url,timeout=5)
+                    webcontext = req.read()
                     useCharset=chardet_detect_str_encoding(webcontext)
                     if useCharset==None or useCharset=='':
                         if i==0:
@@ -203,7 +203,7 @@ class OpenUrls():
                         mysql.update(updateSql_s,lList)
                         print "当前代理不可用，正在切换.....%s" % e
                         break
-                    if tryIndex >=2:
+                    if tryIndex >=1:
                         tryIndex=0
                         print "当前代理不可用，正在切换.....%s"%e
                         break

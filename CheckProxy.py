@@ -22,14 +22,17 @@ req_timeout = 12
 testUrl = "http://www.baidu.com/"
 # url = ""  
 # req = urllib2.Request(url,None,req_header)  
-# jsondatas = urllib2.urlopen(req,None,req_timeout).read()  
+# jsondatas = urllib2.urlopen(req,None,req_timeout).read()
+#http://tvp.daxiangdaili.com/ip/?tid=557319114260130&num=2000&delay=3
+#http://api.xicidaili.com/free2016.txt
 cookies = urllib2.HTTPCookieProcessor()  
 checked_num = 0  
 grasp_num = 0
 print datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 while True:
+    time.sleep(10)
     try:
-        req = urllib2.Request('http://api.xicidaili.com/free2016.txt', None, req_header)
+        req = urllib2.Request('http://tvp.daxiangdaili.com/ip/?tid=557319114260130&num=10&delay=1', None, req_header)
         html_doc = urllib2.urlopen(req, None, req_timeout).read()
         _arr = html_doc.split('\r\n')
         file_object = open('proxy.log', 'w+')
@@ -44,10 +47,10 @@ while True:
                                       'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.63 Safari/537.36')]
                 t1 = time.time()
                 try:
-                    req = opener.open(testUrl, timeout=req_timeout)
-                    result = req.read()
-                    charsetCur=chardet_detect_str_encoding(result)
-                    timeused = time.time() - t1
+                    # req = opener.open(testUrl, timeout=req_timeout)
+                    # result = req.read()
+                    # charsetCur=chardet_detect_str_encoding(result)
+                    # timeused = time.time() - t1
                     insertSql = "insert into proxyip(address_port) values(%s)"
                     l=[]
                     l.append(_arrChild)
