@@ -30,9 +30,8 @@ checked_num = 0
 grasp_num = 0
 print datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 while True:
-    time.sleep(10)
     try:
-        req = urllib2.Request('http://tvp.daxiangdaili.com/ip/?tid=557319114260130&num=10&delay=1', None, req_header)
+        req = urllib2.Request('http://tvp.daxiangdaili.com/ip/?tid=557319114260130&num=50&delay=5', None, req_header)
         html_doc = urllib2.urlopen(req, None, req_timeout).read()
         _arr = html_doc.split('\r\n')
         file_object = open('proxy.log', 'w+')
@@ -67,6 +66,7 @@ while True:
         file_object.close()
         print "==============wait for 5 minitues continue.......===========================\r\n"
         pass
+        time.sleep(30)
     except Exception,e:
         print e
         continue

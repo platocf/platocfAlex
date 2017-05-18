@@ -131,21 +131,49 @@ class OpenUrls():
         pass
 
     pass
+    #根据获取到的评分数去得到概率值，最终返回数据
+    def getProxyIP(self,mysql):
+        now_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        resultIP = mysql.getAll(
+            "SELECT *,(proxyip.accessible/proxyip.usecount) as score FROM proxyip WHERE DATE_ADD(proxyip.time,interval 15 minute)<%s AND proxyip.accessible/proxyip.usecount>0 order by (proxyip.accessible/proxyip.usecount) desc limit 0,100",
+            now_time)
+        #每个评分数精确三位小数
+        sumCount =0
+        for resultIPChild in  resultIP:
+            sumCount += int(resultIPChild['score']*10000)
+            pass
+        pass
+        curIndex = random.randint(0, sumCount - 1)
+        #可用inner join去累计数据
+        resCount=0
+        result =0
+        for resultIPChild in  resultIP:
+            resCount += int(resultIPChild['score']*10000)
+            if resCount>=curIndex:
+                result=resultIPChild
+                break
+                pass
+            pass
+        pass
+        print '=========================================================当前随机数为%s，返回的IP：%s================================================================='%(curIndex,resultIPChild['address_port'])
+        return result
+    pass
     # '211.159.220.48','808'      '84.244.7.32','8081'   '222.85.39.16','808'
     #reduce=0表示为返回需要json格式
     def useProxy(self,url,mysql,i,reduce=0):
         #resultIP=mysql.getAll("SELECT *,t.`accessible`/t.usecount AS res FROM proxyip t WHERE t.`accessible`/t.usecount>0.1 ORDER BY res DESC")
-        now_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        resultIP = mysql.getAll(
-            "SELECT * FROM proxyip WHERE DATE_ADD(proxyip.time,interval 15 minute)<%s AND proxyip.accessible/proxyip.usecount>0 order by (proxyip.accessible/proxyip.usecount) desc",now_time)
+        # now_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        # resultIP = mysql.getAll(
+        #     "SELECT * FROM proxyip WHERE DATE_ADD(proxyip.time,interval 15 minute)<%s AND proxyip.accessible/proxyip.usecount>0 order by (proxyip.accessible/proxyip.usecount) desc",now_time)
         proxyIP=""
         webcontext=''
         #当前IP尝试次数
         tryIndex=0
         changeProxyCount=0
-        for resultIPChild in resultIP:
+        while True:
             # 添加异常标志
             exceptFlag = 0
+            resultIPChild = self.getProxyIP(mysql)
             proxyIP=resultIPChild['address_port']
             while True:
                 try:
@@ -161,8 +189,7 @@ class OpenUrls():
                                           'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36'),
                                          ("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8"),("Accept-Encoding", "gzip, deflate, sdch"),("X-Requested-With","XMLHttpRequest")]
                     tryIndex +=1
-                    mysql.update('UPDATE proxyip SET `accessible`=`accessible`+1 where p_id=%s', resultIPChild['p_id'])
-                    mysql.end()
+
                     req = opener.open(url,timeout=5)
                     webcontext = req.read()
                     useCharset=chardet_detect_str_encoding(webcontext)
@@ -188,6 +215,8 @@ class OpenUrls():
                     pass
                     pass
                     #print webcontext
+                    mysql.update('UPDATE proxyip SET `accessible`=`accessible`+1 where p_id=%s', resultIPChild['p_id'])
+                    mysql.end()
                     exceptFlag=0
                     break
                 except Exception, e:
@@ -223,8 +252,6 @@ class OpenUrls():
                 break
                 pass
             pass
-            mysql.update('UPDATE proxyip SET `accessible`=`accessible`-1 where p_id=%s', resultIPChild['p_id'])
-            mysql.end()
             if type(webcontext) == gzip.GzipFile :
                 if i == 0:
                     i = 1
@@ -236,8 +263,8 @@ class OpenUrls():
             pass
             changeProxyCount +=1
             print "当前代理不可用，正在第%s次切换.....url:%s"%(changeProxyCount,url)
-        if(changeProxyCount>=(resultIP.__len__() -1)):
-            self.useProxy(url,mysql,i)
+        # if(changeProxyCount>=(resultIP.__len__() -1)):
+        #     self.useProxy(url,mysql,i)
         return webcontext
     pass
 
