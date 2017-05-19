@@ -28,7 +28,7 @@ class AnalysisData():
             resCount = mysql.getOne(selectSql, name)
             resvalue = 0
             if resCount == False:
-                print "company表的字段可能不够长"
+                #print "company表的字段可能不够长"
                 pass
             else:
                 resvalue = resCount['result']
@@ -37,7 +37,7 @@ class AnalysisData():
             file=open("6666.log",'wb+')
             file.write("%s==========错误的原因:%s--%s"%(e,fid,name))
             file.close()
-            print "%s==========错误的原因:%s--%s"%(e,fid,name)
+            #print "%s==========错误的原因:%s--%s"%(e,fid,name)
         pass
     pass
     def getDataFromMatchInfo(self,limit):
@@ -45,7 +45,7 @@ class AnalysisData():
         sqlAll = ConfigStart.SELECTFROMMATCHINFOLIMIT
         resultSelect = mysql.getAll(sqlAll, limit)
         if resultSelect == False:
-            print "没有要查找的数据"
+            #print "没有要查找的数据"
             return
         #写日志
         for resultChild in  resultSelect:
@@ -56,12 +56,12 @@ class AnalysisData():
                 logSql = "insert into log(fid) values(%s)"
                 mysql.update(logSql,fid)
                 mysql.end()
-            print fid
+            #print fid
             deleteSqls = ["DELETE FROM yazhi WHERE matchinfoid=%s "," DELETE FROM oupei WHERE matchinfoid=%s "," DELETE FROM rangqiu WHERE matchinfoid=%s "," DELETE FROM daxiao WHERE matchinfoid=%s "," DELETE FROM befen WHERE matchinfoid=%s " ," DELETE FROM jinqiu WHERE matchinfoid=%s "," DELETE FROM dsjinqiu WHERE matchinfoid=%s "," DELETE FROM bqc WHERE matchinfoid=%s "," DELETE FROM teamstatistics WHERE matchinfoid=%s "," DELETE FROM playerstatistics WHERE matchinfoid=%s"]
             for deleteSqlsChild in deleteSqls:
                 mysql.delete(deleteSqlsChild,fid)
                 mysql.end()
-            print "清理数据成功"
+            #print "清理数据成功"
             i = 0
             '''
             =====================================欧赔开始================================================
@@ -71,11 +71,11 @@ class AnalysisData():
                 if count_cursor!=i*30:
                     break
                 url = ConfigStart.ANALYSISOUZHIURL % (fid,i * 30)
-                print "=============================================%s==================================="%url
+                #print "=============================================%s==================================="%url
                 openUrls = OpenUrls()
                 webcontext = openUrls.getWebContent(url,mysql,i,1)
                 # if webcontext.find('500.com')==-1 and webcontext!='':
-                #     print "查看webcontext:%s"%webcontext
+                #     #print "查看webcontext:%s"%webcontext
                 #     continue
                 #     pass
                 # else:
@@ -84,17 +84,17 @@ class AnalysisData():
                 soup = BeautifulSoup(webcontext, "html.parser")
                 ouzhiData1 = soup.find_all(ttl='zy')
                 if ouzhiData1.__len__() == 0:
-                    print '获取完毕'
+                    #print '获取完毕'
                     break
                 j = 0
                 for ouzhiDataChild in ouzhiData1:
-                    print "------------------------%s------------------------" % (i * 30 + j+1)
+                    #print "------------------------%s------------------------" % (i * 30 + j+1)
                     count_cursor=i * 30 + j+1
-                    print ouzhiDataChild['id']
+                    #print ouzhiDataChild['id']
                     insertSql ="INSERT INTO `oupei` (`matchinfoid`, `companyid`, `op_s`, `op_p`, `op_f`, `ret`, `kl_s`, `kl_p`, `kl_f`, `update_time`) VALUES  "
                     insertContext = []
                     companyName = ouzhiDataChild.find_all('td',class_='tb_plgs')
-                    print companyName[0]['title']
+                    #print companyName[0]['title']
                     companyId = self.selectRetCompanyId(companyName[0]['title'],mysql,fid)
                     webjson=0
                     #每当进一次except就去减少一次可访问次数
@@ -111,7 +111,7 @@ class AnalysisData():
                             pass
                         pass
                     pass
-                    print webjson
+                    #print webjson
                     if webjson == None:
                         continue
                     if webjson.__len__()==0:
@@ -176,7 +176,7 @@ class AnalysisData():
                 openUrls = OpenUrls()
                 webcontext = openUrls.getWebContent(url,mysql,i,1)
                 # if webcontext.find('rangqiu')==-1 and webcontext!='':
-                #     print "查看——球指数——webcontext:%s"%webcontext
+                #     #print "查看——球指数——webcontext:%s"%webcontext
                 #     continue
                 #     pass
                 # else:
@@ -185,14 +185,14 @@ class AnalysisData():
                 soup = BeautifulSoup(webcontext, "html.parser")
                 ouzhiData1 = soup.find_all(ttl='zy')
                 if ouzhiData1.__len__() == 0:
-                    print '获取完毕'
+                    #print '获取完毕'
                     break
                 j = 0
                 for ouzhiDataChild in ouzhiData1:
-                    print "------------------------%s------------------------" % (i * 30 + j+1)
+                    #print "------------------------%s------------------------" % (i * 30 + j+1)
                     count_cursor2=i * 30 + j+1
-                    print ouzhiDataChild['cid']
-                    print ouzhiDataChild.contents[3]['title']
+                    #print ouzhiDataChild['cid']
+                    #print ouzhiDataChild.contents[3]['title']
                     companyId = self.selectRetCompanyId(ouzhiDataChild.contents[3]['title'], mysql,fid)
                     insertSql = "INSERT INTO `rangqiu` (`matchinfoid`,`rangqiucount`,`companyid`, `rq_s`, `rq_p`, `rq_f`, `ret`,`update_time`) VALUES  "
                     insertContext = []
@@ -208,14 +208,14 @@ class AnalysisData():
                             pass
                         pass
                     pass
-                    print webjson
+                    #print webjson
                     if webjson == None:
                         continue
                     if webjson.__len__()==0:
                         continue
                     index=0
                     for webjsonChild in webjson:
-                        print webjsonChild[0]
+                        #print webjsonChild[0]
                         #开始写入数据到库中 TODO:
                         if index == 0:
                             insertSql += "(%s, %s, %s, %s, %s, %s, %s, %s)"
@@ -257,14 +257,14 @@ class AnalysisData():
                     getyear=re.sub("\D", "", soup.find_all(class_='game_time')[0].string.split('-')[0])
                 ouzhiData1 = soup.find_all(xls='row')
                 if ouzhiData1.__len__() == 0:
-                    print '获取完毕'
+                    #print '获取完毕'
                     break
                 j = 0
                 for ouzhiDataChild in ouzhiData1:
-                    print "------------------------%s------------------------" % (i * 30 + j+1)
+                    #print "------------------------%s------------------------" % (i * 30 + j+1)
                     count_cursor3 = i * 30 + j + 1
-                    print ouzhiDataChild['id']
-                    print ouzhiDataChild.contents[3].a.span.string
+                    #print ouzhiDataChild['id']
+                    #print ouzhiDataChild.contents[3].a.span.string
                     webjson = 0
                     while True:
                         try:
@@ -283,7 +283,7 @@ class AnalysisData():
                         continue
                     if webjson.__len__()==0:
                         continue
-                    print webjson
+                    #print webjson
                     companyId = self.selectRetCompanyId(ouzhiDataChild.contents[3].a.span.string, mysql,fid)
                     insertSql = "INSERT INTO `yazhi` (`matchinfoid`,`companyid`, `left`, `handline`, `right`, `update_time`) VALUES  "
                     insertContext = []
@@ -302,13 +302,13 @@ class AnalysisData():
                         insertContext.append(companyId)
                         insertContext.append(tdWebjsonChild[0].string)
                         for _char in tdWebjsonChild[1].stripped_strings:
-                            print _char
+                            #print _char
                             insertContext.append(_char)
                             break
                         insertContext.append(tdWebjsonChild[2].string)
                         try:
-                            if(i!=0):
-                                print i
+                            #if(i!=0):
+                                #print i
                             insertContext.append("%s-%s"%(getyear,tdWebjsonChild[3].string))
                         except Exception,e:
                             file = open('6666.log','wb+')
@@ -337,14 +337,14 @@ class AnalysisData():
                     getyear=re.sub("\D", "", soup.find_all(class_='game_time')[0].string.split('-')[0])
                 ouzhiData1 = soup.find_all(xls='row')
                 if ouzhiData1.__len__() == 0:
-                    print '获取完毕'
+                    #print '获取完毕'
                     break
                 j = 0
                 for ouzhiDataChild in ouzhiData1:
-                    print "------------------------%s------------------------" % (i * 30 + j+1)
+                    #print "------------------------%s------------------------" % (i * 30 + j+1)
                     count_cursor4=i * 30 + j+1
-                    print ouzhiDataChild['id']
-                    print ouzhiDataChild.contents[3].a.span.string
+                    #print ouzhiDataChild['id']
+                    #print ouzhiDataChild.contents[3].a.span.string
                     webjson = 0
                     while True:
                         try:
@@ -358,7 +358,7 @@ class AnalysisData():
                             pass
                         pass
                     pass
-                    print webjson
+                    #print webjson
                     if webjson==None:
                         continue
                     if webjson.__len__()==0:
@@ -381,7 +381,7 @@ class AnalysisData():
                         insertContext.append(companyId)
                         insertContext.append(tdWebjsonChild[0].string)
                         for _char in tdWebjsonChild[1].stripped_strings:
-                            print _char
+                            #print _char
                             insertContext.append(_char)
                             break
                         insertContext.append(tdWebjsonChild[2].string)
@@ -405,7 +405,7 @@ class AnalysisData():
                 soup = BeautifulSoup(webcontext, "html.parser")
                 ouzhiData1 = soup.find_all('tr',class_=re.compile('tr'))
                 if ouzhiData1.__len__() == 0:
-                    print '获取完毕'
+                    #print '获取完毕'
                     break
                     pass
                 insertSql = "INSERT INTO `befen` (`matchinfoid`, `companyid`, `e_1_0h`, `e_1_0g`, `e_2_0h`, `e_2_0g`, `e_2_1h`, `e_2_1g`, `e_3_0h`, `e_3_0g`, `e_3_1h`, `e_3_1g`, `e_3_2h`, `e_3_2g`, `e_4_0h`, `e_4_0g`, `e_4_1h`, `e_4_1g`, `e_4_2h`, `e_4_2g`, `e_4_3h`, `e_4_3g`, `e_0_0`, `e_1_1`, `e_2_2`, `e_3_3`, `e_4_4`) VALUES "
@@ -436,7 +436,7 @@ class AnalysisData():
                             pass
                         appendIndex = 0
                         for string in tdChild.strings:
-                            print string
+                            #print string
                             if string.strip() == '':
                                 string = None
                             insertContext.append(string)
@@ -445,7 +445,7 @@ class AnalysisData():
                         if (appendIndex == 0):
                             insertContext.append(None)
                     pass
-                    print insertContext
+                    #print insertContext
                             #TODO:添加到数据库中
                 if index!=0:
                     mysql.update(insertSql, insertContext)
@@ -463,7 +463,7 @@ class AnalysisData():
                 soup = BeautifulSoup(webcontext, "html.parser")
                 ouzhiData1 = soup.find_all('tr', class_=re.compile('tr'))
                 if ouzhiData1.__len__() == 0:
-                    print '获取完毕'
+                    #print '获取完毕'
                     break
                     pass
                 insertSql = "INSERT INTO `jinqiu` (`matchinfoid`,`companyid`,`e_0`, `e_1`, `e_2`, `e_3`, `e_4`, `e_5`, `e_6`, `e_7plus`) VALUES "
@@ -496,7 +496,7 @@ class AnalysisData():
                             pass
                         appendIndex = 0
                         for string in tdChild.strings:
-                            print string
+                            #print string
                             if string.strip() == '':
                                 string = None
                             insertContext.append(string)
@@ -506,7 +506,7 @@ class AnalysisData():
                         if (appendIndex == 0):
                             insertContext.append(None)
                     pass
-                    print insertContext
+                    #print insertContext
                     # TODO:添加到数据库中
                 if index!=0:
                     mysql.update(insertSql, insertContext)
@@ -526,7 +526,7 @@ class AnalysisData():
                 soup = BeautifulSoup(webcontext, "html.parser")
                 ouzhiData1 = soup.find_all('tr', class_=re.compile('tr'))
                 if ouzhiData1.__len__() == 0:
-                    print '获取完毕'
+                    #print '获取完毕'
                     break
                     pass
                 insertSql = "INSERT INTO `dsjinqiu` (`matchinfoid`, `companyid`, `single`, `double`,`singlepro`,`doublepro`, `ret`, `e01`, `e23`, `e47`, `e7plus`) VALUES "
@@ -559,7 +559,7 @@ class AnalysisData():
                             pass
                         appendIndex=0
                         for string in tdChild.strings:
-                            print string
+                            #print string
                             if string.find('%')!=-1:
                                 string=string.split('%')[0]
                             if string.strip()=='':
@@ -571,7 +571,7 @@ class AnalysisData():
                         if(appendIndex==0):
                             insertContext.append(None)
                     pass
-                    print insertContext
+                    #print insertContext
                     # TODO:添加到数据库中
                 if index!=0:
                     mysql.update(insertSql, insertContext)
@@ -590,7 +590,7 @@ class AnalysisData():
                 soup = BeautifulSoup(webcontext, "html.parser")
                 ouzhiData1 = soup.find_all('tr', class_=re.compile('tr'))
                 if ouzhiData1.__len__() == 0:
-                    print '获取完毕'
+                    #print '获取完毕'
                     break
                     pass
                 insertSql = "INSERT INTO `bqc` (`matchinfoid`, `companyid`, `e11`, `e10`, `e1-1`, `e01`, `e00`, `e0-1`, `e-11`, `e-10`, `e-1-1`) VALUES "
@@ -623,7 +623,7 @@ class AnalysisData():
                             pass
                         appendIndex = 0
                         for string in tdChild.strings:
-                            print string
+                            #print string
                             if string.strip() == '':
                                 string = None
                             insertContext.append(string)
@@ -633,7 +633,7 @@ class AnalysisData():
                         if (appendIndex == 0):
                             insertContext.append(None)
                     pass
-                    print insertContext
+                    #print insertContext
                     # TODO:添加到数据库中
                 if index!=0:
                     mysql.update(insertSql, insertContext)
@@ -649,7 +649,7 @@ class AnalysisData():
             soup = BeautifulSoup(webcontext, "html.parser")
             ouzhiData1 = soup.find_all(class_=re.compile('team-statis'))
             if ouzhiData1.__len__() == 0:
-                print '获取完毕'
+                #print '获取完毕'
                 pass
             else:
                 insertSql = "INSERT INTO `teamstatistics` (`matchinfoid`,`horg`, `static_attack`, `static_dattack`, `static_shoot`, `static_shootz`, `static_freekick`, `static_corner`, `static_offside`, `static_foul`, `static_yelcrad`, `static_redcrad`, `static_control`) VALUES "
@@ -660,7 +660,7 @@ class AnalysisData():
                 insertContext.append('h')
                 insertContext2.append('g')
                 # for ouzhiDataChild in ouzhiData1:
-                #     print ouzhiDataChild
+                #     #print ouzhiDataChild
                 iLoop=0
                 insertSql2=insertSql
                 index=0
@@ -704,13 +704,13 @@ class AnalysisData():
                         insertSql += ",(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
                     insertContext.append(fid)
                     for singletdInfoChild in singletdInfo:
-                        print singletdInfoChild.string
+                        #print singletdInfoChild.string
                         insertContext.append(singletdInfoChild.string)
                     if(isHost==0):
                         insertContext.append('h')
                     else:insertContext.append('g')
                     pass
-                #print insertSql
+                ##print insertSql
                 if (index != 0):
                     mysql.update(insertSql, insertContext)
                     mysql.end()
@@ -722,7 +722,7 @@ class AnalysisData():
             useSql = "update matchinfo set used=1 where fid = %s"
             mysql.update(useSql, fid)
             mysql.end()
-            print "matchurl更新成功"
+            #print "matchurl更新成功"
             logSqlEnd = "update log set isused=1 where fid=%s"
             mysql.update(logSqlEnd,fid)
             mysql.end()

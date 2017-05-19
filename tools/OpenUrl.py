@@ -9,6 +9,10 @@ import time
 import datetime
 import os
 import json
+import ConfigStart
+import sys
+reload(sys)
+sys.setdefaultencoding(ConfigStart.UTF8)
 angenlist =['Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36 OPR/26.0.1656.60                                                                             ',
 'Opera/8.0 (Windows NT 5.1; U; en)                                                                                                                                                                         ',
 'Mozilla/5.0 (Windows NT 5.1; U; en; rv:1.8.1) Gecko/20061208 Firefox/2.0.0 Opera 9.50                                                                                                                     ',
@@ -59,13 +63,13 @@ class OpenUrls():
         #每个连接当前使用次数
         perCountList=[]
         perIPPort=[]
-        print url
+        #print url
         webcontext=''
         while True:
             try:
-                # print time.time()
+                # #print time.time()
                 # test1 = time.time()
-                # print "%.10f"%(random.random())
+                # #print "%.10f"%(random.random())
                 # test2=str(test1).replace('.','')+str(random.randint(0,10))
                 # test3=test1+4000
                 # test3=str(test3).replace('.','')+str(random.randint(0,10))
@@ -80,7 +84,7 @@ class OpenUrls():
                 #         item.value=test2
                 #     if item.name == 'motion_id':
                 #         item.value=test2+("%.10f"%(random.random()))
-                    #print 'name:' + item.name + '-value:' + item.value
+                    ##print 'name:' + item.name + '-value:' + item.value
                 #opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cookie))
                 request = urllib2.Request(url)
                 #agentSingle = random.choice(angenlist)
@@ -108,12 +112,12 @@ class OpenUrls():
                 pass
                 break
             except Exception, e:
-                print '%stry again....从本机切换到代理中.....'%e
+                #print '%stry again....从本机切换到代理中.....'%e
                 webcontext=self.useProxy(url,mysql,i,reduce)
                 break
 
         pass
-        #print webcontext
+        ##print webcontext
         return webcontext
     pass
     def getWebContentJson(self,url):
@@ -155,7 +159,7 @@ class OpenUrls():
                 pass
             pass
         pass
-        print '=========================================================当前随机数为%s，返回的IP：%s================================================================='%(curIndex,resultIPChild['address_port'])
+        #print '=========================================================当前随机数为%s，返回的IP：%s================================================================='%(curIndex,resultIPChild['address_port'])
         return result
     pass
     # '211.159.220.48','808'      '84.244.7.32','8081'   '222.85.39.16','808'
@@ -199,9 +203,9 @@ class OpenUrls():
                             pass
                         else:
                             useCharset='utf8'
-                    #print webcontext
-                    if(useCharset == 'GB2312' or useCharset == 'gb2312'):
-                        print useCharset
+                    ##print webcontext
+                    #if(useCharset == 'GB2312' or useCharset == 'gb2312'):
+                        #print useCharset
                     if(useCharset!='ascii'):
                         webcontext = gzip.GzipFile(fileobj=StringIO.StringIO(webcontext), mode="r")
                         webcontext = webcontext.read().decode(useCharset)
@@ -214,7 +218,7 @@ class OpenUrls():
                         pass
                     pass
                     pass
-                    #print webcontext
+                    ##print webcontext
                     mysql.update('UPDATE proxyip SET `accessible`=`accessible`+1 where p_id=%s', resultIPChild['p_id'])
                     mysql.end()
                     exceptFlag=0
@@ -230,15 +234,15 @@ class OpenUrls():
                         lList.append(now_time)
                         lList.append(resultIPChild['p_id'])
                         mysql.update(updateSql_s,lList)
-                        print "当前代理不可用，正在切换.....%s" % e
+                        #print "当前代理不可用，正在切换.....%s" % e
                         break
                     if tryIndex >=1:
                         tryIndex=0
-                        print "当前代理不可用，正在切换.....%s"%e
+                        #print "当前代理不可用，正在切换.....%s"%e
                         break
                         pass
                     else:
-                        print "当前继续尝试此链接,第%s次.....url:%s"%(tryIndex,url)
+                        #print "当前继续尝试此链接,第%s次.....url:%s"%(tryIndex,url)
                         if i==0:
                             i=1
                             pass
@@ -247,8 +251,8 @@ class OpenUrls():
                             pass
                         continue
             if webcontext!='' and exceptFlag==0:
-                print type(webcontext) == str
-                print "返回%s"%webcontext
+                #print type(webcontext) == str
+                #print "返回%s"%webcontext
                 break
                 pass
             pass
@@ -262,7 +266,7 @@ class OpenUrls():
                 pass
             pass
             changeProxyCount +=1
-            print "当前代理不可用，正在第%s次切换.....url:%s"%(changeProxyCount,url)
+            #print "当前代理不可用，正在第%s次切换.....url:%s"%(changeProxyCount,url)
         # if(changeProxyCount>=(resultIP.__len__() -1)):
         #     self.useProxy(url,mysql,i)
         return webcontext

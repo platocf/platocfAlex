@@ -18,11 +18,11 @@ def chardet_detect_str_encoding(inputStr):
         Demo how to use chardet to detect string encoding/charset
     """
     detectedEncodingDict = chardet.detect(inputStr);
-    print "type(detectedEncodingDict)=", type(detectedEncodingDict);  # type(detectedEncodingDict)= <type 'dict'>
-    print "detectedEncodingDict=", detectedEncodingDict;  # detectedEncodingDict= {'confidence': 0.99, 'encoding': 'utf-8'}
+    #print "type(detectedEncodingDict)=", type(detectedEncodingDict);  # type(detectedEncodingDict)= <type 'dict'>
+    #print "detectedEncodingDict=", detectedEncodingDict;  # detectedEncodingDict= {'confidence': 0.99, 'encoding': 'utf-8'}
     detectedEncoding = detectedEncodingDict['encoding'];
-    print "That is, we have %d%% confidence to say that the input string encoding is %s" % (
-    int(detectedEncodingDict['confidence'] * 100), detectedEncoding);
+    #print "That is, we have %d%% confidence to say that the input string encoding is %s" % (
+    #int(detectedEncodingDict['confidence'] * 100), detectedEncoding)
     return detectedEncoding
 
 
