@@ -165,10 +165,6 @@ class OpenUrls():
     # '211.159.220.48','808'      '84.244.7.32','8081'   '222.85.39.16','808'
     #reduce=0表示为返回需要json格式
     def useProxy(self,url,mysql,i,reduce=0):
-        #resultIP=mysql.getAll("SELECT *,t.`accessible`/t.usecount AS res FROM proxyip t WHERE t.`accessible`/t.usecount>0.1 ORDER BY res DESC")
-        # now_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        # resultIP = mysql.getAll(
-        #     "SELECT * FROM proxyip WHERE DATE_ADD(proxyip.time,interval 15 minute)<%s AND proxyip.accessible/proxyip.usecount>0 order by (proxyip.accessible/proxyip.usecount) desc",now_time)
         proxyIP=""
         webcontext=''
         #当前IP尝试次数

@@ -1,0 +1,56 @@
+========================================
+
+# coding:utf-8
+from tornado.httpclient import HTTPRequest, HTTPClient, HTTPError
+from tornado.curl_httpclient import CurlAsyncHTTPClient
+from tornado import gen
+from tornado.ioloop import IOLoop
+class Spider(object):
+    def __init__(self, url, **kwargs):
+        self.request = HTTPRequest(url, **kwargs)
+
+    @gen.coroutine
+    def async_get(self, **kwargs):
+        """ get """
+        ## CurlAsyncHTTPClient
+        response = yield CurlAsyncHTTPClient().fetch(self.request, **kwargs)
+        raise gen.Return(response)
+    pass
+pass
+@gen.coroutine
+def main():
+    s = Spider("http://www.baidu.com",
+               proxy_host='110.73.182.12', request_timeout=10,
+               proxy_port=9000)
+    response = yield s.async_get()
+    print(response.body)
+    pass
+pass
+if __name__ == '__main__':
+    print("5555555555555555")
+    IOLoop().run_sync(main)
+	
+	
+	
+============================================
+ coding:utf-8
+import unittest
+import test1
+from tornado.ioloop import IOLoop
+class MyTestCase(unittest.TestCase):
+    def test_something(self):
+        IOLoop().run_sync(test1.main)
+
+
+
+if __name__ == '__main__':
+    unittest.main()
+
+	
+
+	
+=================
+http://blog.csdn.net/secretx/article/details/47613785
+http://blog.csdn.net/a312024054/article/details/52207367
+http://blog.sina.com.cn/s/blog_000196ee0100o88v.html
+https://my.oschina.net/crazyharry/blog/341718

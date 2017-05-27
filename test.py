@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from bs4 import BeautifulSoup
+
 import urllib,urllib2
 import json
 from Service.ShowCharType import *
