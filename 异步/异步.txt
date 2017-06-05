@@ -56,3 +56,40 @@ http://blog.sina.com.cn/s/blog_000196ee0100o88v.html
 https://my.oschina.net/crazyharry/blog/341718
 
 https://github.com/521xueweihan
+
+错误解决：error while loading shared libraries: libcurl.so.4: cannot open shared object file: No such file or directory
+执行以下代码，生成唯一的UID
+
+$fp = popen("/xxx/bin/tools/uuidgen system", "r");//
+$uid = fread($fp, 40960);
+pclose($uid);
+问题：返回结果$uid为空。实际上执行popen函数后能够返回内容 resource(39) of type (stream)。
+
+ 
+
+resource popen ( string $command , string $mode )
+参数：$command 命令，$mod 模式。
+打开一个指向进程的管道，该进程由派生给定的 command 命令执行而产生。
+
+如果未找到要执行的命令，会返回一个合法的资源，它允许访问shell返回的任何错误信息。
+
+/* 加入重定向以得到标准错误输出 stderr。 */
+
+$fp = popen("/xxx/bin/tools/uuidgen system 2>&1", "r");
+这样，会看到输出错误  error while loading shared libraries: libcurl.so.4: cannot open  shared object file: No such file or directory
+
+表示系统不知道libcurl.so放在哪个目录下。
+
+ 
+
+解决办法：
+
+在/etc/ld.so.conf中加入libcurl.so所在的目录。
+
+一般so档案会在/usr/local/lib这个目录下（用户可以自定义目录），所以在/etc/ld.so.conf中加入/usr/local/lib（或用户自定义的目录）这一行，
+
+最后，保存/etc/ld.so.conf，执行命令[root@www]# /sbin/ldconfig -v才能生效。
+
+ 
+
+参考：http://blog.csdn.net/kangear/article/details/9141481
