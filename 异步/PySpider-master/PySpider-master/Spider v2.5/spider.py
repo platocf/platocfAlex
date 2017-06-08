@@ -21,7 +21,7 @@ try:
 except ImportError:
     # NO_DB表示不用数据库
     NO_DB = 0
-    print "Can't use db"
+    print("Can't use db")
 from client_config import CLIENT_CONFIG
 
 # 测试用的访问目标（github API）
@@ -73,9 +73,9 @@ class Content(object):
                 data = self.model(**save_dict)
                 data.insert()
             else:
-                print 'no save_dict'
+                print('no save_dict')
         else:
-            print 'no model'
+            print('no model')
 
     @staticmethod
     def save_to_file(all_content, str_split=':', path='./data.txt'):
@@ -86,13 +86,13 @@ class Content(object):
         :param path: 文件位置，默认为当前脚本运行的位置，文件名：data.txt
         """
         with open(path, 'w') as fb:
-            print '开始写入文件'
+            print('开始写入文件')
             for content in all_content:
                 content_str = ''
                 for k, v in content.items():
                     content_str += v + str_split
                 fb.write(content_str+'\n')
-            print '写入文件完成'
+            print('写入文件完成')
 
 
 class Proxy(object):
@@ -108,7 +108,7 @@ class Proxy(object):
         # flag用于计数
         flag = 1
         all_ips = self.ips_info()
-        print '初始化爬到{}个代理，下面开始测试这些代理的可用性：'.format(len(all_ips))
+        print('初始化爬到{}个代理，下面开始测试这些代理的可用性：'.format(len(all_ips)))
         success_proxy = []
         for ip_info in all_ips:
             try:
@@ -118,17 +118,17 @@ class Proxy(object):
 
                 yield s.async_get()
             except Exception:
-                print '第{}个，失败。'.format(flag)
+                print('第{}个，失败。'.format(flag))
                 continue
             else:
-                print '第{}个：成功！'.format(flag)
+                print('第{}个：成功！'.format(flag))
                 success_proxy.append(ip_info)
             finally:
                 flag += 1
 
         # 返回测试过，可用的代理
-        print '经测试：{}个可用，可用率：{}%'.format(len(success_proxy),
-                                         len(success_proxy)/len(all_ips))
+        print('经测试：{}个可用，可用率：{}%'.format(len(success_proxy),
+                                         len(success_proxy)/len(all_ips)))
         raise gen.Return(success_proxy)
 
     def ips_info(self):
@@ -137,12 +137,12 @@ class Proxy(object):
         html_body = self.response.body
         #soup = BeautifulSoup(html_body, "html.parser")
         #ip_list_table = soup.find(id='ip_list')
-		ipContext=html_body.split("\r\n")
+        ipContext=html_body.decode().split("\r\n")
         for ipContextChild in ipContext:
             #ip_detail = fi_ip_info.find_all('td')
                 # 注意：为什么我用list和str方法？否则就是bs4对象！！！
-                ips_list.append(dict(proxy_host=str(ipContext.split(':')[1]),
-                                     proxy_port=str(ipContext.split(':')[2])))
+                ips_list.append(dict(proxy_host=str(ipContextChild.split(':')[0]),
+                                     proxy_port=str(ipContextChild.split(':')[1])))
         return ips_list
 
 
@@ -151,9 +151,9 @@ def get_proxy_ips():
     """ 获取代理ips，并存储 """
     try:
         proxy = Proxy(url=URL, headers=CLIENT_CONFIG['headers'])
-        ips_list = yield proxy.test_proxy()
+        ips_list = proxy.test_proxy()
     except HTTPError as e:
-        print 'Try again! Error info:{}'.format(e)
+        print('Try again! Error info:{}'.format(e))
     else:
         if NO_DB:
             # 存到数据库中
@@ -173,7 +173,7 @@ def main():
     ips_list = yield get_proxy_ips()
     for ip in ips_list:
         while 1:
-            print 'Use proxy ip {}:{}'.format(ip['proxy_host'], ip['proxy_port'])
+            print('Use proxy ip {}:{}'.format(ip['proxy_host'], ip['proxy_port']))
             try:
                 # 这里就是异步的代理爬虫，利用代理获取目标网站的信息
                 s = Spider(TEST, headers=CLIENT_CONFIG['headers'],
@@ -182,9 +182,9 @@ def main():
 
                 # response爬虫返回的response对象，response.body就是内容
                 response = yield s.async_get()
-                print 'NO:{}: status {}'.format(flag, response.code)
-            except HTTPError, e:
-                print '换代理，错误信息：{}'.format(e)
+                print('NO:{}: status {}'.format(flag, response.code))
+            except HTTPError as e:
+                print('换代理，错误信息：{}'.format(e))
                 break
             else:
                 flag += 1
