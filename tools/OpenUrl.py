@@ -234,11 +234,11 @@ class OpenUrls():
                         break
                     if tryIndex >=1:
                         tryIndex=0
-                        #print "当前代理不可用，正在切换.....%s"%e
+                        print "当前代理不可用，正在切换.....%s"%e
                         break
                         pass
                     else:
-                        #print "当前继续尝试此链接,第%s次.....url:%s"%(tryIndex,url)
+                        print "当前继续尝试此链接,第%s次.....url:%s"%(tryIndex,url)
                         if i==0:
                             i=1
                             pass
@@ -265,6 +265,7 @@ class OpenUrls():
             #print "当前代理不可用，正在第%s次切换.....url:%s"%(changeProxyCount,url)
         # if(changeProxyCount>=(resultIP.__len__() -1)):
         #     self.useProxy(url,mysql,i)
+        print webcontext
         return webcontext
     pass
 

@@ -44,13 +44,13 @@ MATCHPARTION=['国际赛事','欧洲赛事','美洲赛事','亚洲赛事','非�
 #杯赛
 CUPMATCH=['欧洲杯赛','美洲杯赛','亚洲杯赛','非洲杯赛']
 #线程池数量及分线程mysql查询分页数据每页数据量
-THREADCOUNT=10
+THREADCOUNT=1000
 #查询总数命名
 RESULT ='result'
 #查询每个联赛各赛季数据  所有总数量 查询表leagueyearinfo
 LEAGUEYEARINFO_COUNT= "select count(*) as "+RESULT+" from "+LeagueYearInfo.tablename+" "
 #查询leagueyearinfo  limit
-SELECTFROMLEAGUEYEARINFOLIMIT ="select * from "+LeagueYearInfo.tablename+" limit %s,"+str(THREADCOUNT)+" "
+SELECTFROMLEAGUEYEARINFOLIMIT ="select * from "+LeagueYearInfo.tablename+" limit %s,10"
 #插入一条数据到leagueyearinfo中
 INSERTINTOLEAGUEYEARINFO ="insert into "+LeagueYearInfo.tablename+"("+LeagueYearInfo.p_leagueid+","\
                           +LeagueYearInfo.p_league_url+","+LeagueYearInfo.p_league_year+","+LeagueYearInfo.p_name+") values(%s,%s,%s,%s) "
